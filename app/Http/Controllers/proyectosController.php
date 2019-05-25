@@ -74,8 +74,8 @@ class proyectosController extends AppBaseController
 
         $proyectos = $this->proyectosRepository->create($input);
 
-        Flash::success('Proyectos guardado correctamente.');
-        Alert::success('Proyectos guardado correctamente.');
+        Flash::success('Proyecto guardado correctamente.');
+        Alert::success('Proyecto guardado correctamente.');
 
         return redirect(route('proyectos.index'));
     }
@@ -92,8 +92,8 @@ class proyectosController extends AppBaseController
         $proyectos = $this->proyectosRepository->findWithoutFail($id);
 
         if (empty($proyectos)) {
-            Flash::error('Proyectos no encontrado');
-            Alert::error('Proyectos no encontrado.');
+            Flash::error('Proyecto no encontrado');
+            Alert::error('Proyecto no encontrado.');
 
             return redirect(route('proyectos.index'));
         }
@@ -113,8 +113,8 @@ class proyectosController extends AppBaseController
         $proyectos = $this->proyectosRepository->findWithoutFail($id);
 
         if (empty($proyectos)) {
-            Flash::error('Proyectos no encontrado');
-            Alert::error('Proyectos no encontrado');
+            Flash::error('Proyecto no encontrado');
+            Alert::error('Proyecto no encontrado');
 
             return redirect(route('proyectos.index'));
         }
@@ -141,16 +141,16 @@ class proyectosController extends AppBaseController
         $proyectos = $this->proyectosRepository->findWithoutFail($id);
 
         if (empty($proyectos)) {
-            Flash::error('Proyectos no encontrado');
-            Alert::error('Proyectos no encontrado');
+            Flash::error('Proyecto no encontrado');
+            Alert::error('Proyecto no encontrado');
 
             return redirect(route('proyectos.index'));
         }
 
         $proyectos = $this->proyectosRepository->update($request->all(), $id);
 
-        Flash::success('Proyectos actualizado correctamente.');
-        Alert::success('Proyectos actualizado correctamente.');
+        Flash::success('Proyecto actualizado correctamente.');
+        Alert::success('Proyecto actualizado correctamente.');
 
         return redirect(route('proyectos.index'));
     }
@@ -167,16 +167,16 @@ class proyectosController extends AppBaseController
         $proyectos = $this->proyectosRepository->findWithoutFail($id);
 
         if (empty($proyectos)) {
-            Flash::error('Proyectos no encontrado');
-            Alert::error('Proyectos no encontrado');
+            Flash::error('Proyecto no encontrado');
+            Alert::error('Proyecto no encontrado');
 
             return redirect(route('proyectos.index'));
         }
 
         $this->proyectosRepository->delete($id);
 
-        Flash::success('Proyectos borrado correctamente.');
-        Flash::success('Proyectos borrado correctamente.');
+        Flash::success('Proyecto borrado correctamente.');
+        Alert::success('Proyecto borrado correctamente.');
 
         return redirect(route('proyectos.index'));
     }

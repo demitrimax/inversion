@@ -9,6 +9,8 @@ use Auth;
 //Importing laravel-permission models
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use Flash;
+use Alert;
 
 use Session;
 
@@ -117,7 +119,7 @@ class PermissionController extends Controller
 
        return redirect()->route('permissions.index')
            ->with('flash_message',
-            'Permission'. $permission->name.' updated!');
+            'Permiso '. $permission->name.' actualizado!');
 
    }
 
@@ -138,10 +140,11 @@ class PermissionController extends Controller
        }
 
        $permission->delete();
+       Alert::success('Permiso Eliminado');
 
        return redirect()->route('permissions.index')
            ->with('flash_message',
-            'Permission deleted!');
+            'Permiso borrado!');
 
    }
 

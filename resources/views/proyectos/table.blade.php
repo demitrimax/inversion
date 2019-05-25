@@ -5,7 +5,6 @@
             <th>Nombre</th>
             <th>Supervisor</th>
             <th>Identificacion</th>
-            <th>Cat Productos Id</th>
             <th>Estatus</th>
             <th>Acciones</th>
         </tr>
@@ -16,8 +15,6 @@
             <td><a href="{!! route('proyectos.show', [$proyectos->id]) !!}"> {!! $proyectos->folio !!} </a></td>
             <td>{!! $proyectos->nombre !!}</td>
             <td>{!! $proyectos->supervidor !!}</td>
-            <td>{!! $proyectos->identificacion !!}</td>
-            <td>{!! $proyectos->catproducto->nombre !!}</td>
             <td>{!! $proyectos->catestatus->nombre !!}</td>
             <td>
                 {!! Form::open(['route' => ['proyectos.destroy', $proyectos->id], 'method' => 'delete', 'id'=>'form'.$proyectos->id]) !!}
@@ -27,7 +24,7 @@
                     <a href="{!! route('proyectos.edit', [$proyectos->id]) !!}" class='btn btn-dark'><i class="glyphicon glyphicon-edit"></i></a>
                     @endcan
                     @can('proyectos-delete')
-                    {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'button', 'class' => 'btn btn-danger', 'onclick' => "return confirm('Estas Seguro?')"]) !!}
+                    {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'button', 'class' => 'btn btn-danger', 'onclick' => "ConfirmDelete($proyectos->id)"]) !!}
                     @endcan
                 </div>
                 {!! Form::close() !!}
@@ -40,7 +37,7 @@
 @section('scripts')
 <script>
 function ConfirmDelete(id) {
-  swal({
+  swal.fire({
         title: '¿Estás seguro?',
         text: 'Estás seguro de borrar este elemento.',
         type: 'warning',
