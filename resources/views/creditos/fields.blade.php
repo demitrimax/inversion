@@ -1,5 +1,7 @@
 @section('css')
 <link href="{{asset('appzia/plugins/bootstrap-touchspin/css/jquery.bootstrap-touchspin.min.css')}}" rel="stylesheet">
+<link href="{{asset('airdatepicker/dist/css/datepicker.min.css')}}" rel="stylesheet" type="text/css">
+
 @endsection
 <!-- Nombre Field -->
 <div class="form-group col-sm-6">
@@ -30,14 +32,14 @@ if(isset($creditos->fapertura)){
 <!-- Finicio Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('finicio', 'Fecha de inicio:') !!}
-    {!! Form::date('finicio', $fecinicio, ['class' => 'form-control','id'=>'finicio']) !!}
+    {!! Form::text('finicio', $fecinicio, ['class' => 'form-control datepicker-here','id'=>'finicio', 'data-language'=>'es', 'data-date-format'=>'yyyy-mm-dd']) !!}
 </div>
 
 
 <!-- Ftermino Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('ftermino', 'Fecha de termino:') !!}
-    {!! Form::date('ftermino', $fectermino, ['class' => 'form-control','id'=>'ftermino']) !!}
+    {!! Form::text('ftermino', $fectermino, ['class' => 'form-control datepicker-here','id'=>'ftermino', 'data-language'=>'es', 'data-date-format'=>'yyyy-mm-dd']) !!}
 </div>
 
 
@@ -90,8 +92,11 @@ if(isset($creditos->fapertura)){
 
 @section('scripts')
 <script src="{{asset('appzia/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('airdatepicker/dist/js/datepicker.min.js')}}"></script>
+<script src="{{asset('airdatepicker/dist/js/i18n/datepicker.es.js')}}"></script>
 <script>
      //Bootstrap-MaxLength
         $('.maxlen').maxlength();
 </script>
+
 @endsection

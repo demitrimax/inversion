@@ -11,9 +11,9 @@
     <tbody>
     @foreach($creditos as $creditos)
         <tr>
-            <td>{!! $creditos->nombre !!}</td>
+            <td><a href="{{route('creditos.show',[$creditos->id] )}}">{!! $creditos->nombre !!}</a></td>
             <td>{!! $creditos->numero !!}</td>
-            <td>{!! $creditos->entidadfinan !!}</td>
+            <td>{!! $creditos->financieras->nombre !!}</td>
             <td>{!! $creditos->fapertura->format('d-m-Y') !!}</td>
             <td>
                 {!! Form::open(['route' => ['creditos.destroy', $creditos->id], 'method' => 'delete', 'id'=>'form'.$creditos->id]) !!}

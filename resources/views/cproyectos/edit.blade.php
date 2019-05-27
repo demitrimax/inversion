@@ -1,17 +1,17 @@
 @extends('layouts.app')
-@section('title',config('app.name').' | Editar Proyectos' )
+@section('title',config('app.name').' | Editar Cproyectos' )
 @section('content')
 <div class="row">
       <div class="col-lg-12">
           @include('adminlte-templates::common.errors')
           <div class="panel panel-default">
               <div class="panel-heading">
-                  <h3 class="panel-title">Editar Proyectos</h3>
+                  <h3 class="panel-title">Editar Cproyectos</h3>
               </div>
               <div class="panel-body">
-              {!! Form::model($proyectos, ['route' => ['proyectos.update', $proyectos->id], 'method' => 'patch', 'class'=>'form-horizontal']) !!}
+              {!! Form::model($cproyectos, ['route' => ['cproyectos.update', $cproyectos->id], 'method' => 'patch']) !!}
 
-                   @include('proyectos.fields')
+                   @include('cproyectos.fields')
 
               {!! Form::close() !!}
               </div>

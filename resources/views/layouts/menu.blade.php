@@ -2,9 +2,10 @@
 <li class="{{ Request::is('home*') ? 'active' : '' }}">
     <a href="{{url('home')}}" class="waves-effect"><i class="mdi mdi-home"></i><span> Dashboard <span class="badge badge-primary pull-right">1</span></span></a>
 </li>
-@can('proyectos-list')
-<li class="{{ Request::is('proyectos*') ? 'active' : '' }}">
-    <a href="{{route('proyectos.index')}}" class="waves-effect"><i class="mdi mdi-basket"></i><span> Proyectos <span class="badge badge-primary pull-right">NEW</span></span></a>
+
+@can('cproyectos-list')
+<li class="{{ Request::is('cproyectos*') ? 'active' : '' }}">
+    <a href="{!! route('cproyectos.index') !!}" class="waves-effect"><i class="mdi mdi-assistant"></i><span> Proyectos</span></a>
 </li>
 @endcan
 @can('creditos-list')
@@ -51,6 +52,3 @@
     </ul>
 </li>
 @endhasrole
-
-
-

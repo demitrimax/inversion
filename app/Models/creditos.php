@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @package App\Models
  * @version May 25, 2019, 3:27 pm CDT
  *
- * @property \Illuminate\Database\Eloquent\Collection 
+ * @property \Illuminate\Database\Eloquent\Collection
  * @property string nombre
  * @property string numero
  * @property string finicio
@@ -27,7 +27,7 @@ class creditos extends Model
     use SoftDeletes;
 
     public $table = 'creditos';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -78,5 +78,10 @@ class creditos extends Model
         'monto_inicial' => 'required'
     ];
 
-    
+    public function financieras()
+    {
+      return $this->belongsTo('App\Models\efinanciera', 'entidadfinan');
+    }
+
+
 }

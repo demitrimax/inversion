@@ -110,8 +110,8 @@ class creditosController extends AppBaseController
 
             return redirect(route('creditos.index'));
         }
-
-        return view('creditos.edit')->with('creditos', $creditos);
+        $financieras = efinanciera::pluck('nombre','id');
+        return view('creditos.edit')->with(compact('creditos','financieras'));
     }
 
     /**
