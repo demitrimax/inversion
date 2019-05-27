@@ -27,7 +27,10 @@ Route::group(['middleware'=>['auth']], function() {
   Route::resource('permissions', 'PermissionController');
 
   Route::resource('proyectos', 'proyectosController');
+  Route::resource('creditos', 'creditosController');
+  Route::resource('efinancieras', 'efinancieraController');
 });
 
 
-Route::resource('creditos', 'creditosController');
+
+

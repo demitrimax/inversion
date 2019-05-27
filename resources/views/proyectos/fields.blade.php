@@ -10,7 +10,7 @@
 <div class="form-group">
     {!! Form::label('cat_cotratistas_id', 'Cotratista:', ['class'=>'col-md-2 control-label']) !!}
     <div class="col-md-10">
-    {!! Form::select('cat_cotratistas_id', $contratistas, null, ['class' => 'form-control']) !!}
+    {!! Form::select('cat_cotratistas_id', [], null, ['class' => 'form-control']) !!}
   </div>
 </div>
 
@@ -18,7 +18,7 @@
 <div class="form-group">
     {!! Form::label('cat_pais-division_id', 'Pais-Division:', ['class'=>'col-md-2 control-label']) !!}
     <div class="col-md-10">
-    {!! Form::select('cat_paisdivision_id', $catpaisdivision, null, ['class' => 'form-control']) !!}
+    {!! Form::select('cat_paisdivision_id', [], null, ['class' => 'form-control']) !!}
   </div>
 </div>
 
@@ -26,7 +26,7 @@
 <div class="form-group">
     {!! Form::label('cat_areaciudad_id', 'Area-Ciudad:', ['class'=>'col-md-2 control-label']) !!}
     <div class="col-md-10">
-    {!! Form::select('cat_areaciudad_id', $catareaciudad, null, ['class' => 'form-control']) !!}
+    {!! Form::select('cat_areaciudad_id', [], null, ['class' => 'form-control']) !!}
   </div>
 </div>
 
@@ -34,7 +34,7 @@
 <div class="form-group">
     {!! Form::label('cat_productos_id', 'Producto:', ['class'=>'col-md-2 control-label']) !!}
     <div class="col-md-10">
-    {!! Form::select('cat_productos_id', $catproducto, null, ['class' => 'form-control']) !!}
+    {!! Form::select('cat_productos_id', [], null, ['class' => 'form-control']) !!}
   </div>
 </div>
 

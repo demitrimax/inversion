@@ -11,10 +11,6 @@ use Flash;
 use Alert;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
-use App\Models\catproductos;
-use App\Models\catpaisdivision;
-use App\Models\catareaciudad;
-use App\Models\contratistas;
 use App\catestatus;
 
 class proyectosController extends AppBaseController
@@ -53,12 +49,9 @@ class proyectosController extends AppBaseController
      */
     public function create()
     {
-        $catareaciudad = catareaciudad::pluck('nombre','id');
-        $catpaisdivision = catpaisdivision::pluck('nombre','id');
-        $catproducto = catproductos::pluck('nombre','id');
-        $contratistas = contratistas::pluck('nombre','id');
+
         $estatus = catestatus::pluck('nombre','id');
-        return view('proyectos.create')->with(compact('catareaciudad','catpaisdivision','catproducto','contratistas','estatus'));
+        return view('proyectos.create')->with(compact('estatus'));
     }
 
     /**
