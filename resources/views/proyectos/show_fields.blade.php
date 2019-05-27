@@ -14,34 +14,34 @@
 <!-- Cat Cotratistas Id Field -->
 <tr>
   <th>{!! Form::label('cat_cotratistas_id', 'Contratista:') !!}</th>
-  <td>{!! $proyectos->catContratista->nombre!!}</td>
+  <td>{!! $proyectos->cat_contratista_id!!}</td>
 </tr>
 
 
 <!-- Cat Pais-Division Id Field -->
 <tr>
   <th>{!! Form::label('cat_paisdivision_id', 'País-División:') !!}</th>
-  <td>{!! $proyectos->catPaisDivision->nombre !!}</td>
+  <td>{!! $proyectos->cat_paisdivision_id !!}</td>
 </tr>
 
 
 <!-- Cat Areaciudad Id Field -->
 <tr>
   <th>{!! Form::label('cat_areaciudad_id', 'Area-Ciudad:') !!}</th>
-  <td>{!! $proyectos->catAreaCiudad->nombre !!}</td>
+  <td>{!! $proyectos->cat_areaciudad_id !!}</td>
 </tr>
 
 
 <!-- Cat Productos Id Field -->
 <tr>
   <th>{!! Form::label('cat_productos_id', 'Producto:') !!}</th>
-  <td>{!! $proyectos->catProducto->nombre !!}</td>
+  <td>{!! $proyectos->cat_productos_id !!}</td>
 </tr>
 
 <!-- Supervidor Field -->
 <tr>
-  <th>{!! Form::label('supervidor', 'Supervisor:') !!}</th>
-  <td>{!! $proyectos->supervidor !!}</td>
+  <th>{!! Form::label('supervisor', 'Supervisor:') !!}</th>
+  <td>{!! $proyectos->supervisor !!}</td>
 </tr>
 
 

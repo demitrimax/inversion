@@ -7,7 +7,11 @@
     <a href="{{route('proyectos.index')}}" class="waves-effect"><i class="mdi mdi-basket"></i><span> Proyectos <span class="badge badge-primary pull-right">NEW</span></span></a>
 </li>
 @endcan
-
+@can('creditos-list')
+<li class="{{ Request::is('creditos*') ? 'active' : '' }}">
+    <a href="{!! route('creditos.index') !!}" class="waves-effect"><i class="ion ion-social-usd"></i><span>Creditos</span></a>
+</li>
+@endcan
 
 <li class="has_sub">
   @php
@@ -42,3 +46,4 @@
     </ul>
 </li>
 @endhasrole
+

@@ -28,3 +28,6 @@ Route::group(['middleware'=>['auth']], function() {
 
   Route::resource('proyectos', 'proyectosController');
 });
+
+
+Route::resource('creditos', 'creditosController');

@@ -4,7 +4,6 @@
             <th>Folio</th>
             <th>Nombre</th>
             <th>Supervisor</th>
-            <th>Identificacion</th>
             <th>Estatus</th>
             <th>Acciones</th>
         </tr>
