@@ -2,10 +2,10 @@
     <thead>
         <tr>
             <th>Nombre</th>
-        <th>Descripcion</th>
-        <th>Finicio</th>
-        <th>Clasificacion</th>
-            <th colspan="3">Acciones</th>
+            <th>Descripcion</th>
+            <th>Inicio</th>
+            <th>Clasificacion</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>

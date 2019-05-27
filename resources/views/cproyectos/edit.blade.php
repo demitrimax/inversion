@@ -6,7 +6,7 @@
           @include('adminlte-templates::common.errors')
           <div class="panel panel-default">
               <div class="panel-heading">
-                  <h3 class="panel-title">Editar Cproyectos</h3>
+                  <h3 class="panel-title">Editar Proyectos</h3>
               </div>
               <div class="panel-body">
               {!! Form::model($cproyectos, ['route' => ['cproyectos.update', $cproyectos->id], 'method' => 'patch']) !!}

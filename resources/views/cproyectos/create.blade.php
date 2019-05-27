@@ -6,7 +6,7 @@
           @include('adminlte-templates::common.errors')
           <div class="panel panel-default">
               <div class="panel-heading">
-                  <h3 class="panel-title">Alta de Cproyectos</h3>
+                  <h3 class="panel-title">Alta de Proyectos</h3>
               </div>
               <div class="panel-body">
               {!! Form::open(['route' => 'cproyectos.store']) !!}
@@ -18,5 +18,5 @@
           </div>
       </div>
   </div>
-  
+
 @endsection
