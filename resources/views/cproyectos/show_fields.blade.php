@@ -1,3 +1,5 @@
+<table class="table table-striped table-bordered detail-view" id="cproyectos-table">
+  <tbody>
 <!-- Id Field -->
 <tr>
   <th>{!! Form::label('id', 'Id:') !!}</th>
@@ -32,25 +34,5 @@
   <td>{!! $cproyectos->clasificacion !!}</td>
 </tr>
 
-
-<!-- Created At Field -->
-<tr>
-  <th>{!! Form::label('created_at', 'Created At:') !!}</th>
-  <td>{!! $cproyectos->created_at !!}</td>
-</tr>
-
-
-<!-- Updated At Field -->
-<tr>
-  <th>{!! Form::label('updated_at', 'Updated At:') !!}</th>
-  <td>{!! $cproyectos->updated_at !!}</td>
-</tr>
-
-
-<!-- Deleted At Field -->
-<tr>
-  <th>{!! Form::label('deleted_at', 'Deleted At:') !!}</th>
-  <td>{!! $cproyectos->deleted_at !!}</td>
-</tr>
-
-
+</tbody>
+</table>
