@@ -12,6 +12,7 @@
            			<th>Fecha</th>
            			<th>Monto</th>
            			<th>Tipo</th>
+                <th>Proyecto</th>
            		</tr>
            	</thead>
               <tbody>
@@ -21,12 +22,13 @@
               		<td>{{$movimiento->fecha->format('d-m-Y')}}</td>
               		<td>${{ number_format($movimiento->monto,2) }}</td>
               		<td>{{ $movimiento->tipo }}</td>
+                  <td>{{ $movimiento->proyectos->nombre }}</td>
               	</tr>
                 @endforeach
               </tbody>
           </table>
           @else
-          No hay movimientos registrados del credito.
+          No hay movimientos de inversión registrados.
           @endif
 
           @can('movcreditos-create')

@@ -10,6 +10,7 @@ use Spatie\Permission\Models\Permission;
 use DB;
 use Hash;
 use Spatie\Permission\Traits\HasRoles;
+use Alert;
 
 class UserController extends Controller
 {
@@ -81,6 +82,11 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
+        if(empty($user))
+        {
+          Alert::error('Usuario no encontrado');
+          return redirect()->route('user.index');
+        }
         return view('user.show',compact('user'));
     }
 
@@ -136,7 +142,7 @@ class UserController extends Controller
 
 
         return redirect()->route('user.index')
-                        ->with('success','User updated successfully');
+                        ->with('success','Usuario actualizado correctamente.');
     }
 
 
@@ -149,7 +155,7 @@ class UserController extends Controller
     public function destroy($id)
     {
         User::find($id)->delete();
-        return redirect()->route('users.index')
-                        ->with('success','User deleted successfully');
+        return redirect()->route('user.index')
+                        ->with('success','Usuario borrado correctamente.');
     }
 }

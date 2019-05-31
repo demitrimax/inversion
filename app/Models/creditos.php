@@ -90,5 +90,19 @@ class creditos extends Model
       return $this->hasMany('App\Models\movcreditos','credito_id');
     }
 
+    public function getMontorestanteAttribute()
+    {
+      $tSalidas = 0;
+      $tEntradas = 0;
+      $monto = $this->monto_inicial;
+      foreach($this->movcreditos as $movimiento)
+      {
+        $movimiento->tipo == 'Salida' ? $tSalidas += $movimiento->monto : 0;
+        $movimiento->tipo == 'Entrada'? $tEntradas += $movimiento->monto : 0;
+      }
+      $saldofinal = $monto - ($tSalidas + $tEntradas);
+      return $saldofinal;
+    }
+
 
 }

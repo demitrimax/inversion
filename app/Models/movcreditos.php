@@ -23,4 +23,9 @@ class movcreditos extends Model
 
     ];
 
+    public function proyectos()
+    {
+      return $this->belongsTo('App\Models\cproyectos','proyecto_id');
+    }
+
 }
