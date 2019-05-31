@@ -62,15 +62,23 @@
             <td>{!! number_format($creditos->monto_inicial,2) !!}</td>
           </tr>
 
-          <!-- Monto Inicial Field -->
+          <!-- Monto FinalField -->
           <tr>
             <th>{!! Form::label('monto_final', 'Monto al Final:') !!}</th>
             @php
             $monto = $creditos->monto_inicial;
             $tasa = $creditos->tasainteres;
+            $saldofinal = $monto - ($creditos->movcreditos->where('tipo','Entrada')->sum() - $creditos->movcreditos->where('tipo','Salida')->sum());
             $montofinal = $monto * (($tasa/100)+1);
             @endphp
             <td>{!! number_format($montofinal,2) !!}</td>
+          </tr>
+
+
+          <!-- Saldo al día Field -->
+          <tr>
+            <th>{!! Form::label('saldo_dia', 'Saldo al día:') !!}</th>
+            <td>{!! number_format($saldofinal,2) !!}</td>
           </tr>
 
 

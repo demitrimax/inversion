@@ -30,6 +30,8 @@ Route::group(['middleware'=>['auth']], function() {
   Route::resource('creditos', 'creditosController');
   Route::resource('efinancieras', 'efinancieraController');
   Route::resource('cproyectos', 'cproyectosController');
+
+  Route::post('movimiento/guardar', 'creditosController@regmov')->name('movimiento.store');
 });
 
 

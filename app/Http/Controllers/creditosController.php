@@ -12,6 +12,8 @@ use Alert;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use App\Models\efinanciera;
+use App\Models\movcreditos;
+use Auth;
 
 class creditosController extends AppBaseController
 {
@@ -165,5 +167,21 @@ class creditosController extends AppBaseController
         Flash::success('Creditos borrado correctamente.');
 
         return redirect(route('creditos.index'));
+    }
+
+    public function regmov(Request $request)
+    {
+      $input = $request->all();
+
+      $movimiento = new movcreditos;
+      $movimiento->credito_id = $input['credito_id'];
+      $movimiento->tipo = $input['tipo'];
+      $movimiento->monto = $input['monto'];
+      $movimiento->fecha = $input['fecha'];
+      $movimiento->comentario = $input['comentario'];
+      $movimiento->user_id = Auth::user()->id;
+      $movimiento->save();
+      Alert::success('Movimiento registrado correctamente');
+      return back();
     }
 }

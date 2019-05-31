@@ -6,10 +6,13 @@
         <div class="box box-primary">
             <div class="box-body">
                 <div class="row" style="padding-left: 20px">
-               
+
                     @include('creditos.show_fields')
 
                     @include('creditos.corridafinan')
+
+                    @include('creditos.movimientos')
+
                 </div>
                 <a href="{!! route('creditos.index') !!}" class="btn btn-default">Regresar</a>
             </div>

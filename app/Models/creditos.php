@@ -83,5 +83,10 @@ class creditos extends Model
       return $this->belongsTo('App\Models\efinanciera', 'entidadfinan');
     }
 
+    public function movcreditos()
+    {
+      return $this->hasMany('App\Models\movcreditos','credito_id');
+    }
+
 
 }
