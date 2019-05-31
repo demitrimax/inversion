@@ -45,7 +45,7 @@
           <!-- Entidadfinan Field -->
           <tr>
             <th>{!! Form::label('entidadfinan', 'Entidad Financiera:') !!}</th>
-            <td>{!! $creditos->entidadfinan !!}</td>
+            <td>{!! $creditos->financieras->nombre !!}</td>
           </tr>
 
 
@@ -60,6 +60,17 @@
           <tr>
             <th>{!! Form::label('monto_inicial', 'Monto Inicial:') !!}</th>
             <td>{!! number_format($creditos->monto_inicial,2) !!}</td>
+          </tr>
+
+          <!-- Monto Inicial Field -->
+          <tr>
+            <th>{!! Form::label('monto_final', 'Monto al Final:') !!}</th>
+            @php
+            $monto = $creditos->monto_inicial;
+            $tasa = $creditos->tasainteres;
+            $montofinal = $monto * (($tasa/100)+1);
+            @endphp
+            <td>{!! number_format($montofinal,2) !!}</td>
           </tr>
 
 
@@ -78,7 +89,7 @@
 
           <!-- Meses del periodo o pagos-->
           @php
-          $meses = $creditos->finicio->diffInMonths($creditos->ftermino); 
+          $meses = $creditos->finicio->diffInMonths($creditos->ftermino);
           @endphp
           <tr>
             <th>{!! Form::label('meses', 'Plazo:') !!}</th>
@@ -91,6 +102,3 @@
         </div>
     </div>
 </div>
-
-
-

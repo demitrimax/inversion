@@ -25,12 +25,14 @@
 					$numdias = $creditos->finicio->diffInDays($creditos->ftermino);
 					$numpagos = $creditos->finicio->diffInMonths($creditos->ftermino);
 					//echo $numpagos;
+          //cantidad final con el interes de la tasa
+          $montofinal = $monto * (($tasa/100)+1);
 					$pagofijo = $monto / $numpagos;
 					$interesi = $pagofijo*($tasa/100);
 					$interes = 0;
 					$total = 0;
               	@endphp
-              	
+
               	@for($i = $primerpagfecha; $i <= $ultimopagfecha; $i->addMonth() )
               	<tr>
               		<td>{{$linea+=1}}</td>
@@ -43,6 +45,7 @@
               	@endfor
               </tbody>
           </table>
+          <a type="button" class="btn btn-primary" href="">Registsrar Pago</a>
         </div>
     </div>
 </div>
