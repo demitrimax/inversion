@@ -4,7 +4,7 @@
             <th>Nombre</th>
             <th>Descripcion</th>
             <th>Inicio</th>
-            <th>Clasificacion</th>
+            <th>Categoría</th>
             <th>Acciones</th>
         </tr>
     </thead>
@@ -14,7 +14,7 @@
             <td>{!! $cproyectos->nombre !!}</td>
             <td>{!! $cproyectos->descripcion !!}</td>
             <td>{!! $cproyectos->finicio->format('d-m-Y') !!}</td>
-            <td>{!! $cproyectos->clasificacion !!}</td>
+            <td>{!! $cproyectos->clasifica->nombre !!}</td>
             <td>
                 {!! Form::open(['route' => ['cproyectos.destroy', $cproyectos->id], 'method' => 'delete', 'id'=>'form'.$cproyectos->id]) !!}
                 <div class='btn-group'>

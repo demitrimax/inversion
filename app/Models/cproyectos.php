@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @package App\Models
  * @version May 27, 2019, 11:58 am CDT
  *
- * @property \Illuminate\Database\Eloquent\Collection 
+ * @property \Illuminate\Database\Eloquent\Collection
  * @property string nombre
  * @property string descripcion
  * @property string finicio
@@ -21,7 +21,7 @@ class cproyectos extends Model
     use SoftDeletes;
 
     public $table = 'cat_proyectos';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -58,5 +58,15 @@ class cproyectos extends Model
         'nombre' => 'required'
     ];
 
-    
+    public function clasifica()
+    {
+      return $this->belongsTo('App\Models\clasifica', 'clasificacion');
+    }
+    public function getFolioAttribute()
+    {
+      $formatFolio = '#'.$this->created_at->format('y').$this->created_at->format('m').str_pad($this->id,4,"0",STR_PAD_LEFT);
+      return $formatFolio;
+    }
+
+
 }

@@ -31,3 +31,6 @@ Route::group(['middleware'=>['auth']], function() {
   Route::resource('efinancieras', 'efinancieraController');
   Route::resource('cproyectos', 'cproyectosController');
 });
+
+
+Route::resource('clasificas', 'clasificaController');

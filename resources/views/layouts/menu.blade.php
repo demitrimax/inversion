@@ -26,12 +26,16 @@
   @endphp
     <a href="javascript:void(0);" class="waves-effect {{$varActive}}"><i class="mdi mdi-assistant"></i><span> Catálogos </span><span class="pull-right"><i class="mdi mdi-plus"></i></span></a>
     <ul class="list-unstyled">
-        @can('catpaisdivisions-list')
-        <li class="{{ Request::is('catpaisdivisions*') ? 'active' : '' }}"><a href="#">Clientes</a></li>
-        @endcan
+        @can('efinancieras-list')
         <li class="{{ Request::is('efinancieras*') ? 'active' : '' }}">
               <a href="{!! route('efinancieras.index') !!}"><i class="fa fa-edit"></i><span> Financieras</span></a>
         </li>
+        @endcan
+        @can('clasificas-list')
+        <li class="{{ Request::is('clasificas*') ? 'active' : '' }}">
+            <a href="{!! route('clasificas.index') !!}"><i class="fa fa-edit"></i><span> Categorias</span></a>
+        </li>
+        @endcan
     </ul>
 </li>
 
