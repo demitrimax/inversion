@@ -45,7 +45,8 @@ class creditos extends Model
         'diapago',
         'monto_inicial',
         'fapertura',
-        'diascalculo'
+        'diascalculo',
+        'observaciones',
     ];
 
     /**
@@ -64,7 +65,8 @@ class creditos extends Model
         'diapago' => 'integer',
         'monto_inicial' => 'float',
         'fapertura' => 'date',
-        'diascalculo' => 'integer'
+        'diascalculo' => 'integer',
+        'observaciones' => 'string',
     ];
 
     /**

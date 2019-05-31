@@ -45,56 +45,7 @@
               	@endfor
               </tbody>
           </table>
-          @can('movcreditos-create')
-          <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#myModal">Registrar Movimiento </button>
-          @endcan
+        
         </div>
     </div>
 </div>
-
-@can('movcreditos-create')
-<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-          <div class="modal-content">
-
-              <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                  <h4 class="modal-title" id="myModalLabel">Registrar movimiento</h4>
-              </div>
-              {!! Form::open(['route' => 'movimiento.store']) !!}
-              <div class="modal-body">
-                <div class="row">
-                <!-- Tipo Field -->
-                <div class="form-group col-sm-6">
-                    {!! Form::hidden('credito_id', $creditos->id) !!}
-                    {!! Form::label('tipo', 'Tipo:') !!}
-                    {!! Form::select('tipo', ['Entrada'=>'Entrada', 'Salida'=>'Salida'], 'Salida', ['class' => 'form-control', 'required']) !!}
-                </div>
-
-                <!-- Monto Field -->
-                <div class="form-group col-sm-6">
-                    {!! Form::label('monto', 'Monto:') !!}
-                    {!! Form::number('monto', null, ['class' => 'form-control', 'required', 'step'=>'0.01']) !!}
-                </div>
-
-                <div class="form-group col-sm-6">
-                    {!! Form::label('fecha', 'Fecha:') !!}
-                    {!! Form::date('fecha', Date('Y-m-d'), ['class' => 'form-control', 'required']) !!}
-                </div>
-
-                <div class="form-group col-sm-12">
-                    {!! Form::label('comentario', 'Comentario:') !!}
-                    {!! Form::textarea('comentario', null, ['class' => 'form-control']) !!}
-                </div>
-              </div>
-
-            </div>
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
-                  <button type="submit" class="btn btn-primary waves-effect waves-light">Registrar movimiento</button>
-              </div>
-                {!! Form::close() !!}
-          </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-  </div>
-  @endcan

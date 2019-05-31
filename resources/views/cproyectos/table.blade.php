@@ -11,7 +11,7 @@
     <tbody>
     @foreach($cproyectos as $cproyectos)
         <tr>
-            <td>{!! $cproyectos->nombre !!}</td>
+            <td><a href="{!! route('cproyectos.show', [$cproyectos->id]) !!}">{!! $cproyectos->nombre !!}</a></td>
             <td>{!! $cproyectos->descripcion !!}</td>
             <td>{!! $cproyectos->finicio->format('d-m-Y') !!}</td>
             <td>{!! $cproyectos->clasifica->nombre !!}</td>

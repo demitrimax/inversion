@@ -11,9 +11,10 @@
 
                     @include('creditos.corridafinan')
 
-                    @include('creditos.movimientos')
-
                 </div>
+                <div class="row">
+                    @include('creditos.mov_inver')
+                  </div>
                 <a href="{!! route('creditos.index') !!}" class="btn btn-default">Regresar</a>
             </div>
         </div>

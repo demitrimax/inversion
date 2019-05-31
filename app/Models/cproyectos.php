@@ -63,6 +63,10 @@ class cproyectos extends Model
       return $this->belongsTo('App\Models\clasifica', 'clasificacion');
     }
 
+    public function movcreditos()
+    {
+      return $this->hasMany('App\Models\movcreditos','proyecto_id');
+    }
     public function getFolioAttribute()
     {
       $formatFolio = '#'.$this->created_at->format('y').$this->created_at->format('m').str_pad($this->id,4,"0",STR_PAD_LEFT);

@@ -68,7 +68,14 @@
             @php
             $monto = $creditos->monto_inicial;
             $tasa = $creditos->tasainteres;
-            $saldofinal = $monto - ($creditos->movcreditos->where('tipo','Entrada')->sum() - $creditos->movcreditos->where('tipo','Salida')->sum());
+            $tSalidas = 0;
+            $tEntradas = 0;
+            foreach($creditos->movcreditos as $movimiento)
+            {
+              $movimiento->tipo == 'Salida' ? $tSalidas += $movimiento->monto : 0;
+              $movimiento->tipo == 'Entrada'? $tEntradas += $movimiento->monto : 0;
+            }
+            $saldofinal = $monto - ($tSalidas + $tEntradas);
             $montofinal = $monto * (($tasa/100)+1);
             @endphp
             <td>{!! number_format($montofinal,2) !!}</td>

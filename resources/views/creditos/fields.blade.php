@@ -48,7 +48,7 @@ if(isset($creditos->fapertura)){
             {!! Form::label('tasainteres', 'Tasa de interes: %') !!}
      <div class="input-group bootstrap-touchspin">
         <span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span>
-        {!! Form::number('tasainteres', null, ['class' => 'form-control', 'style'=>'display:block;','required', 'placeholder'=>'Porcentaje', 'min'=>'0.01', 'step'=>'0.01']) !!}
+        {!! Form::number('tasainteres', null, ['class' => 'form-control', 'style'=>'display:block;','required', 'placeholder'=>'Porcentaje', 'min'=>'0.01', 'step'=>'0.01', 'max'=>'50.00']) !!}
         <span class="input-group-addon bootstrap-touchspin-postfix">%</span>
     </div>
 </div>
@@ -81,6 +81,12 @@ if(isset($creditos->fapertura)){
 <div class="form-group col-sm-6">
     {!! Form::label('diascalculo', 'Dias de calculo:') !!}
     {!! Form::number('diascalculo', 30, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Observaciones Field -->
+<div class="form-group col-sm-12">
+    {!! Form::label('observaciones', 'Observaciones:') !!}
+    {!! Form::textarea('observaciones', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->
