@@ -36,6 +36,11 @@
             <a href="{!! route('clasificas.index') !!}"><i class="fa fa-edit"></i><span> Categorias</span></a>
         </li>
         @endcan
+        @can('bancos-list')
+        <li class="{{ Request::is('bancos*') ? 'active' : '' }}">
+            <a href="{!! route('bancos.index') !!}"><i class="fa fa-edit"></i><span>Bancos</span></a>
+        </li>
+        @endcan
     </ul>
 </li>
 

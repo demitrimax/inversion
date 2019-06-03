@@ -36,3 +36,6 @@ Route::group(['middleware'=>['auth']], function() {
 
 
 Route::resource('clasificas', 'clasificaController');
+
+
+Route::resource('bancos', 'bancosController');
