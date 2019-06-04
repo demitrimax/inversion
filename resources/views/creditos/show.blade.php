@@ -9,11 +9,13 @@
 
                     @include('creditos.show_fields')
 
-                    @include('creditos.corridafinan')
+                    @include('creditos.mov_inver')
+
+
 
                 </div>
                 <div class="row">
-                    @include('creditos.mov_inver')
+                    @include('creditos.corridafinan')
                   </div>
                 <a href="{!! route('creditos.index') !!}" class="btn btn-default">Regresar</a>
             </div>

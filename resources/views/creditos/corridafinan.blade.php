@@ -1,4 +1,4 @@
-<div class="col-lg-6">
+<div class="col-lg-12">
     <div class="panel panel-color panel-info">
         <div class="panel-heading">
             <h3 class="panel-title">Corrida Financiera</h3>
@@ -8,11 +8,13 @@
            	<thead>
            		<tr>
            			<th>Num</th>
-           			<th>Fecha</th>
-           			<th>Capital</th>
-           			<th>Interes</th>
-           			<th>IVA Interes</th>
-           			<th>Total</th>
+                <th>Año</th>
+           			<th>Pago Capital</th>
+           			<th>P. Intereses</th>
+           			<th>Monto de Pago</th>
+           			<th>Sdo. Capital</th>
+           			<th>No. Pago</th>
+                <th>Fecha</th>
            		</tr>
            	</thead>
               <tbody>
@@ -41,11 +43,13 @@
               		<td>{{ number_format($interes = $pagofijo*($tasa/100),2) }}</td>
               		<td>{{ number_format($iva = ($pagofijo*($tasa/100)*0.16),2) }}</td>
               		<td>{{ number_format($total = ($monto +($interes + $iva)) - ($pagofijo),2) }}</td>
+                  <td></td>
+                  <td></td>
               	</tr>
               	@endfor
               </tbody>
           </table>
-        
+
         </div>
     </div>
 </div>
