@@ -39,3 +39,5 @@ Route::resource('clasificas', 'clasificaController');
 
 
 Route::resource('bancos', 'bancosController');
+
+Route::resource('empresas', 'empresasController');
