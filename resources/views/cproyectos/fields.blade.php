@@ -9,18 +9,24 @@
     {!! Form::label('descripcion', 'Descripción:') !!}
     {!! Form::textarea('descripcion', null, ['class' => 'form-control']) !!}
 </div>
+@php
+  $fechaini = null;
+  if(isset($cproyectos->finicio)){
+    $fechaini = $cproyectos->finicio->format('Y-m-d');
+  }
 
+@endphp
 <!-- Finicio Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('finicio', 'Fecha de inicio:') !!}
-    {!! Form::date('finicio', null, ['class' => 'form-control','id'=>'finicio']) !!}
+    {!! Form::date('finicio', $fechaini, ['class' => 'form-control','id'=>'finicio']) !!}
 </div>
 
 
 <!-- Clasificacion Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('clasificacion', 'Clasificación:') !!}
-    {!! Form::number('clasificacion', null, ['class' => 'form-control']) !!}
+    {!! Form::select('clasificacion', $clasificacion,null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

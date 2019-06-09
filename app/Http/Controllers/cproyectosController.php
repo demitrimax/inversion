@@ -11,6 +11,7 @@ use Flash;
 use Alert;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\clasifica;
 
 class cproyectosController extends AppBaseController
 {
@@ -48,7 +49,8 @@ class cproyectosController extends AppBaseController
      */
     public function create()
     {
-        return view('cproyectos.create');
+        $clasificacion = clasifica::pluck('nombre','id');
+        return view('cproyectos.create')->with(compact('$clasificacion'));
     }
 
     /**
@@ -108,8 +110,8 @@ class cproyectosController extends AppBaseController
 
             return redirect(route('cproyectos.index'));
         }
-
-        return view('cproyectos.edit')->with('cproyectos', $cproyectos);
+        $clasificacion = clasifica::pluck('nombre','id');
+        return view('cproyectos.edit')->with(compact('cproyectos','clasificacion'));
     }
 
     /**
