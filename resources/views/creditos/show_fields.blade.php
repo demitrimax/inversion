@@ -55,6 +55,12 @@
             <td>{!! $creditos->diapago !!}</td>
           </tr>
 
+          <!-- Diapago Field -->
+          <tr>
+            <th>{!! Form::label('meseslibres', 'Meses Libres:') !!}</th>
+            <td>{!! $creditos->meseslibres !!}</td>
+          </tr>
+
 
           <!-- Monto Inicial Field -->
           <tr>
@@ -104,7 +110,7 @@
 
           <!-- Meses del periodo o pagos-->
           @php
-          $meses = $creditos->finicio->diffInMonths($creditos->ftermino);
+          $meses = $creditos->finicio->diffInMonths($creditos->ftermino)+1;
           @endphp
           <tr>
             <th>{!! Form::label('meses', 'Plazo:') !!}</th>

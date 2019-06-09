@@ -46,6 +46,7 @@ class creditos extends Model
         'monto_inicial',
         'fapertura',
         'diascalculo',
+        'meseslibres',
         'observaciones',
     ];
 
@@ -66,6 +67,7 @@ class creditos extends Model
         'monto_inicial' => 'float',
         'fapertura' => 'date',
         'diascalculo' => 'integer',
+        'meseslibres' => 'integer',
         'observaciones' => 'string',
     ];
 

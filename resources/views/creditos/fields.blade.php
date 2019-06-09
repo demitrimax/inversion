@@ -83,6 +83,12 @@ if(isset($creditos->fapertura)){
     {!! Form::number('diascalculo', 30, ['class' => 'form-control']) !!}
 </div>
 
+<!-- Diascalculo Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('meseslibres', 'Meses de gracia:') !!}
+    {!! Form::number('meseslibres', 0, ['class' => 'form-control']) !!}
+</div>
+
 <!-- Observaciones Field -->
 <div class="form-group col-sm-12">
     {!! Form::label('observaciones', 'Observaciones:') !!}
