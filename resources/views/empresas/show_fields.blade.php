@@ -19,6 +19,11 @@
             <td>{!! $empresas->nombre !!}</td>
           </tr>
 
+          <!-- Giro Field -->
+          <tr>
+            <th>{!! Form::label('rfc', 'RFC:') !!}</th>
+            <td>{!! $empresas->rfc !!}</td>
+          </tr>
 
           <!-- Giro Field -->
           <tr>
@@ -36,7 +41,7 @@
           <!-- Observaciones Field -->
           <tr>
             <th>{!! Form::label('saldo', 'Saldo al día:') !!}</th>
-            <td></td>
+            <td>{!! number_format($empresas->saldoaldia,2) !!}</td>
           </tr>
 
           <!-- Observaciones Field -->

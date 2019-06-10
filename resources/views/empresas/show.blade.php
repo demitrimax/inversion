@@ -16,6 +16,9 @@
                 <div class="col-md-6">
                     @include('empresas.movimientos')
               </div>
+              <div class="col-md-6">
+                @include('empresas.operaciones')
+              </div>
 
 
                 </div>

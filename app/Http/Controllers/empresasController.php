@@ -11,6 +11,7 @@ use Flash;
 use Alert;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\operaciones;
 
 class empresasController extends AppBaseController
 {
@@ -163,5 +164,24 @@ class empresasController extends AppBaseController
         Flash::success('Empresas borrado correctamente.');
 
         return redirect(route('empresas.index'));
+    }
+    public function regoper(Request $request)
+    {
+      $input = $request->all();
+      $operacion = new operaciones;
+      $operacion->monto = $input['monto'];
+      $operacion->empresa_id = $input['empresa_id'];
+      $operacion->tipo = $input['tipo'];
+      $operacion->metpago = $input['metpago'];
+      $operacion->concepto = $input['concepto'];
+      $operacion->comentario = $input['comentario'];
+      $operacion->save();
+
+      //$empresas = $this->empresasRepository->create($input);
+
+      Flash::success('Operación registrada correctamente.');
+      Alert::success('Operación registrada correctamente.');
+
+      return back();
     }
 }

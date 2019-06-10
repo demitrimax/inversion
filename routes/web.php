@@ -32,12 +32,13 @@ Route::group(['middleware'=>['auth']], function() {
   Route::resource('cproyectos', 'cproyectosController');
 
   Route::post('movimiento/guardar', 'creditosController@regmov')->name('movimiento.store');
+
+  Route::resource('clasificas', 'clasificaController');
+
+
+  Route::resource('bancos', 'bancosController');
+
+  Route::resource('empresas', 'empresasController');
+
+  Route::post('operaciones/guardar', 'empresasController@regoper')->name('operacion.store');
 });
-
-
-Route::resource('clasificas', 'clasificaController');
-
-
-Route::resource('bancos', 'bancosController');
-
-Route::resource('empresas', 'empresasController');
