@@ -57,7 +57,7 @@
 
           <!-- Diapago Field -->
           <tr>
-            <th>{!! Form::label('meseslibres', 'Meses Libres:') !!}</th>
+            <th>{!! Form::label('meseslibres', 'Meses libres de pago:') !!}</th>
             <td>{!! $creditos->meseslibres !!}</td>
           </tr>
 
@@ -70,19 +70,35 @@
 
           <!-- Monto FinalField -->
           <tr>
-            <th>{!! Form::label('monto_final', 'Monto al Final:') !!}</th>
+            <th>{!! Form::label('monto_final', 'Monto Final:') !!}</th>
             @php
             $monto = $creditos->monto_inicial;
             $tasa = $creditos->tasainteres;
             $tSalidas = 0;
             $tEntradas = 0;
+            $numpagos = $creditos->finicio->diffInMonths($creditos->ftermino)+1;
             foreach($creditos->movcreditos as $movimiento)
             {
               $movimiento->tipo == 'Salida' ? $tSalidas += $movimiento->monto : 0;
               $movimiento->tipo == 'Entrada'? $tEntradas += $movimiento->monto : 0;
             }
+
+            $tasamensual = ($tasa/12);
+            $saldocapital = $monto;
+            $numpagos = $creditos->finicio->diffInMonths($creditos->ftermino)+1;
+            $pagofijo = $monto / ($numpagos - $creditos->meseslibres);
+            $pinteres = 0;
+            $meseslibres = $creditos->meseslibres;
+            $totalinteres = 0;
+            for ($i = 1; $i <= $numpagos; $i++){
+              $i > $meseslibres ? $pcapital = $pagofijo : $pcapital=0;
+              $pinteres = $saldocapital*($tasamensual/100);
+              $mpago = $pcapital+$pinteres;
+              $saldocapital = ($saldocapital+$pinteres) -$mpago;
+              $totalinteres += $pinteres;
+            }
             $saldofinal = $monto - ($tSalidas + $tEntradas);
-            $montofinal = $monto * (($tasa/100)+1);
+            $montofinal = $monto + $totalinteres;
             @endphp
             <td>{!! number_format($montofinal,2) !!}</td>
           </tr>

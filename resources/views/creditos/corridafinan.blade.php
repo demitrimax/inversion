@@ -52,7 +52,7 @@
    <!-- saldo capital-->    <td>{{ number_format($saldocapital = ($saldocapital+$pinteres) -$mpago,2) }}</td>
   <!-- No de pago-->        <td>{{ ($linea) > $meseslibres ? $linea - $creditos->meseslibres : 0 }}</td>
                             <td>{{$i->format('d-m-Y')}}</td>
-                            <td></td>
+                            <td><span class="label label-warning">Pendiente</span></td>
               	</tr>
               	@endfor
               </tbody>

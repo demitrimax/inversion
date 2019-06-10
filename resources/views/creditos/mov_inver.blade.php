@@ -12,7 +12,7 @@
            			<th>Fecha</th>
            			<th>Monto</th>
            			<th>Tipo</th>
-                <th>Proyecto</th>
+                <th>Empresa</th>
            		</tr>
            	</thead>
               <tbody>
@@ -22,7 +22,7 @@
               		<td>{{$movimiento->fecha->format('d-m-Y')}}</td>
               		<td>${{ number_format($movimiento->monto,2) }}</td>
               		<td>{{ $movimiento->tipo }}</td>
-                  <td>{{ $movimiento->proyectos->nombre }}</td>
+                  <td>{{ $movimiento->empresas->nombre }}</td>
               	</tr>
                 @endforeach
               </tbody>
@@ -54,8 +54,8 @@
                 <div class="form-group col-sm-6">
                     {!! Form::hidden('credito_id', $creditos->id) !!}
                     {!! Form::hidden('tipo', 'Salida') !!}
-                    {!! Form::label('proyecto', 'Proyecto:') !!}
-                    {!! Form::select('proyecto', $proyectos, null, ['class' => 'form-control', 'required', 'placeholder'=>'Seleccione un proyecto']) !!}
+                    {!! Form::label('empresa', 'Empresa:') !!}
+                    {!! Form::select('empresa', $empresas, null, ['class' => 'form-control', 'required', 'placeholder'=>'Seleccione un proyecto']) !!}
                 </div>
                 @php
                 $tSalidas = 0;
