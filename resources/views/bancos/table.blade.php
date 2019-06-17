@@ -10,7 +10,7 @@
     <tbody>
     @foreach($bancos as $bancos)
         <tr>
-            <td>{!! $bancos->nombre !!}</td>
+            <td><a href="{!! route('bancos.show', [$bancos->id]) !!}">{!! $bancos->nombre !!}</a></td>
             <td>{!! $bancos->denominacionsocial !!}</td>
             <td>{!! $bancos->email !!}</td>
             <td>

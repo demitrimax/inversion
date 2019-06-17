@@ -45,6 +45,11 @@
             <a href="{!! route('bancos.index') !!}"><i class="fa fa-edit"></i><span>Bancos</span></a>
         </li>
         @endcan
+        @can('bcuentas-list')
+        <li class="{{ Request::is('bcuentas*') ? 'active' : '' }}">
+            <a href="{!! route('bcuentas.index') !!}"><i class="fa fa-edit"></i><span>Cuentas</span></a>
+        </li>
+        @endcan
     </ul>
 </li>
 
