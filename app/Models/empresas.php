@@ -68,6 +68,10 @@ class empresas extends Model
     {
       return $this->hasMany('App\Models\operaciones','empresa_id');
     }
+    public function cuentas()
+    {
+      return $this->hasMany('App\Models\bcuentas','empresa_id');
+    }
 
     public function getSaldoaldiaAttribute()
     {

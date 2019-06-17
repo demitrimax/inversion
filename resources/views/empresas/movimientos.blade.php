@@ -1,8 +1,4 @@
-<div class="panel panel-color panel-info">
-    <div class="panel-heading">
-        <h3 class="panel-title">Movimientos de Inversiones</h3>
-    </div>
-    <div class="panel-body">
+
       <table class="table table-striped table-bordered detail-view" id="corrida-table">
        <thead>
          <tr>
@@ -25,6 +21,3 @@
            @endforeach
          </tbody>
      </table>
-
-    </div>
-</div>

@@ -1,77 +1,61 @@
-<!-- Id Field -->
-<tr>
-  <th>{!! Form::label('id', 'Id:') !!}</th>
-  <td>{!! $bcuentas->id !!}</td>
-</tr>
+<div class="col-lg-6">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Datos de la Cuenta</h3>
+        </div>
+        <div class="panel-body">
+          <table class="table table-striped table-bordered detail-view" id="bcuentas-table">
+            <tbody>
+                <!-- Id Field -->
+                <tr>
+                  <th>{!! Form::label('id', 'Id:') !!}</th>
+                  <td>{!! $bcuentas->id !!}</td>
+                </tr>
 
 
-<!-- Banco Id Field -->
-<tr>
-  <th>{!! Form::label('banco_id', 'Banco Id:') !!}</th>
-  <td>{!! $bcuentas->banco_id !!}</td>
-</tr>
+                <!-- Banco Id Field -->
+                <tr>
+                  <th>{!! Form::label('banco_id', 'Banco:') !!}</th>
+                  <td>{!! $bcuentas->banco->nombrecorto !!}</td>
+                </tr>
 
 
-<!-- Numcuenta Field -->
-<tr>
-  <th>{!! Form::label('numcuenta', 'Numcuenta:') !!}</th>
-  <td>{!! $bcuentas->numcuenta !!}</td>
-</tr>
+                <!-- Numcuenta Field -->
+                <tr>
+                  <th>{!! Form::label('numcuenta', 'Número de cuenta:') !!}</th>
+                  <td>{!! $bcuentas->numcuenta !!}</td>
+                </tr>
 
 
-<!-- Clabeinterbancaria Field -->
-<tr>
-  <th>{!! Form::label('clabeinterbancaria', 'Clabeinterbancaria:') !!}</th>
-  <td>{!! $bcuentas->clabeinterbancaria !!}</td>
-</tr>
+                <!-- Clabeinterbancaria Field -->
+                <tr>
+                  <th>{!! Form::label('clabeinterbancaria', 'Clabe interbancaria:') !!}</th>
+                  <td>{!! $bcuentas->clabeinterbancaria !!}</td>
+                </tr>
 
 
-<!-- Sucursal Field -->
-<tr>
-  <th>{!! Form::label('sucursal', 'Sucursal:') !!}</th>
-  <td>{!! $bcuentas->sucursal !!}</td>
-</tr>
+                <!-- Sucursal Field -->
+                <tr>
+                  <th>{!! Form::label('sucursal', 'Sucursal:') !!}</th>
+                  <td>{!! $bcuentas->sucursal !!}</td>
+                </tr>
 
 
-<!-- Cliente Id Field -->
-<tr>
-  <th>{!! Form::label('cliente_id', 'Cliente Id:') !!}</th>
-  <td>{!! $bcuentas->cliente_id !!}</td>
-</tr>
+                <!-- Empresa Id Field -->
+                <tr>
+                  <th>{!! Form::label('empresa_id', 'Empresa:') !!}</th>
+                  <td><a href="{!! route('empresas.show', [$bcuentas->empresa_id]) !!}">{!! $bcuentas->empresa->nombre !!}</a></td>
+                </tr>
 
 
-<!-- Empresa Id Field -->
-<tr>
-  <th>{!! Form::label('empresa_id', 'Empresa Id:') !!}</th>
-  <td>{!! $bcuentas->empresa_id !!}</td>
-</tr>
+                <!-- Swift Field -->
+                <tr>
+                  <th>{!! Form::label('swift', 'Swift:') !!}</th>
+                  <td>{!! $bcuentas->swift !!}</td>
+                </tr>
 
-
-<!-- Swift Field -->
-<tr>
-  <th>{!! Form::label('swift', 'Swift:') !!}</th>
-  <td>{!! $bcuentas->swift !!}</td>
-</tr>
-
-
-<!-- Created At Field -->
-<tr>
-  <th>{!! Form::label('created_at', 'Created At:') !!}</th>
-  <td>{!! $bcuentas->created_at !!}</td>
-</tr>
-
-
-<!-- Updated At Field -->
-<tr>
-  <th>{!! Form::label('updated_at', 'Updated At:') !!}</th>
-  <td>{!! $bcuentas->updated_at !!}</td>
-</tr>
-
-
-<!-- Deleted At Field -->
-<tr>
-  <th>{!! Form::label('deleted_at', 'Deleted At:') !!}</th>
-  <td>{!! $bcuentas->deleted_at !!}</td>
-</tr>
-
-
+              </tbody>
+          </table>
+        </div>
+    </div>
+</div>

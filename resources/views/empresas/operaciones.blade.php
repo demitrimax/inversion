@@ -1,8 +1,4 @@
-<div class="panel panel-color panel-success">
-    <div class="panel-heading">
-        <h3 class="panel-title">Operaciones Registradas</h3>
-    </div>
-    <div class="panel-body">
+
       @if($empresas->operaciones->count()>0)
       <table class="table table-striped table-bordered detail-view" id="corrida-table">
        <thead>
@@ -32,9 +28,7 @@
      @can('operaciones-create')
      <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#RegOperacion">Registrar Operación </button>
      @endcan
-    </div>
 
-</div>
 
 @can('operaciones-create')
 <div id="RegOperacion" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
