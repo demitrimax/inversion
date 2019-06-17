@@ -71,6 +71,12 @@ class bcuentasController extends AppBaseController
         Flash::success('Cuenta guardada correctamente.');
         Alert::success('Cuenta guardada correctamente.');
 
+        if (!empty($input['redirect'])){
+
+          $redirecciona = $input['redirect'];
+          return redirect(route($redirecciona, [$input['empresa_id']]));
+        }
+
         return redirect(route('bcuentas.index'));
     }
 
@@ -112,8 +118,10 @@ class bcuentasController extends AppBaseController
 
             return redirect(route('bcuentas.index'));
         }
+        $bancos = bancos::pluck('nombrecorto','id');
+        $empresas = empresas::pluck('nombre','id');
 
-        return view('bcuentas.edit')->with('bcuentas', $bcuentas);
+        return view('bcuentas.edit')->with(compact('bcuentas','bancos','empresas'));
     }
 
     /**

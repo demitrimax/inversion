@@ -12,6 +12,7 @@ use Alert;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use App\Models\operaciones;
+use App\Models\bancos;
 
 class empresasController extends AppBaseController
 {
@@ -89,7 +90,8 @@ class empresasController extends AppBaseController
             return redirect(route('empresas.index'));
         }
 
-        return view('empresas.show')->with('empresas', $empresas);
+        $bancos = bancos::pluck('nombrecorto','id');
+        return view('empresas.show')->with(compact('empresas','bancos'));
     }
 
     /**

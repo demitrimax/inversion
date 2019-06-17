@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title',config('app.name').' | Empresas' )
+@section('title',config('app.name').' | Empresa '.$empresas->nombre )
 @section('content')
     <section class="content-header">
         <h1>
@@ -28,7 +28,7 @@
                               </a>
                           </li>
                           <li class="">
-                              <a href="#messages" data-toggle="tab" aria-expanded="false">
+                              <a href="#operaciones" data-toggle="tab" aria-expanded="false">
                                   <span class="visible-xs"><i class="fa fa-envelope-o"></i></span>
                                   <span class="hidden-xs">Operaciones</span>
                               </a>
@@ -47,7 +47,7 @@
                           <div class="tab-pane" id="movinver">
                               @include('empresas.movimientos')
                           </div>
-                          <div class="tab-pane" id="messages">
+                          <div class="tab-pane" id="operaciones">
                               @include('empresas.operaciones')
                           </div>
                           <div class="tab-pane" id="settings">
