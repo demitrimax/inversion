@@ -21,7 +21,7 @@
    </tbody>
 </table>
 
-@can('operaciones-create')
+@can('bcuentas-create')
 <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#RegCuenta">Registrar nueva cuenta</button>
 @endcan
 
@@ -75,7 +75,7 @@
             </div>
               <div class="modal-footer">
                   <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
-                  <button type="submit" class="btn btn-primary waves-effect waves-light">Registrar Operación</button>
+                  <button type="submit" class="btn btn-primary waves-effect waves-light">Registrar nueva Cuenta</button>
               </div>
                 {!! Form::close() !!}
           </div><!-- /.modal-content -->

@@ -15,13 +15,13 @@
                   </div>
                   <div class="col-lg-6">
                       <ul class="nav nav-tabs navtab-bg">
-                          <li class="">
+                          <li class="active">
                               <a href="#cuentas" data-toggle="tab" aria-expanded="true">
                                   <span class="visible-xs"><i class="fa fa-home"></i></span>
                                   <span class="hidden-xs">Cuentas</span>
                               </a>
                           </li>
-                          <li class="active">
+                          <li class="">
                               <a href="#movinver" data-toggle="tab" aria-expanded="false">
                                   <span class="visible-xs"><i class="fa fa-user"></i></span>
                                   <span class="hidden-xs">Movimientos Inversión</span>
@@ -41,7 +41,7 @@
                           </li>
                       </ul>
                       <div class="tab-content">
-                          <div class="tab-pane" id="cuentas">
+                          <div class="tab-pane active" id="cuentas">
                             @include('empresas.cuentas')
                           </div>
                           <div class="tab-pane" id="movinver">

@@ -16,6 +16,7 @@ use App\Models\movcreditos;
 use Auth;
 use App\Models\cproyectos;
 use App\Models\empresas;
+use App\Models\bcuentas;
 
 class creditosController extends AppBaseController
 {
@@ -94,7 +95,9 @@ class creditosController extends AppBaseController
             return redirect(route('creditos.index'));
         }
         $empresas = empresas::pluck('nombre','id');
-        return view('creditos.show')->with(compact('creditos','empresas'));
+        $cuentas = bcuentas::all();
+        $cuentas = $cuentas->pluck('nomcuenta','id');
+        return view('creditos.show')->with(compact('creditos','empresas','cuentas'));
     }
 
     /**

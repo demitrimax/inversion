@@ -10,14 +10,14 @@
          </tr>
        </thead>
          <tbody>
-         @foreach($empresas->movcreditos as $key=>$movimiento)
+         foreach($empresas->movcreditos as $key=>$movimiento)
            <tr>
-             <td>{{$key+1}}</td>
-             <td>{{$movimiento->fecha->format('d-m-Y')}}</td>
-             <td>${{ number_format($movimiento->monto,2) }}</td>
-             <td>{{ $movimiento->tipo = 'Salida' ? 'Entrada' : 'Salida' }}</td>
+             <td>$key+1</td>
+             <td>$movimiento->fecha->format('d-m-Y')</td>
+             <td>$ number_format($movimiento->monto,2) </td>
+             <td> $movimiento->tipo = 'Salida' ? 'Entrada' : 'Salida' </td>
              <td></td>
            </tr>
-           @endforeach
+           endforeach
          </tbody>
      </table>

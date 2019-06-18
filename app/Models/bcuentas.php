@@ -80,4 +80,8 @@ class bcuentas extends Model
     {
       return $this->belongsTo('App\Models\empresas', 'empresa_id');
     }
+    public function getNomcuentaAttribute()
+    {
+      return $this->banco->nombrecorto.'-'.$this->numcuenta;
+    }
 }

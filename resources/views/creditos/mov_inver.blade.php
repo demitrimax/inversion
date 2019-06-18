@@ -45,7 +45,7 @@
 
               <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                  <h4 class="modal-title" id="myModalLabel">Registrar movimiento</h4>
+                  <h4 class="modal-title" id="myModalLabel">Registrar movimiento de Invesión</h4>
               </div>
               {!! Form::open(['route' => 'movimiento.store']) !!}
               <div class="modal-body">
@@ -55,7 +55,11 @@
                     {!! Form::hidden('credito_id', $creditos->id) !!}
                     {!! Form::hidden('tipo', 'Salida') !!}
                     {!! Form::label('empresa', 'Empresa:') !!}
-                    {!! Form::select('empresa', $empresas, null, ['class' => 'form-control', 'required', 'placeholder'=>'Seleccione un proyecto']) !!}
+                    {!! Form::select('empresa', $empresas, null, ['class' => 'form-control', 'required', 'placeholder'=>'Seleccione una Empresa']) !!}
+                </div>
+                <div class="form-group col-sm-6">
+                    {!! Form::label('cuenta_id', 'Núm de Cuenta:') !!}
+                    {!! Form::select('cuenta_id', $cuentas, null, ['class' => 'form-control', 'required', 'placeholder'=>'Seleccione una Cuenta']) !!}
                 </div>
                 @php
                 $tSalidas = 0;

@@ -60,10 +60,7 @@ class empresas extends Model
         'nombre' => 'required'
     ];
 
-    public function movcreditos()
-    {
-      return $this->hasMany('App\Models\movcreditos','empresa_id');
-    }
+
     public function operaciones()
     {
       return $this->hasMany('App\Models\operaciones','empresa_id');
@@ -76,14 +73,14 @@ class empresas extends Model
     public function getSaldoaldiaAttribute()
     {
       //dinero de inversiones de creditos
-      $salidas = $this->movcreditos->where('tipo','Entrada')->sum('monto');
-      $entradas = $this->movcreditos->where('tipo','Salida')->sum('monto');
+      //$salidas = $this->movcreditos->where('tipo','Entrada')->sum('monto');
+      //$entradas = $this->movcreditos->where('tipo','Salida')->sum('monto');
 
       //dinero de movimiento de Operaciones
       $opsalidas = $this->operaciones->where('tipo','Salida')->sum('monto');
       $opentradas = $this->operaciones->where('tipo', 'Entrada')->sum('monto');
 
-      $creditos = $entradas-$salidas;
+      $creditos = 0;//$entradas-$salidas;
       $operaciones = $opentradas - $opsalidas;
       return $creditos + $operaciones;
     }
