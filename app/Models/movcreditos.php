@@ -23,9 +23,9 @@ class movcreditos extends Model
 
     ];
 
-    public function empresas()
+    public function cuenta()
     {
-      return $this->belongsTo('App\Models\empresas','empresa_id');
+      return $this->belongsTo('App\Models\bcuentas', 'cuenta_id');
     }
 
 }

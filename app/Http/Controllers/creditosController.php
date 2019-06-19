@@ -180,7 +180,7 @@ class creditosController extends AppBaseController
 
       $movimiento = new movcreditos;
       $movimiento->credito_id = $input['credito_id'];
-      $movimiento->empresa_id = $input['empresa'];
+      $movimiento->cuenta_id = $input['cuenta_id'];
       $movimiento->tipo = $input['tipo'];
       $movimiento->monto = $input['monto'];
       $movimiento->fecha = $input['fecha'];
@@ -189,5 +189,16 @@ class creditosController extends AppBaseController
       $movimiento->save();
       Alert::success('Movimiento registrado correctamente');
       return back();
+    }
+    public function getCuentasEmpresa($empresaid)
+    {
+      $cuentas = bcuentas::where('empresa_id', $empresaid)->get();
+      //$getcuentas[]=[];
+      foreach($cuentas as $cuenta)
+      {
+          $getcuentas[] = ['id'=>$cuenta->id, 'nombre'=>$cuenta->nomcuenta];
+      }
+
+      return $getcuentas;
     }
 }

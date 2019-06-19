@@ -22,7 +22,7 @@
               		<td>{{$movimiento->fecha->format('d-m-Y')}}</td>
               		<td>${{ number_format($movimiento->monto,2) }}</td>
               		<td>{{ $movimiento->tipo }}</td>
-                  <td>{{ $movimiento->empresas->nombre }}</td>
+                  <td>{{ $movimiento->cuenta->empresa->nombre }}</td>
               	</tr>
                 @endforeach
               </tbody>
@@ -75,7 +75,7 @@
                 <!-- Monto Field -->
                 <div class="form-group col-sm-6">
                     {!! Form::label('monto', 'Monto:') !!}
-                    {!! Form::number('monto', null, ['class' => 'form-control', 'required', 'step'=>'0.01', 'max'=>$saldofinal]) !!}
+                    {!! Form::number('monto', $saldofinal, ['class' => 'form-control', 'required', 'step'=>'0.01', 'max'=>$saldofinal]) !!}
                 </div>
 
                 <div class="form-group col-sm-6">
@@ -99,3 +99,22 @@
       </div><!-- /.modal-dialog -->
   </div>
   @endcan
+
+@section('scripts')
+<script>
+$('#empresa').on('change', function(e) {
+  //console.log(e);
+  var empresa = e.target.value;
+  //ajax
+  $.get('{{url('getCuentasempresa')}}/' + empresa, function(data) {
+    //exito al obtener los datos
+    console.log(data);
+    $('#cuenta_id').empty();
+    $.each(data, function(index, cuentas) {
+      $('#cuenta_id').append('<option value ="' + cuentas.id + '">'+cuentas.nombre+'</option>' );
+    });
+
+  });
+});
+</script>
+@endsection

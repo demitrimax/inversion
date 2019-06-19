@@ -91,6 +91,10 @@ class creditos extends Model
     {
       return $this->hasMany('App\Models\movcreditos','credito_id');
     }
+    public function cuenta()
+    {
+      return $this->hasMany('App\Models\bcuentas', 'cuenta_id');
+    }
 
     public function getMontorestanteAttribute()
     {
