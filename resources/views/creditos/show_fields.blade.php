@@ -114,7 +114,7 @@
           <!-- Fapertura Field -->
           <tr>
             <th>{!! Form::label('fapertura', 'Fecha de apertura:') !!}</th>
-            <td>{!! $creditos->fapertura !!}</td>
+            <td>{!! $creditos->fapertura->format('d-m-Y') !!}</td>
           </tr>
 
 
@@ -136,6 +136,9 @@
 
             </tbody>
           </table>
+          @can('creditos-edit')
+          <a href="{!! route('creditos.edit', [$creditos->id]) !!}" class='btn btn-primary'><i class="glyphicon glyphicon-edit"></i> Editar</a>
+          @endcan
         </div>
     </div>
 </div>

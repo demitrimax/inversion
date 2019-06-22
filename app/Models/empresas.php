@@ -69,10 +69,6 @@ class empresas extends Model
     {
       return $this->hasMany('App\Models\bcuentas','empresa_id');
     }
-    public function movcreditos()
-    {
-      return $this->hasMany('App\Models\')
-    }
 
     public function getSaldoaldiaAttribute()
     {

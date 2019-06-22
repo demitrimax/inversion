@@ -145,7 +145,7 @@ class creditosController extends AppBaseController
         Flash::success('Creditos actualizado correctamente.');
         Alert::success('Creditos actualizado correctamente.');
 
-        return redirect(route('creditos.index'));
+        return redirect(route('creditos.show', [$creditos->id]));
     }
 
     /**

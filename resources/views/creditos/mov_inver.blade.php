@@ -58,7 +58,7 @@
                     {!! Form::select('empresa', $empresas, null, ['class' => 'form-control', 'required', 'placeholder'=>'Seleccione una Empresa']) !!}
                 </div>
                 <div class="form-group col-sm-6">
-                    {!! Form::label('cuenta_id', 'Núm de Cuenta:') !!}
+                    {!! Form::label('cuenta_id', 'Número de Cuenta:') !!}
                     {!! Form::select('cuenta_id', $cuentas, null, ['class' => 'form-control', 'required', 'placeholder'=>'Seleccione una Cuenta']) !!}
                 </div>
                 @php
