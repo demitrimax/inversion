@@ -110,5 +110,4 @@ class creditos extends Model
       return $saldofinal;
     }
 
-
 }
