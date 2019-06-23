@@ -14,7 +14,7 @@
        <td>{{$key+1}}</td>
        <td>{{$cuenta->numcuenta }}</td>
        <td>{{ $cuenta->banco->nombrecorto }}</td>
-       <td> $saldoencuenta </td>
+       <td> {{ number_format($cuenta->saldocuenta,2) }} </td>
        <td></td>
      </tr>
      @endforeach

@@ -84,4 +84,14 @@ class bcuentas extends Model
     {
       return $this->banco->nombrecorto.'-'.$this->numcuenta;
     }
+    public function movcreditos()
+    {
+      return $this->hasMany('App\Models\movcreditos','cuenta_id');
+    }
+    public function getSaldocuentaAttribute()
+    {
+      $abonos = $this->movcreditos->where('tipo','Entrada')->sum('monto');
+      $cargos = $this->movcreditos->where('tipo','Salida')->sum('monto');
+      return $abonos-$cargos;
+    }
 }

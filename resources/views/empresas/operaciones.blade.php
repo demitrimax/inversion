@@ -7,6 +7,7 @@
            <th>Fecha</th>
            <th>Monto</th>
            <th>Tipo</th>
+           <th>Cuenta</th>
            <th>Acciones</th>
          </tr>
        </thead>
@@ -17,6 +18,7 @@
              <td>{{$operacion->created_at->format('d-m-Y')}}</td>
              <td>${{ number_format($operacion->monto,2) }}</td>
              <td>{{ $operacion->tipo }}</td>
+             <td></td>
              <td></td>
            </tr>
            @endforeach
