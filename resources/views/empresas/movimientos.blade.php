@@ -23,3 +23,7 @@
            @endforeach
          </tbody>
      </table>
+
+     @can('movcreditos-create')
+     <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#MovInver">Registrar pago de inversión </button>
+     @endcan

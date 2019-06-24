@@ -34,13 +34,7 @@
   <td>{!! $cproyectos->finicio->format('d-m-Y') !!}</td>
 </tr>
 
-@if($cproyectos->movcreditos->count()>0)
-<!-- Monto Inyectado Field -->
-<tr>
-  <th>{!! Form::label('minyectado', 'Monto Inyectado:') !!}</th>
-  <td>${!! number_format($cproyectos->movcreditos->sum('monto'),2) !!}</td>
-</tr>
-@endif
+
 
 <!-- Clasificacion Field -->
 <tr>

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title',config('app.name').' | Cproyectos' )
+@section('title',config('app.name').' | Catálogo de Proyectos' )
 
 @section('content')
     <div class="row">
