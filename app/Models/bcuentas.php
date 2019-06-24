@@ -80,6 +80,10 @@ class bcuentas extends Model
     {
       return $this->belongsTo('App\Models\empresas', 'empresa_id');
     }
+    public function operaciones()
+    {
+      return $this->hasMany('App\Models\operaciones', 'cuenta_id');
+    }
     public function getNomcuentaAttribute()
     {
       return $this->banco->nombrecorto.'-'.$this->numcuenta;
@@ -92,6 +96,15 @@ class bcuentas extends Model
     {
       $abonos = $this->movcreditos->where('tipo','Entrada')->sum('monto');
       $cargos = $this->movcreditos->where('tipo','Salida')->sum('monto');
-      return $abonos-$cargos;
+
+      $opcargos = $this->operaciones->where('tipo', 'Salida')->sum('monto');
+      $opabonos = $this->operaciones->where('tipo', 'Entrada')->sum('monto');
+      $saloperaciones = $opabonos - $opcargos;
+
+      return $cargos-$abonos + $saloperaciones;
+    }
+    public function getNomcuentasaldoAttribute()
+    {
+      return $this->banco->nombrecorto.'-'.$this->numcuenta.'('.$this->saldocuenta.')';
     }
 }

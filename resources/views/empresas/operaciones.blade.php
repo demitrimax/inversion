@@ -18,7 +18,7 @@
              <td>{{$operacion->created_at->format('d-m-Y')}}</td>
              <td>${{ number_format($operacion->monto,2) }}</td>
              <td>{{ $operacion->tipo }}</td>
-             <td></td>
+             <td>{{ $operacion->cuenta->nomcuenta }}</td>
              <td></td>
            </tr>
            @endforeach
@@ -49,16 +49,23 @@
                 @php
                 $saldofinal = abs($empresas->saldoaldia);
                 @endphp
-                <!-- Monto Field -->
+
                 <div class="form-group col-sm-6">
-                    {!! Form::label('monto', 'Monto:') !!}
-                    {!! Form::number('monto', null, ['class' => 'form-control', 'required', 'step'=>'0.01', 'max'=>$saldofinal]) !!}
+                    {!! Form::label('cuenta_id', 'Cuenta:') !!}
+                    {!! Form::select('cuenta_id', $empresas->cuentas->pluck('nomcuentasaldo','id'), null, ['class' => 'form-control', 'required', 'placeholder'=>'Seleccione']) !!}
                 </div>
 
+                
                 <div class="form-group col-sm-6">
                     {!! Form::hidden('empresa_id', $empresas->id) !!}
                     {!! Form::label('tipo', 'Tipo:') !!}
                     {!! Form::select('tipo', ['Salida'=>'Cargo','Entrada'=>'Abono'], null, ['class' => 'form-control', 'required', 'placeholder'=>'Seleccione']) !!}
+                </div>
+
+                <!-- Monto Field -->
+                <div class="form-group col-sm-6">
+                    {!! Form::label('monto', 'Monto:') !!}
+                    {!! Form::number('monto', null, ['class' => 'form-control', 'required', 'step'=>'0.01', 'max'=>$saldofinal, 'min'=>0]) !!}
                 </div>
 
                 <div class="form-group col-sm-6">

@@ -1,0 +1,4 @@
+{
+    //path to the git.exe
+    "git.path":"D:\cmder\vendor\git-for-windows"
+}

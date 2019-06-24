@@ -21,6 +21,12 @@ class operaciones extends Model
 
     public $fillable = [
         'monto',
+        'empresa_id',
+        'cuenta_id',
+        'tipo',
+        'metpago',
+        'concepto',
+        'comentario',
     ];
 
     /**
@@ -29,7 +35,13 @@ class operaciones extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
+        'id'            => 'integer',
+        'empresa_id'    => 'integer',
+        'cuenta_id'     => 'integer',
+        'tipo'          => 'string',
+        'metpago'       => 'string',
+        'concepto'      => 'string',
+        'comentario'    => 'string,'
     ];
 
     /**
@@ -46,5 +58,9 @@ class operaciones extends Model
     public function empresa()
     {
       return $this->belongsTo('App\Models\empresas','empresa_id');
+    }
+    public function cuenta()
+    {
+        return $this->belongsTo('App\Models\bcuentas', 'cuenta_id');
     }
 }

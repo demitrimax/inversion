@@ -173,6 +173,7 @@ class empresasController extends AppBaseController
       $operacion = new operaciones;
       $operacion->monto = $input['monto'];
       $operacion->empresa_id = $input['empresa_id'];
+      $operacion->cuenta_id = $input['cuenta_id'];
       $operacion->tipo = $input['tipo'];
       $operacion->metpago = $input['metpago'];
       $operacion->concepto = $input['concepto'];

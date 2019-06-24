@@ -1,10 +1,10 @@
 <table class="table table-striped table-bordered detail-view" id="cuentas-table">
  <thead>
    <tr>
-     <th>Num</th>
-     <th>Fecha</th>
-     <th>Monto</th>
-     <th>Tipo</th>
+     <th>Núm</th>
+     <th>Cuenta</th>
+     <th>Banco</th>
+     <th>Saldo</th>
      <th>Acciones</th>
    </tr>
  </thead>
@@ -61,7 +61,7 @@
                   <!-- Sucursal Field -->
                   <div class="form-group col-sm-6">
                       {!! Form::label('sucursal', 'Sucursal:') !!}
-                      {!! Form::text('sucursal', null, ['class' => 'form-control']) !!}
+                      {!! Form::text('sucursal', null, ['class' => 'form-control', 'maxlength'=>'5']) !!}
                   </div>
 
                   <!-- Swift Field -->

@@ -72,17 +72,13 @@ class empresas extends Model
 
     public function getSaldoaldiaAttribute()
     {
-      //dinero de inversiones de creditos
-      //$salidas = $this->movcreditos->where('tipo','Entrada')->sum('monto');
-      //$entradas = $this->movcreditos->where('tipo','Salida')->sum('monto');
+      //dinero de saldo de cuentas
+      $saldocuentas = 0;
+      foreach($this->cuentas as $cuenta){
+        $saldocuentas += $cuenta->saldocuenta;
+      }
 
-      //dinero de movimiento de Operaciones
-      $opsalidas = $this->operaciones->where('tipo','Salida')->sum('monto');
-      $opentradas = $this->operaciones->where('tipo', 'Entrada')->sum('monto');
-
-      $creditos = 0;//$entradas-$salidas;
-      $operaciones = $opentradas - $opsalidas;
-      return $creditos + $operaciones;
+      return $saldocuentas;
     }
 
 

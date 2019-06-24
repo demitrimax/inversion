@@ -8,17 +8,16 @@
     <a href="{!! route('cproyectos.index') !!}" class="waves-effect"><i class="mdi mdi-assistant"></i><span> Proyectos</span></a>
 </li>
 @endcan
-@can('creditos-list')
-<li class="{{ Request::is('creditos*') ? 'active' : '' }}">
-    <a href="{!! route('creditos.index') !!}" class="waves-effect"><i class="ion ion-social-usd"></i><span> Creditos</span></a>
-</li>
-@endcan
 @can('empresas-list')
 <li class="{{ Request::is('empresas*') ? 'active' : '' }}">
     <a href="{!! route('empresas.index') !!}"><i class="ion ion-planet"></i><span> Empresas</span></a>
 </li>
 @endcan
-
+@can('creditos-list')
+<li class="{{ Request::is('creditos*') ? 'active' : '' }}">
+    <a href="{!! route('creditos.index') !!}" class="waves-effect"><i class="ion ion-social-usd"></i><span> Creditos</span></a>
+</li>
+@endcan
 
 <li class="has_sub">
   @php
