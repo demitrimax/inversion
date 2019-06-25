@@ -72,6 +72,8 @@
               </tbody>
           </table>
 
+          <a href="{!! route('CorridaFinanciera.create', [$creditos->id]) !!}" class='btn btn-info'><i class="ion ion-help-buoy"></i> Crear Corrida Financiera</a>
+
         </div>
     </div>
 </div>

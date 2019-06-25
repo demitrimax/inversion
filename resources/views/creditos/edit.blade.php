@@ -6,7 +6,7 @@
           @include('adminlte-templates::common.errors')
           <div class="panel panel-default">
               <div class="panel-heading">
-                  <h3 class="panel-title">Editar Creditos</h3>
+                  <h3 class="panel-title">Editar Credito: {{$creditos->nombre}}</h3>
               </div>
               <div class="panel-body">
               {!! Form::model($creditos, ['route' => ['creditos.update', $creditos->id], 'method' => 'patch']) !!}

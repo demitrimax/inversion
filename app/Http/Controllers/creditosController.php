@@ -17,6 +17,8 @@ use Auth;
 use App\Models\cproyectos;
 use App\Models\empresas;
 use App\Models\bcuentas;
+use App\Models\corridafinanciera;
+use App\Models\creditos;
 
 class creditosController extends AppBaseController
 {
@@ -200,5 +202,85 @@ class creditosController extends AppBaseController
       }
 
       return $getcuentas;
+    }
+
+    public function crearCorridaFinanciera($id) 
+    {
+        $credito = creditos::find($id);
+        
+        $primerpagfecha = $credito->finicio;
+		$ultimopagfecha = $credito->ftermino;
+        $meseslibres    = $credito->meseslibres;
+		$linea          = 0;
+		$monto          = $credito->monto_inicial;
+		$tasa           = $credito->tasainteres;
+        $tasamensual    = ($tasa/12);
+		$numdias        = $credito->finicio->diffInDays($credito->ftermino);
+        $anios          = $credito->finicio->diffInYears($credito->ftermino);
+		$numpagos       = $credito->finicio->diffInMonths($credito->ftermino)+1;
+		//cantidad final con el interes de la tasa
+        $montofinal     = $monto * (($tasa/100)+1);
+		$pagofijo       = $monto / ($numpagos - $credito->meseslibres);
+        $saldocapital   = $monto;
+		$interesi       = $pagofijo*($tasamensual);
+		$interes        = 0;
+		$total          = 0;
+        $line           = 0;
+        $pcapital       = 0;
+        function pagoint( $rt, $pv, $Tn, $n)
+        {
+          //Tasa de Interes mensual $rt = $tasainteres /12
+          //Cantidad de Coutas $Tn
+          // Valor Presente $pv
+          // couta a calcular $n
+          $rt = $rt/100;
+          //$pagointeres = ($pv * $rt * (($rt+1) ** ($Tn+1) - ($rt+1) ** $n )) / (( $rt+1 )*( (( $rt+1 ) ** $Tn) - 1));
+          $pagointeres =($pv*$rt*(($rt + 1)**($Tn + 1) - ($rt + 1)**$n)) / (($rt + 1)* (($rt + 1)**$Tn - 1));
+          return $pagointeres;
+        }
+
+        //verificar que no exista la corrida financiera
+
+        $corrida = corridafinanciera::where('credito_id', $id)->get();
+        if ($corrida->count()==$numpagos){
+            //en caso que exista se actualiza la información
+
+        }
+        else {
+            //si no existe, crear la corrida financiera
+    
+                for($i = $primerpagfecha; $i <= $ultimopagfecha; $i->addMonth() )
+                {
+                    $corrida = new corridafinanciera;
+                    $linea++;
+                    $corrida->credito_id = $id;
+                    if( $linea > $meseslibres ){
+                        $line = $linea - $credito->meseslibres; 
+                        $pcapital = $pagofijo;  
+                    }
+                    $corrida->numpago = $line;
+                    $corrida->anio = $credito->finicio->diffInYears($i)+1;
+                    $corrida->sdocapital = $saldocapital;
+                    $corrida->pagcapital = $pcapital;
+                    if($line==0){
+                        $corrida->pintereses = $pinteres = pagoint($tasamensual, $saldocapital, $numpagos, $line+1);
+                    }
+                    else{
+                        $corrida->pintereses = $pinteres = pagoint($tasamensual, $saldocapital, $numpagos, $line);
+                    }
+                    
+                    $corrida->mpago = $mpago = $pcapital+$pinteres;
+                    $corrida->saldocapital =  $saldocapital = ($saldocapital+$pinteres) - $mpago;
+                    $corrida->fecha = $i;
+                    $corrida->save();
+                }
+
+        }
+        Alert::success('Se ha creado la corrida financiera correctamente');
+        Flash::success('Se ha creado la corrida financiera correctamente');
+        return back();
+
+        
+
     }
 }

@@ -35,6 +35,7 @@ Route::group(['middleware'=>['auth']], function() {
   Route::resource('cproyectos', 'cproyectosController');
 
   Route::post('movimiento/guardar', 'creditosController@regmov')->name('movimiento.store');
+  Route::get('CorridaFinanciera/{id}', 'creditosController@crearCorridaFinanciera')->name('CorridaFinanciera.create');
 
   Route::resource('clasificas', 'clasificaController');
 
@@ -44,7 +45,9 @@ Route::group(['middleware'=>['auth']], function() {
   Route::resource('empresas', 'empresasController');
 
   Route::post('operaciones/guardar', 'empresasController@regoper')->name('operacion.store');
+
+  Route::resource('bcuentas', 'bcuentasController');
 });
 
 
-Route::resource('bcuentas', 'bcuentasController');
+
