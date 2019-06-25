@@ -21,6 +21,42 @@
            		</tr>
            	</thead>
               <tbody>
+              @php
+              $numpagos = $creditos->finicio->diffInMonths($creditos->ftermino)+1;
+              @endphp
+              
+          @if($creditos->corridas->count()==$numpagos)
+            @foreach($creditos->corridas as $key=>$corrida)
+            <tr>
+              <td>{{$key+1}}</td>
+              <td>{{$corrida->anio}}</td>
+              <td>{{ number_format($corrida->sdocapital,2) }}</td>
+              <td>{{ number_format($corrida->pagcapital,2) }}</td>
+              <td>{{ number_format($corrida->pintereses,2) }}</td>
+              <td>{{ number_format($corrida->mpago,2) }}</td>
+              <td>{{ number_format($corrida->saldocapital,2) }}</td>
+              <td>{{$corrida->numpago}}</td>
+              <td>{{$corrida->fecha->format('d-m-Y')}}</td>
+              <td><span class="label label-warning">Pendiente</span></td>
+            </tr>
+            @endforeach
+            </tbody>
+            <tfoot>
+              <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th>Total Intereses</th>
+                <th>{{ number_format($creditos->corridas->sum('pintereses'),2)}}</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+            </tfoot>
+          </table>
+          @else
               	@php
 					$primerpagfecha = $creditos->finicio;
 					$ultimopagfecha = $creditos->ftermino;
@@ -66,13 +102,15 @@
    <!-- saldo capital-->    <td>{{ number_format($saldocapital = ($saldocapital+$pinteres) - $mpago,2) }}</td>
   <!-- No de pago-->        <td>{{ ($linea) > $meseslibres ? $line = $linea - $creditos->meseslibres : $line = 0 }}</td>
                             <td>{{$i->format('d-m-Y')}}</td>
-                            <td><span class="label label-warning">Pendiente</span></td>
+                            <td><span class="label label-default">Temporal</span></td>
               	</tr>
               	@endfor
+            
               </tbody>
           </table>
 
           <a href="{!! route('CorridaFinanciera.create', [$creditos->id]) !!}" class='btn btn-info'><i class="ion ion-help-buoy"></i> Crear Corrida Financiera</a>
+          @endif
 
         </div>
     </div>

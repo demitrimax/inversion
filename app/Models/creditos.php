@@ -95,6 +95,10 @@ class creditos extends Model
     {
       return $this->hasMany('App\Models\bcuentas', 'cuenta_id');
     }
+    public function corridas()
+    {
+      return $this->hasMany('App\Models\corridafinanciera', 'credito_id');
+    }
 
     public function getMontorestanteAttribute()
     {
@@ -109,5 +113,6 @@ class creditos extends Model
       $saldofinal = $monto - ($tSalidas + $tEntradas);
       return $saldofinal;
     }
+
 
 }
