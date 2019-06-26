@@ -37,12 +37,14 @@ Route::group(['middleware'=>['auth']], function() {
   Route::post('movimiento/guardar', 'creditosController@regmov')->name('movimiento.store');
   Route::get('CorridaFinanciera/{id}', 'creditosController@crearCorridaFinanciera')->name('CorridaFinanciera.create');
 
+
   Route::resource('clasificas', 'clasificaController');
 
 
   Route::resource('bancos', 'bancosController');
 
   Route::resource('empresas', 'empresasController');
+  Route::post('empresas/pagocredito', 'empresasController@pagocredito')->name('credito.pay');
 
   Route::post('operaciones/guardar', 'empresasController@regoper')->name('operacion.store');
 

@@ -13,6 +13,7 @@ use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use App\Models\operaciones;
 use App\Models\bancos;
+use App\Models\creditos;
 
 class empresasController extends AppBaseController
 {
@@ -91,7 +92,8 @@ class empresasController extends AppBaseController
         }
 
         $bancos = bancos::pluck('nombrecorto','id');
-        return view('empresas.show')->with(compact('empresas','bancos'));
+        $creditos = creditos::pluck('nombre', 'id');
+        return view('empresas.show')->with(compact('empresas','bancos','creditos'));
     }
 
     /**
