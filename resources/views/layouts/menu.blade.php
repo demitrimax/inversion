@@ -49,6 +49,11 @@
             <a href="{!! route('bcuentas.index') !!}"><i class="fa fa-edit"></i><span>Cuentas</span></a>
         </li>
         @endcan
+        @can('metpagos-list')
+        <li class="{{ Request::is('metpagos*') ? 'active' : '' }}">
+            <a href="{!! route('metpagos.index') !!}"><i class="fa fa-edit"></i><span>Métodos de pagos</span></a>
+        </li>
+        @endcan
     </ul>
 </li>
 

@@ -55,7 +55,7 @@
                     {!! Form::select('cuenta_id', $empresas->cuentas->pluck('nomcuentasaldo','id'), null, ['class' => 'form-control', 'required', 'placeholder'=>'Seleccione']) !!}
                 </div>
 
-                
+
                 <div class="form-group col-sm-6">
                     {!! Form::hidden('empresa_id', $empresas->id) !!}
                     {!! Form::label('tipo', 'Tipo:') !!}
@@ -69,8 +69,8 @@
                 </div>
 
                 <div class="form-group col-sm-6">
-                    {!! Form::label('metpago', 'Metodo de Pago:') !!}
-                    {!! Form::select('metpago', ['1'=>'Efectivo','2'=>'Transferencia Eléctronica','3'=>'Pago Referenciado'], null, ['class' => 'form-control', 'required']) !!}
+                    {!! Form::label('metpago', 'Método de Pago:') !!}
+                    {!! Form::select('metpago', $metpago, null, ['class' => 'form-control', 'required']) !!}
                 </div>
 
                 <div class="form-group col-sm-12">
