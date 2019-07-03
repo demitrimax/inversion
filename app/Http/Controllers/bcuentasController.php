@@ -68,6 +68,11 @@ class bcuentasController extends AppBaseController
 
         $bcuentas = $this->bcuentasRepository->create($input);
 
+        if(!empty($input['empresa_id'])){
+          $empresa = empresas::find($input['empresa_id']);
+          $bcuentas->empresa()->attach($empresa);
+        }
+
         Flash::success('Cuenta guardada correctamente.');
         Alert::success('Cuenta guardada correctamente.');
 

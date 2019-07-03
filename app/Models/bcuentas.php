@@ -39,7 +39,6 @@ class bcuentas extends Model
         'clabeinterbancaria',
         'sucursal',
         'cliente_id',
-        'empresa_id',
         'swift'
     ];
 
@@ -55,7 +54,6 @@ class bcuentas extends Model
         'clabeinterbancaria' => 'string',
         'sucursal' => 'string',
         'cliente_id' => 'integer',
-        'empresa_id' => 'integer',
         'swift' => 'string'
     ];
 
@@ -76,9 +74,12 @@ class bcuentas extends Model
     {
         return $this->belongsTo(\App\Models\bancos::class, 'banco_id');
     }
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     **/
     public function empresa()
     {
-      return $this->belongsTo('App\Models\empresas', 'empresa_id');
+      return $this->belongsToMany('App\Models\empresas', 'catempresas_catcuentas');
     }
     public function operaciones()
     {

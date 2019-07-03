@@ -67,7 +67,7 @@ class empresas extends Model
     }
     public function cuentas()
     {
-      return $this->hasMany('App\Models\bcuentas','empresa_id');
+      return $this->belongsToMany('App\Models\bcuentas', 'catempresas_catcuentas');
     }
 
     public function getSaldoaldiaAttribute()
