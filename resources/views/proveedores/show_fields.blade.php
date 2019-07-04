@@ -38,26 +38,3 @@
   <th>{!! Form::label('contacto', 'Contacto:') !!}</th>
   <td>{!! $proveedores->contacto !!}</td>
 </tr>
-
-
-<!-- Created At Field -->
-<tr>
-  <th>{!! Form::label('created_at', 'Created At:') !!}</th>
-  <td>{!! $proveedores->created_at !!}</td>
-</tr>
-
-
-<!-- Deleted At Field -->
-<tr>
-  <th>{!! Form::label('deleted_at', 'Deleted At:') !!}</th>
-  <td>{!! $proveedores->deleted_at !!}</td>
-</tr>
-
-
-<!-- Updated At Field -->
-<tr>
-  <th>{!! Form::label('updated_at', 'Updated At:') !!}</th>
-  <td>{!! $proveedores->updated_at !!}</td>
-</tr>
-
-

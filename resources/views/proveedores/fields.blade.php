@@ -6,7 +6,7 @@
 
 <!-- Rfc Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('rfc', 'Rfc:') !!}
+    {!! Form::label('rfc', 'RFC:') !!}
     {!! Form::text('rfc', null, ['class' => 'form-control']) !!}
 </div>
 

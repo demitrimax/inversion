@@ -21,11 +21,21 @@
 </a><!-- sl-menu-link -->
 @endcan
 
+
 @can('creditos-list')
 <a href="{!! route('creditos.index') !!}" class="sl-menu-link {{ Request::is('creditos*') ? 'active' : '' }}">
   <div class="sl-menu-item">
     <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
     <span class="menu-item-label">Créditos</span>
+  </div><!-- menu-item -->
+</a><!-- sl-menu-link -->
+@endcan
+
+@can('proveedores-list')
+<a href="{!! route('proveedores.index') !!}" class="sl-menu-link {{ Request::is('proveedores*') ? 'active' : '' }}">
+  <div class="sl-menu-item">
+    <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
+    <span class="menu-item-label">Proveedores</span>
   </div><!-- menu-item -->
 </a><!-- sl-menu-link -->
 @endcan
