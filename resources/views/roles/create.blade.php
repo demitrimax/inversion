@@ -55,7 +55,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Role:</strong>
+                        <strong>Permisos:</strong>
                         {!! Form::select('permission[]', $permissions, null, array('class' => 'form-control select2','multiple')) !!}
                     </div>
                 </div>

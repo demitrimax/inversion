@@ -1,15 +1,17 @@
 {{-- \resources\views\permissions\create.blade.php --}}
-@extends('layouts.app')
+@extends('layouts.appv2')
 
 @section('title',config('app.name').' | Alta de Permisos' )
 
 @section('content')
 
 <div class='col-lg-4 col-lg-offset-4'>
-
-    <h1><i class='fa fa-key'></i> Alta de Permisos</h1>
+  <div class="card bg-0">
+    <div class="card-header card-header-default">
+    <h1 class="card-title"><i class='fa fa-key'></i> Alta de Permisos</h1>
     <br>
-
+  </div>
+    <div class="card-body">
     {{ Form::open(array('url' => 'permissions')) }}
 
     <div class="form-group">
@@ -29,7 +31,9 @@
     {{ Form::submit('Agregar', array('class' => 'btn btn-primary')) }}
 
     {{ Form::close() }}
+  </div>
 
+</div>
 </div>
 
 @endsection

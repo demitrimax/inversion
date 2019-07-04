@@ -20,7 +20,7 @@
         <div class="container">
 
           <div class="card panel-default">
-            <div class="card-heading">
+            <div class="card-header card-header-default">
                 <h3 class="card-title">Dashboard</h3>
             </div>
             <div class="card-body">
