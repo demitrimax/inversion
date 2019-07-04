@@ -194,9 +194,21 @@ class creditosController extends AppBaseController
     }
     public function getCuentasEmpresa($empresaid)
     {
-      $cuentas = bcuentas::where('empresa_id', $empresaid)->get();
+
+      $cuentas = bcuentas::has('empresa')->get();
+      //dd($cuentas);
+      foreach($cuentas as $cuenta){
+        foreach($cuenta->empresa as $empresa){
+          if($empresa->id == $empresaid){
+                    $accounts[] = $cuenta;
+          }
+        }
+
+
+      }
+      //dd($accounts);
       //$getcuentas[]=[];
-      foreach($cuentas as $cuenta)
+      foreach($accounts as $cuenta)
       {
           $getcuentas[] = ['id'=>$cuenta->id, 'nombre'=>$cuenta->nomcuenta];
       }
@@ -204,10 +216,10 @@ class creditosController extends AppBaseController
       return $getcuentas;
     }
 
-    public function crearCorridaFinanciera($id) 
+    public function crearCorridaFinanciera($id)
     {
         $credito = creditos::find($id);
-        
+
         $primerpagfecha = $credito->finicio;
 		$ultimopagfecha = $credito->ftermino;
         $meseslibres    = $credito->meseslibres;
@@ -248,15 +260,15 @@ class creditosController extends AppBaseController
         }
         else {
             //si no existe, crear la corrida financiera
-    
+
                 for($i = $primerpagfecha; $i <= $ultimopagfecha; $i->addMonth() )
                 {
                     $corrida = new corridafinanciera;
                     $linea++;
                     $corrida->credito_id = $id;
                     if( $linea > $meseslibres ){
-                        $line = $linea - $credito->meseslibres; 
-                        $pcapital = $pagofijo;  
+                        $line = $linea - $credito->meseslibres;
+                        $pcapital = $pagofijo;
                     }
                     $corrida->numpago = $line;
                     $corrida->anio = $credito->finicio->diffInYears($i)+1;
@@ -268,7 +280,7 @@ class creditosController extends AppBaseController
                     else{
                         $corrida->pintereses = $pinteres = pagoint($tasamensual, $saldocapital, $numpagos, $line);
                     }
-                    
+
                     $corrida->mpago = $mpago = $pcapital+$pinteres;
                     $corrida->saldocapital =  $saldocapital = ($saldocapital+$pinteres) - $mpago;
                     $corrida->fecha = $i;
@@ -280,7 +292,7 @@ class creditosController extends AppBaseController
         Flash::success('Se ha creado la corrida financiera correctamente');
         return back();
 
-        
+
 
     }
 }

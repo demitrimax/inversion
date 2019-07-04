@@ -1,9 +1,9 @@
 <div class="col-lg-6">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Datos de la Cuenta</h3>
+    <div class="card bg-0">
+        <div class="card-header card-header-default">
+            <h3 class="card-title">Datos de la Cuenta</h3>
         </div>
-        <div class="panel-body">
+        <div class="card-body">
           <table class="table table-striped table-bordered detail-view" id="bcuentas-table">
             <tbody>
                 <!-- Id Field -->

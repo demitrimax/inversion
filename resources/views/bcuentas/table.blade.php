@@ -16,12 +16,12 @@
             <td>
                 {!! Form::open(['route' => ['bcuentas.destroy', $bcuentas->id], 'method' => 'delete', 'id'=>'form'.$bcuentas->id]) !!}
                 <div class='btn-group'>
-                    <a href="{!! route('bcuentas.show', [$bcuentas->id]) !!}" class='btn btn-info btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
+                    <a href="{!! route('bcuentas.show', [$bcuentas->id]) !!}" class='btn btn-info btn-xs'><i class="fa fa-eye"></i></a>
                     @can('bcuentas-edit')
-                    <a href="{!! route('bcuentas.edit', [$bcuentas->id]) !!}" class='btn btn-primary btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
+                    <a href="{!! route('bcuentas.edit', [$bcuentas->id]) !!}" class='btn btn-primary btn-xs'><i class="fa fa-pencil"></i></a>
                     @endcan
                     @can('bcuentas-delete')
-                    {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'button', 'class' => 'btn btn-danger btn-xs', 'onclick' => "ConfirmDelete($bcuentas->id)"]) !!}
+                    {!! Form::button('<i class="fa fa-trash-o"></i>', ['type' => 'button', 'class' => 'btn btn-danger btn-xs', 'onclick' => "ConfirmDelete($bcuentas->id)"]) !!}
                     @endcan
                 </div>
                 {!! Form::close() !!}

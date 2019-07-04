@@ -31,7 +31,7 @@
 
                         </div>
                     </div>
-                </div> <!-- panel-body -->
+                </div> <!-- card-body -->
             </div> <!-- panel -->
         </div> <!-- col -->
     </div>

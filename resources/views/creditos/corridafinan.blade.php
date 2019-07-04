@@ -1,9 +1,9 @@
 <div class="col-lg-12">
     <div class="panel panel-color panel-info">
-        <div class="panel-heading">
-            <h3 class="panel-title">Corrida Financiera</h3>
+        <div class="card-header card-header-default">
+            <h3 class="card-title">Corrida Financiera</h3>
         </div>
-        <div class="panel-body">
+        <div class="card-body">
 
            <table class="table table-striped table-bordered detail-view" id="corrida-table">
            	<thead>
@@ -24,7 +24,7 @@
               @php
               $numpagos = $creditos->finicio->diffInMonths($creditos->ftermino)+1;
               @endphp
-              
+
           @if($creditos->corridas->count()==$numpagos)
             @foreach($creditos->corridas as $key=>$corrida)
             <tr>
@@ -37,7 +37,7 @@
               <td>{{ number_format($corrida->saldocapital,2) }}</td>
               <td>{{$corrida->numpago}}</td>
               <td>{{$corrida->fecha->format('d-m-Y')}}</td>
-              <td><span class="label label-warning">Pendiente</span></td>
+              <td><span class="badge badge-warning">Pendiente</span></td>
             </tr>
             @endforeach
             </tbody>
@@ -102,10 +102,10 @@
    <!-- saldo capital-->    <td>{{ number_format($saldocapital = ($saldocapital+$pinteres) - $mpago,2) }}</td>
   <!-- No de pago-->        <td>{{ ($linea) > $meseslibres ? $line = $linea - $creditos->meseslibres : $line = 0 }}</td>
                             <td>{{$i->format('d-m-Y')}}</td>
-                            <td><span class="label label-default">Temporal</span></td>
+                            <td><span class="badge badge-secondary tx-white">Temporal</span></td>
               	</tr>
               	@endfor
-            
+
               </tbody>
           </table>
 

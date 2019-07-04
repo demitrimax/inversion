@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appv2')
 @section('title',config('app.name').' | Metpagos' )
 @section('content')
     <section class="content-header">
@@ -15,7 +15,7 @@
                     @include('metpagos.show_fields')
                     </tbody>
                   </table>
-                    <a href="{!! route('metpagos.index') !!}" class="btn btn-default">Back</a>
+                    <a href="{!! route('metpagos.index') !!}" class="btn btn-secondary">Back</a>
                 </div>
             </div>
         </div>

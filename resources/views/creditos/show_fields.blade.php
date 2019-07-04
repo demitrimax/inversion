@@ -1,9 +1,9 @@
 <div class="col-lg-6">
     <div class="panel panel-color panel-primary">
-        <div class="panel-heading">
-            <h3 class="panel-title">Datos del credito</h3>
+        <div class="card-header card-header-default">
+            <h3 class="card-title">Datos del credito</h3>
         </div>
-        <div class="panel-body">
+        <div class="card-body">
             <table class="table table-striped table-bordered detail-view" id="creditos-table">
               <tbody>
 
@@ -137,7 +137,7 @@
             </tbody>
           </table>
           @can('creditos-edit')
-          <a href="{!! route('creditos.edit', [$creditos->id]) !!}" class='btn btn-primary'><i class="glyphicon glyphicon-edit"></i> Editar</a>
+          <a href="{!! route('creditos.edit', [$creditos->id]) !!}" class='btn btn-primary'><i class="fa fa-pencil"></i> Editar</a>
           @endcan
         </div>
     </div>

@@ -1,8 +1,8 @@
 <div class="panel panel-color panel-primary">
-    <div class="panel-heading">
-        <h3 class="panel-title">Detalles del Banco</h3>
+    <div class="card-header card-header-default">
+        <h3 class="card-title">Detalles del Banco</h3>
     </div>
-    <div class="panel-body">
+    <div class="card-body">
 
       <table class="table table-striped table-bordered detail-view" id="bancos-table">
         <tbody>

@@ -1,14 +1,14 @@
-@extends('layouts.app')
+@extends('layouts.appv2')
 @section('title',config('app.name').' | Alta de Nuevo Bancos' )
 @section('content')
 <div class="row">
       <div class="col-lg-12">
           @include('adminlte-templates::common.errors')
-          <div class="panel panel-default">
-              <div class="panel-heading">
-                  <h3 class="panel-title">Alta de Bancos</h3>
+          <div class="card bg-0">
+              <div class="card-header card-header-default">
+                  <h3 class="card-title">Alta de Bancos</h3>
               </div>
-              <div class="panel-body">
+              <div class="card-body">
               {!! Form::open(['route' => 'bancos.store']) !!}
 
                   @include('bancos.fields')

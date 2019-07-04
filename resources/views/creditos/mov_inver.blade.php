@@ -1,9 +1,9 @@
 <div class="col-lg-6">
     <div class="panel panel-color panel-success">
-        <div class="panel-heading">
-            <h3 class="panel-title">Movimientos de Inversiones</h3>
+        <div class="card-header card-header-default">
+            <h3 class="card-title">Movimientos de Inversiones</h3>
         </div>
-        <div class="panel-body">
+        <div class="card-body">
           @if($creditos->movcreditos->count()>0)
            <table class="table table-striped table-bordered detail-view" id="corrida-table">
            	<thead>
@@ -22,7 +22,10 @@
               		<td>{{$movimiento->fecha->format('d-m-Y')}}</td>
               		<td>${{ number_format($movimiento->monto,2) }}</td>
               		<td>{{ $movimiento->tipo }}</td>
-                  <td>{{ $movimiento->cuenta->empresa->nombre }}</td>
+                  <td>@foreach($movimiento->cuenta->empresa as $emp)
+                    {{ $emp->nombre }}
+                    @endforeach
+                  </td>
               	</tr>
                 @endforeach
               </tbody>
@@ -44,8 +47,9 @@
           <div class="modal-content">
 
               <div class="modal-header">
+                  <h4 class="tx-14 mg-b-0 tx-uppercase tx-inverse tx-bold" id="myModalLabel">Registrar movimiento de Invesión</h4>
                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                  <h4 class="modal-title" id="myModalLabel">Registrar movimiento de Invesión</h4>
+
               </div>
               {!! Form::open(['route' => 'movimiento.store']) !!}
               <div class="modal-body">
@@ -91,7 +95,7 @@
 
             </div>
               <div class="modal-footer">
-                  <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cerrar</button>
                   <button type="submit" class="btn btn-primary waves-effect waves-light">Registrar movimiento</button>
               </div>
                 {!! Form::close() !!}

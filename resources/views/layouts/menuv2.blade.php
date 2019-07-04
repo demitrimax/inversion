@@ -20,25 +20,48 @@
   </div><!-- menu-item -->
 </a><!-- sl-menu-link -->
 @endcan
-<a href="widgets.html" class="sl-menu-link">
+
+@can('creditos-list')
+<a href="{!! route('creditos.index') !!}" class="sl-menu-link {{ Request::is('creditos*') ? 'active' : '' }}">
   <div class="sl-menu-item">
     <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
-    <span class="menu-item-label">Cards &amp; Widgets</span>
+    <span class="menu-item-label">Créditos</span>
   </div><!-- menu-item -->
 </a><!-- sl-menu-link -->
-<a href="#" class="sl-menu-link">
+@endcan
+
+@php
+if( Request::is('efinancieras*') || Request::is('clasificas*') || Request::is('bancos*') ||
+      Request::is('bcuentas*') || Request::is('metpagos*')) {
+    $varActive = "active show-sub";
+} else {
+  $varActive = "";
+}
+@endphp
+
+<a href="#" class="sl-menu-link {{$varActive}}">
   <div class="sl-menu-item">
     <i class="menu-item-icon ion-ios-pie-outline tx-20"></i>
-    <span class="menu-item-label">Charts</span>
+    <span class="menu-item-label">Catálogos</span>
     <i class="menu-item-arrow fa fa-angle-down"></i>
   </div><!-- menu-item -->
 </a><!-- sl-menu-link -->
 <ul class="sl-menu-sub nav flex-column">
-  <li class="nav-item"><a href="chart-morris.html" class="nav-link">Morris Charts</a></li>
-  <li class="nav-item"><a href="chart-flot.html" class="nav-link">Flot Charts</a></li>
-  <li class="nav-item"><a href="chart-chartjs.html" class="nav-link">Chart JS</a></li>
-  <li class="nav-item"><a href="chart-rickshaw.html" class="nav-link">Rickshaw</a></li>
-  <li class="nav-item"><a href="chart-sparkline.html" class="nav-link">Sparkline</a></li>
+  @can('efinancieras-list')
+  <li class="nav-item"><a href="{!! route('efinancieras.index') !!}" class="nav-link {{ Request::is('efinancieras*') ? 'active' : '' }}">Financieras</a></li>
+  @endcan
+  @can('clasificas-list')
+  <li class="nav-item"><a href="{!! route('clasificas.index') !!}" class="nav-link {{ Request::is('clasificas*') ? 'active' : '' }}">Categorías</a></li>
+  @endcan
+  @can('bancos-list')
+  <li class="nav-item"><a href="{!! route('bancos.index') !!}" class="nav-link {{ Request::is('bancos*') ? 'active' : '' }}">Bancos</a></li>
+  @endcan
+  @can('bcuentas-list')
+  <li class="nav-item"><a href="{!! route('bcuentas.index') !!}" class="nav-link {{ Request::is('bcuentas*') ? 'active' : '' }}">Cuentas</a></li>
+  @endcan
+  @can('metpagos-list')
+  <li class="nav-item"><a href="{!! route('metpagos.index') !!}" class="nav-link {{ Request::is('metpagos*') ? 'active' : '' }}">Métodos de Pago</a></li>
+  @endcan
 </ul>
   @hasrole('administrador')
   @php

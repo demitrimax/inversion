@@ -5,8 +5,8 @@
       <div class="col-lg-12">
           @include('adminlte-templates::common.errors')
           <div class="card panel-default">
-              <div class="panel-heading">
-                  <h3 class="panel-title">Editar Proyectos</h3>
+              <div class="card-header card-header-default">
+                  <h3 class="card-title">Editar Proyectos</h3>
               </div>
               <div class="card-body">
               {!! Form::model($cproyectos, ['route' => ['cproyectos.update', $cproyectos->id], 'method' => 'patch']) !!}

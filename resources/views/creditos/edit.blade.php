@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appv2')
 @section('title',config('app.name').' | Editar Creditos' )
 @section('content')
 <div class="row">
@@ -11,11 +11,11 @@
         ADVERTENCIA: Modificar los datos de un credito puede afectar considerablemente la corrida financiera y los pagos efectuados.
         Asegurese de Eliminar los datos de la Corrida Financiera.
     </div>
-          <div class="panel panel-default">
-              <div class="panel-heading">
-                  <h3 class="panel-title">Editar Credito: {{$creditos->nombre}}</h3>
+          <div class="card bg-0">
+              <div class="card-header card-header-default">
+                  <h3 class="card-title">Editar Credito: {{$creditos->nombre}}</h3>
               </div>
-              <div class="panel-body">
+              <div class="card-body">
               {!! Form::model($creditos, ['route' => ['creditos.update', $creditos->id], 'method' => 'patch']) !!}
 
                    @include('creditos.fields')

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appv2')
 @section('title',config('app.name').' | Clasificas' )
 @section('content')
     <section class="content-header">
@@ -15,7 +15,7 @@
                     @include('clasificas.show_fields')
                     </tbody>
                   </table>
-                    <a href="{!! route('clasificas.index') !!}" class="btn btn-default">Back</a>
+                    <a href="{!! route('clasificas.index') !!}" class="btn btn-secondary">Back</a>
                 </div>
             </div>
         </div>

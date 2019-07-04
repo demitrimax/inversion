@@ -1,15 +1,15 @@
-@extends('layouts.app')
+@extends('layouts.appv2')
 
 @section('title',config('app.name').' | Efinancieras' )
 
 @section('content')
     <div class="row">
         <div class="col-md-12">
-            <div class="panel panel-primary">
-              <div class="panel-heading">
-                  <h3 class="panel-title">Efinancieras</h3>
+            <div class="card bg-0">
+              <div class="card-header card-header-default">
+                  <h3 class="card-title">Financieras</h3>
               </div>
-                <div class="panel-body">
+                <div class="card-body">
                     <h1 class="pull-right">
                       @can('efinancieras-create')
                        <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('efinancieras.create') !!}">Agregar Nuevo</a>
@@ -27,10 +27,10 @@
                             </div>
                         </div>
                         <div class="text-center">
-                            
+
                         </div>
                     </div>
-                </div> <!-- panel-body -->
+                </div> <!-- card-body -->
             </div> <!-- panel -->
         </div> <!-- col -->
     </div>

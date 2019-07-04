@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appv2')
 
 @section('stylesheets')
   <style>
@@ -143,7 +143,7 @@
                 <input type="hidden" name="iduser" value="{{ Auth::user()->id }}">
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-secondary pull-left" data-dismiss="modal">Cerrar</button>
                 <button type="submit" class="btn btn-primary">Guardar</button>
               </div>
               </form>
@@ -170,7 +170,7 @@
                   <input type="hidden" name="userid" value="{{ Auth::user()->id }}">
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-secondary pull-left" data-dismiss="modal">Cerrar</button>
                   <button type="submit" class="btn btn-primary">Guardar</button>
                 </div>
                 </form>
@@ -221,7 +221,7 @@
                         </div>
                       </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-secondary pull-left" data-dismiss="modal">Cerrar</button>
                     <button type="submit" class="btn btn-primary">Actualizar</button>
                   </div>
                   </form>

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appv2')
 
 @section('title',config('app.name').' | Usuario '.$users->name )
 
@@ -13,7 +13,7 @@
             <div class="box-body">
                 <div class="row" style="padding-left: 20px">
                     @include('users.show_fields')
-                    <a href="{!! route('users.index') !!}" class="btn btn-default">Regresar</a>
+                    <a href="{!! route('users.index') !!}" class="btn btn-secondary">Regresar</a>
                 </div>
             </div>
         </div>

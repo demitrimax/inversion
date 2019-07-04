@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appv2')
 @section('title',config('app.name').' | Bcuentas' )
 @section('content')
     <section class="content-header">
@@ -15,7 +15,7 @@
 
 
                 </div>
-                <a href="{!! route('bcuentas.index') !!}" class="btn btn-default">Regresar</a>
+                <a href="{!! route('bcuentas.index') !!}" class="btn btn-secondary">Regresar</a>
             </div>
         </div>
     </div>

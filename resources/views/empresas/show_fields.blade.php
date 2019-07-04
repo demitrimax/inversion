@@ -2,7 +2,7 @@
     <div class="card-header card-header-default">
         <h3 class="card-title">Detalle de la Empresa</h3>
     </div>
-    <div class="panel-body">
+    <div class="card-body">
       <table class="table table-striped table-bordered detail-view" id="empresas-table">
         <tbody>
 

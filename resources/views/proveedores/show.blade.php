@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appv2')
 @section('title',config('app.name').' | Proveedores' )
 @section('content')
     <section class="content-header">
@@ -15,7 +15,7 @@
                     @include('proveedores.show_fields')
                     </tbody>
                   </table>
-                    <a href="{!! route('proveedores.index') !!}" class="btn btn-default">Back</a>
+                    <a href="{!! route('proveedores.index') !!}" class="btn btn-secondary">Back</a>
                 </div>
             </div>
         </div>

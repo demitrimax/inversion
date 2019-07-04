@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appv2')
 @section('title',config('app.name').' | Bancos' )
 @section('content')
     <section class="content-header">
@@ -13,7 +13,7 @@
 
                     @include('bancos.show_fields')
 
-                    <a href="{!! route('bancos.index') !!}" class="btn btn-default">Regresar</a>
+                    <a href="{!! route('bancos.index') !!}" class="btn btn-secondary">Regresar</a>
                 </div>
             </div>
         </div>
