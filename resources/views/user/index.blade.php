@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appv2')
 
 @section('title',config('app.name').' | Administración de Usuarios' )
 
@@ -8,14 +8,15 @@
       <div class="row">
         <!-- left column -->
         <div class="col-md-12">
-                  <div class="panel">
-                    <div class="panel-heading">
-                          <h3 class="box-title">Administración de Usuarios</h3>
-                          <div class="pull-right">
-                              <a class="btn btn-success" href="{{ route('user.create') }}"> Alta de Nuevo Usuario</a>
-                          </div>
+                  <div class="card">
+                    <div class="card-header card-header-default">
+                          <h3 class="card-title">Administración de Usuarios</h3>
+
                       </div>
-                    <div class="panel-body">
+                    <div class="card-body">
+                      <div class="pull-right">
+                          <a class="btn btn-success" href="{{ route('user.create') }}"> Alta de Nuevo Usuario</a>
+                      </div><br>
 
             @if ($message = Session::get('success'))
             <div class="alert alert-success">

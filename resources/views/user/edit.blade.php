@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appv2')
 @section('title',config('app.name').' | Editar Usuario' )
 @section('css')
 <link href="{{asset('adminlte/bower_components/select2/dist/css/select2.min.css')}}" rel="stylesheet" />
@@ -19,21 +19,22 @@
 <section class="content">
   <div class="row">
     <div class="col-md-12">
-          <div class="panel panel-default">
-            <div class="panel-heading with-border">
-               <h3 class="panel-title"><i class="fa fa-pencil-square-o"></i> Editar Usuario</h3>
+          <div class="card bg-0">
+            <div class="card-header card-header-default">
+               <h3 class="card-title"><i class="fa fa-pencil-square-o"></i> Editar Usuario</h3>
 
             </div>
             <!-- /.box-header -->
-            <div class="panel-body">
-              <div class="pull-right">
-                  <a class="btn btn-primary" href="{{ route('user.index') }}"> Regresar</a>
-              </div>
-              {!! Form::model($user, ['method' => 'PATCH','route' => ['user.update', $user->id]]) !!}
+            <div class="card-body">
 
+              {!! Form::model($user, ['method' => 'PATCH','route' => ['user.update', $user->id]]) !!}
                   <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                    <a class="btn btn-primary pull-right" href="{{ route('user.index') }}"> Regresar</a>
+                  </div>
+
                       <div class="form-group">
-                          <strong>Name:</strong>
+                          <strong>Nombre:</strong>
                           {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
                       </div>
                   </div>

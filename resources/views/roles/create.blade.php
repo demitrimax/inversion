@@ -1,6 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.appv2')
 
 @section('title',config('app.name').' | Alta de Roles' )
+
+@section('css')
+<link href="{{asset('starlight/lib/select2/css/select2.min.css')}}" rel="stylesheet" />
+@endsections
 
 @section('content')
 @if (count($errors) > 0)
@@ -18,11 +22,11 @@
         <!-- left column -->
         <div class="col-md-12">
           <!-- general form elements -->
-          <div class="box box-primary">
-            <div class="box-header with-border">
-              <h3 class="box-title">Create New Role</h3>
+          <div class="card bg-0">
+            <div class="card-header card-header-default justify-content-between">
+              <h3 class="card-title">Alta de Nuevo Rol</h3>
               <div class="pull-right">
-                  <a class="btn btn-primary" href="{{ route('roles.index') }}"> Back</a>
+                  <a class="btn btn-primary" href="{{ route('roles.index') }}"> Regresar</a>
               </div>
             </div>
             @if ($message = Session::get('success'))
@@ -34,13 +38,13 @@
             {!! Form::open(array('route' => 'roles.store','method'=>'POST')) !!}
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Name:</strong>
+                        <strong>Nombre:</strong>
                         {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Permission:</strong>
+                        <strong>Permisos:</strong>
                         <br/>
                         @foreach($permission as $value)
                             <label>{{ Form::checkbox('permission[]', $value->id, false, array('class' => 'name')) }}
@@ -49,14 +53,20 @@
                         @endforeach
                     </div>
                 </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong>Role:</strong>
+                        {!! Form::select('permission[]', $permissions, null, array('class' => 'form-control select2','multiple')) !!}
+                    </div>
+                </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+
                 </div>
             {!! Form::close() !!}
               <!-- /.box-body -->
 
-              <div class="box-footer">
-
+              <div class="card-footer tx-center bg-gray-300">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
               </div>
 
           </div>
@@ -67,4 +77,14 @@
       </div>
       <!-- /.row -->
 
+@endsection
+
+@section('scripts')
+<script src="{{asset('starlight/lib/select2/js/select2.full.min.js')}}"></script>
+<!-- iCheck 1.0.1 -->
+<script>
+$(document).ready(function() {
+    $('.select2').select2();
+});
+</script>
 @endsection

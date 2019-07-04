@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appv2')
 
 @section('title',config('app.name').' | Alta de Usuario' )
 @section('content')
@@ -15,13 +15,14 @@
 <section class="content">
   <div class="row">
     <div class="col-md-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Alta de Nuevo Usuario</h3>
+          <div class="card bg-0">
+            <div class="card-header card-header-default">
+              <h3 class="card-title">Alta de Nuevo Usuario</h3>
 
             </div>
             <!-- /.box-header -->
-            <div class="panel-body">
+            <div class="card-body">
+
               <div class="pull-right">
                   <a class="btn btn-primary" href="{{ route('user.index') }}"> Regresar</a>
               </div>
@@ -29,7 +30,7 @@
               <div class="row">
                   <div class="col-xs-12 col-sm-12 col-md-12">
                       <div class="form-group">
-                          <strong>Name:</strong>
+                          <strong>Nombre:</strong>
                           {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
                       </div>
                   </div>

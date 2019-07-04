@@ -40,3 +40,24 @@
   <li class="nav-item"><a href="chart-rickshaw.html" class="nav-link">Rickshaw</a></li>
   <li class="nav-item"><a href="chart-sparkline.html" class="nav-link">Sparkline</a></li>
 </ul>
+  @hasrole('administrador')
+  @php
+  if( Request::is('user*') || Request::is('permissions*') || Request::is('roles*')  ) {
+      $varActive = "active show-sub";
+  } else {
+    $varActive = "";
+  }
+  @endphp
+<a href="#" class="sl-menu-link {{$varActive}}">
+  <div class="sl-menu-item">
+    <i class="menu-item-icon ion-ios-pie-outline tx-20"></i>
+    <span class="menu-item-label">Configuración</span>
+    <i class="menu-item-arrow fa fa-angle-down"></i>
+  </div><!-- menu-item -->
+</a><!-- sl-menu-link -->
+<ul class="sl-menu-sub nav flex-column">
+  <li class="nav-item"><a href="{{url('user')}}" class="nav-link {{ Request::is('user*') ? 'active' : '' }}">Usuarios</a></li>
+  <li class="nav-item"><a href="{{url('roles')}}" class="nav-link {{ Request::is('roles*') ? 'active' : '' }}">Roles</a></li>
+  <li class="nav-item"><a href="{{url('permissions')}}" class="nav-link {{ Request::is('permissions*') ? 'active' : '' }}">Permisos</a></li>
+</ul>
+@endhasrole

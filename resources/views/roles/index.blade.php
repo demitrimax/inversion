@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appv2')
 
 @section('title',config('app.name').' | Administración de Roles' )
 
@@ -9,15 +9,16 @@
         <!-- left column -->
         <div class="col-md-12">
           <!-- general form elements -->
-          <div class="box box-primary table-responsive no-padding">
-            <div class="box-header with-border">
-              <h3 class="box-title">Administrador de Rolest</h3>
-              <div class="pull-right">
+          <div class="card bg-0 table-responsive no-padding">
+            <div class="card-header card-header-default justify-content-between">
+              <h3 class="card-title">Administrador de Roles</h3>
+
                 @can('role-create')
-                    <a class="btn btn-success" href="{{ route('roles.create') }}"> Alta de Nuevo Rol</a>
-                    @endcan
-              </div>
+                    <a class="btn btn-success pull-right" href="{{ route('roles.create') }}"> Alta de Nuevo Rol</a>
+                @endcan
+
             </div>
+            <div class="card-body">
             @if ($message = Session::get('success'))
             <div class="alert alert-success">
               <p>{{ $message }}</p>
@@ -35,9 +36,9 @@
                     <td>{{ ++$i }}</td>
                     <td>{{ $role->name }}</td>
                     <td>
-                        <a class="btn btn-info" href="{{ route('roles.show',$role->id) }}">Show</a>
+                        <a class="btn btn-info" href="{{ route('roles.show',$role->id) }}">Mostrar</a>
                         @can('role-edit')
-                            <a class="btn btn-primary" href="{{ route('roles.edit',$role->id) }}">Edit</a>
+                            <a class="btn btn-primary" href="{{ route('roles.edit',$role->id) }}">Editar</a>
                         @endcan
                         @can('role-delete')
                             {!! Form::open(['method' => 'DELETE','route' => ['roles.destroy', $role->id],'style'=>'display:inline']) !!}
@@ -48,6 +49,7 @@
                 </tr>
                 @endforeach
             </table>
+          </div>
               <!-- /.box-body -->
 
               <div class="box-footer">

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appv2')
 
 @section('title',config('app.name').' | Rol '.$role->name )
 
@@ -8,9 +8,9 @@
         <!-- left column -->
         <div class="col-md-12">
           <!-- general form elements -->
-          <div class="box box-primary">
-            <div class="box-header with-border">
-              <h3 class="box-title">Rol: {{ $role->name }}</h3>
+          <div class="card bg-0">
+            <div class="card-hader card-header-default">
+              <h3 class="card-title">Rol: {{ $role->name }}</h3>
               <div class="pull-right">
                   <a class="btn btn-primary" href="{{ route('roles.index') }}"> Regresar</a>
               </div>
@@ -21,6 +21,7 @@
             </div>
             @endif
             <!-- /.box-header -->
+            <div class="card-body">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Name:</strong>
@@ -42,6 +43,7 @@
               <div class="box-footer">
                         Asignar Permisos
               </div>
+            </div>
 
           </div>
           <!-- /.box -->
