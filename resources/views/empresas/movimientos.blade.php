@@ -34,8 +34,8 @@
           <div class="modal-content">
 
               <div class="modal-header">
+                  <h4 class="tx-14 mg-b-0 tx-uppercase tx-inverse tx-bold" id="myModalLabel">Registrar pago de Inversión</h4>
                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                  <h4 class="modal-title" id="myModalLabel">Registrar pago de Inversión</h4>
               </div>
               {!! Form::open(['route' => 'credito.pay']) !!}
               <div class="modal-body">
@@ -51,7 +51,7 @@
                     {!! Form::label('cuenta_id', 'Cuenta:') !!}
                     {!! Form::select('cuenta_id', $empresas->cuentas->pluck('nomcuentasaldo','id'), null, ['class' => 'form-control', 'required', 'placeholder'=>'Seleccione']) !!}
                 </div>
-                
+
                 <div class="form-group col-sm-6">
                     {!! Form::label('credito_id', 'Crédito:') !!}
                     {!! Form::select('credito_id', $creditos, null, ['class' => 'form-control']) !!}

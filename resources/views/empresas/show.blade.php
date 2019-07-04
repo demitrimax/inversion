@@ -1,58 +1,76 @@
-@extends('layouts.app')
+@extends('layouts.appv2')
 @section('title',config('app.name').' | Empresa '.$empresas->nombre )
 @section('content')
-    <section class="content-header">
-        <h1>
-            {{$empresas->nombre}}
-        </h1>
-    </section>
+
+    <div class="sl-page-title">
+          <h5>{{$empresas->nombre}}</h5>
+    </div>
+
     <div class="content">
-        <div class="box box-primary">
-            <div class="box-body">
+        <div class="card card-primary">
+            <div class="card-body">
                 <div class="row" style="padding-left: 20px">
                   <div class="col-md-6">
                     @include('empresas.show_fields')
                   </div>
-                  <div class="col-lg-6">
-                      <ul class="nav nav-tabs navtab-bg">
-                          <li class="active">
-                              <a href="#cuentas" data-toggle="tab" aria-expanded="true">
-                                  <span class="visible-xs"><i class="fa fa-home"></i></span>
-                                  <span class="hidden-xs">Cuentas</span>
-                              </a>
-                          </li>
-                          <li class="">
-                              <a href="#movinver" data-toggle="tab" aria-expanded="false">
-                                  <span class="visible-xs"><i class="fa fa-user"></i></span>
-                                  <span class="hidden-xs">Movimientos Inversión</span>
-                              </a>
-                          </li>
-                          <li class="">
-                              <a href="#operaciones" data-toggle="tab" aria-expanded="false">
-                                  <span class="visible-xs"><i class="fa fa-envelope-o"></i></span>
-                                  <span class="hidden-xs">Operaciones</span>
-                              </a>
-                          </li>
 
-                      </ul>
-                      <div class="tab-content">
-                          <div class="tab-pane active" id="cuentas">
+              <div class="col-md-6">
+
+                <div id="accordion" class="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="card">
+                      <div class="card-header" role="tab" id="headingOne">
+                        <h6 class="mg-b-0">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="tx-gray-800 transition">
+                            Cuentas
+                          </a>
+                        </h6>
+                      </div><!-- card-header -->
+
+                      <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" style="">
+                        <div class="card-body">
                             @include('empresas.cuentas')
-                          </div>
-                          <div class="tab-pane" id="movinver">
-                              @include('empresas.movimientos')
-                          </div>
-                          <div class="tab-pane" id="operaciones">
-                              @include('empresas.operaciones')
-                          </div>
-
+                        </div>
                       </div>
+                    </div>
+
+                    <div class="card">
+                      <div class="card-header" role="tab" id="headingTwo">
+                        <h6 class="mg-b-0">
+                          <a class="transition collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Movimientos de Inversión
+                          </a>
+                        </h6>
+                      </div>
+                      <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" style="">
+                        <div class="card-body">
+                          @include('empresas.movimientos')
+                      </div>
+                    </div>
+                    <div class="card">
+                      <div class="card-header" role="tab" id="headingThree">
+                        <h6 class="mg-b-0">
+                          <a class="transition collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Operaciones
+                          </a>
+                        </h6>
+                      </div>
+                      <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" style="">
+                        <div class="card-body">
+                          @include('empresas.operaciones')
+                      </div><!-- collapse -->
+                    </div><!-- card -->
                   </div>
 
+            </div>
 
                 </div>
-                <a href="{!! route('empresas.index') !!}" class="btn btn-default">Regresar</a>
+
             </div>
         </div>
     </div>
+    <div class="card-footer tx-center bg-gray-300">
+                  <a href="{!! route('empresas.index') !!}" class="btn btn-primary">Regresar</a>
+                </div>
+  </div>
+</div>
 @endsection

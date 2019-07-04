@@ -1,6 +1,6 @@
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title">Detalle de la Empresa</h3>
+<div class="card card-rounded-0">
+    <div class="card-header card-header-default">
+        <h3 class="card-title">Detalle de la Empresa</h3>
     </div>
     <div class="panel-body">
       <table class="table table-striped table-bordered detail-view" id="empresas-table">

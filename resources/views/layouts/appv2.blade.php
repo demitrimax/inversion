@@ -73,10 +73,7 @@
 
  <!-- ########## START: MAIN PANEL ########## -->
  <div class="sl-mainpanel">
-   <nav class="breadcrumb sl-breadcrumb">
-     <a class="breadcrumb-item" href="index.html">Principal</a>
-     <span class="breadcrumb-item active">Dashboard</span>
-   </nav>
+   @yield('breadcrum')
 
    <div class="sl-pagebody">
 
@@ -114,7 +111,8 @@
 
  <script src="{{asset('starlight/js/starlight.js')}}"></script>
  <script src="{{asset('starlight/js/ResizeSensor.js')}}"></script>
- <script src="{{asset('starlight/js/dashboard.js')}}"></script>
 
+ @include('sweetalert::alert')`
+ @yield('scripts')
   </body>
 </html>

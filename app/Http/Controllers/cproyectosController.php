@@ -50,7 +50,7 @@ class cproyectosController extends AppBaseController
     public function create()
     {
         $clasificacion = clasifica::pluck('nombre','id');
-        return view('cproyectos.create')->with(compact('$clasificacion'));
+        return view('cproyectos.create')->with(compact('clasificacion'));
     }
 
     /**

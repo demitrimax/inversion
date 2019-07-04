@@ -1,5 +1,12 @@
 @extends('layouts.appv2')
 
+@section('breadcrum')
+<nav class="breadcrumb sl-breadcrumb">
+  <a class="breadcrumb-item" href="{{url('/')}}">Principal</a>
+  <span class="breadcrumb-item active">Dashboard</span>
+</nav>
+@endsection
+
 @section('content')
 
 <div class="">
@@ -12,11 +19,11 @@
 
         <div class="container">
 
-          <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Dashboard</h3>
+          <div class="card panel-default">
+            <div class="card-heading">
+                <h3 class="card-title">Dashboard</h3>
             </div>
-            <div class="panel-body">
+            <div class="card-body">
               @if (session('status'))
                   <div class="alert alert-success" role="alert">
                       {{ session('status') }}
