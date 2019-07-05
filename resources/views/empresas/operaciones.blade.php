@@ -1,7 +1,7 @@
 
       @if($empresas->operaciones->count()>0)
       <table class="table table-striped table-bordered detail-view" id="corrida-table">
-       <thead>
+       <thead class="bg-primary">
          <tr>
            <th>Num</th>
            <th>Fecha</th>
@@ -12,7 +12,7 @@
          </tr>
        </thead>
          <tbody>
-         @foreach($empresas->operaciones as $key=>$operacion)
+         @foreach($empresas->operaciones->slice(0,10) as $key=>$operacion)
            <tr>
              <td>{{$key+1}}</td>
              <td>{{$operacion->created_at->format('d-m-Y')}}</td>
@@ -52,7 +52,7 @@
 
                 <div class="form-group col-sm-6">
                     {!! Form::label('cuenta_id', 'Cuenta:') !!}
-                    {!! Form::select('cuenta_id', $empresas->cuentas->pluck('nomcuentasaldo','id'), null, ['class' => 'form-control', 'required', 'placeholder'=>'Seleccione']) !!}
+                    {!! Form::select('cuenta_id', $cuental, null, ['class' => 'form-control', 'required', 'placeholder'=>'Seleccione']) !!}
                 </div>
 
 
@@ -71,6 +71,16 @@
                 <div class="form-group col-sm-6">
                     {!! Form::label('metpago', 'Método de Pago:') !!}
                     {!! Form::select('metpago', $metpago, null, ['class' => 'form-control', 'required']) !!}
+                </div>
+
+                <div class="form-group col-sm-6">
+                    {!! Form::label('proveedor', 'Proveedor:') !!}
+                    {!! Form::select('proveedor', $proveedores, null, ['class' => 'form-control', 'required']) !!}
+                </div>
+
+                <div class="form-group col-sm-6">
+                    {!! Form::label('numfactura', '# de Factura:') !!}
+                    {!! Form::text('numfactura', null, ['class' => 'form-control', 'required']) !!}
                 </div>
 
                 <div class="form-group col-sm-12">

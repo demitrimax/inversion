@@ -15,6 +15,8 @@ use App\Models\operaciones;
 use App\Models\bancos;
 use App\Models\creditos;
 use App\Models\metpago;
+use App\Models\bcuentas;
+use App\Models\proveedores;
 
 class empresasController extends AppBaseController
 {
@@ -91,11 +93,18 @@ class empresasController extends AppBaseController
 
             return redirect(route('empresas.index'));
         }
-
+        $empresaid = $empresas->id;
+        $cuentas = bcuentas::with('empresa')->whereHas('empresa', function($q) use ($empresaid) {
+          $q->where('id',$empresaid);
+        })->get();
+        //dd($cuentas);
+        $cuental = $cuentas->pluck('nomcuentasaldo', 'id');
+        //dd($cuentas);
         $bancos = bancos::pluck('nombrecorto','id');
         $creditos = creditos::pluck('nombre', 'id');
         $metpago = metpago::pluck('nombre','id');
-        return view('empresas.show')->with(compact('empresas','bancos','creditos','metpago'));
+        $proveedores = proveedores::pluck('nombre','id');
+        return view('empresas.show')->with(compact('empresas','bancos','creditos','metpago','cuental', 'proveedores'));
     }
 
     /**
@@ -190,5 +199,12 @@ class empresasController extends AppBaseController
       Alert::success('Operación registrada correctamente.');
 
       return back();
+    }
+
+    public function pagocredito(Request $request)
+    {
+      $input = $request->all();
+      dd($request);
+      return 'Pago del credito';
     }
 }

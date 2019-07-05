@@ -1,6 +1,6 @@
 
       <table class="table table-striped table-bordered detail-view" id="movcuentas-table">
-       <thead>
+       <thead class="bg-primary">
          <tr>
            <th>Num</th>
            <th>Fecha</th>
@@ -49,7 +49,7 @@
                 {!! Form::hidden('concepto', 'pago credito') !!}
                 <div class="form-group col-sm-6">
                     {!! Form::label('cuenta_id', 'Cuenta:') !!}
-                    {!! Form::select('cuenta_id', $empresas->cuentas->pluck('nomcuentasaldo','id'), null, ['class' => 'form-control', 'required', 'placeholder'=>'Seleccione']) !!}
+                    {!! Form::select('cuenta_id', $cuental, null, ['class' => 'form-control', 'required', 'placeholder'=>'Seleccione']) !!}
                 </div>
 
                 <div class="form-group col-sm-6">

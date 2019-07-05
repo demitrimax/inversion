@@ -106,6 +106,6 @@ class bcuentas extends Model
     }
     public function getNomcuentasaldoAttribute()
     {
-      return $this->banco->nombrecorto.'-'.$this->numcuenta.'('.$this->saldocuenta.')';
+      return $this->banco->nombrecorto.'-'.$this->numcuenta.'($'.number_format($this->saldocuenta,2).')';
     }
 }

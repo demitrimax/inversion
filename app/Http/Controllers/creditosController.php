@@ -210,7 +210,7 @@ class creditosController extends AppBaseController
       //$getcuentas[]=[];
       foreach($accounts as $cuenta)
       {
-          $getcuentas[] = ['id'=>$cuenta->id, 'nombre'=>$cuenta->nomcuenta];
+          $getcuentas[] = ['id'=>$cuenta->id, 'nombre'=>$cuenta->nomcuentasaldo];
       }
 
       return $getcuentas;

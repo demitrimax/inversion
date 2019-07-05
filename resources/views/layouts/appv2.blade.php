@@ -4,23 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <meta name="twitter:site" content="@themepixels">
-        <meta name="twitter:creator" content="@themepixels">
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="Starlight">
-        <meta name="twitter:description" content="Premium Quality and Responsive UI for Dashboard.">
-        <meta name="twitter:image" content="http://themepixels.me/starlight/img/starlight-social.png">
 
-        <!-- Facebook -->
-        <meta property="og:url" content="http://themepixels.me/starlight">
-        <meta property="og:title" content="Starlight">
-        <meta property="og:description" content="Premium Quality and Responsive UI for Dashboard.">
-
-        <meta property="og:image" content="http://themepixels.me/starlight/img/starlight-social.png">
-        <meta property="og:image:secure_url" content="http://themepixels.me/starlight/img/starlight-social.png">
-        <meta property="og:image:type" content="image/png">
-        <meta property="og:image:width" content="1200">
-        <meta property="og:image:height" content="600">
 
         <!-- Meta -->
         <meta name="description" content="Premium Quality and Responsive UI for Dashboard.">
@@ -45,7 +29,7 @@
 
 <body>
   <!-- ########## START: LEFT PANEL ########## -->
- <div class="sl-logo"><a href=""><i class="icon ion-android-star-outline"></i> ProyInver</a></div>
+ <div class="sl-logo"><a href=""><i class="icon ion-android-star-outline"></i> INVERSIÓN</a></div>
  <div class="sl-sideleft">
    <div class="input-group input-group-search">
      <input type="search" name="search" class="form-control" placeholder="Search">
@@ -54,7 +38,7 @@
      </span><!-- input-group-btn -->
    </div><!-- input-group -->
 
-   <label class="sidebar-label">Navigation</label>
+   <label class="sidebar-label">Navegación</label>
    <div class="sl-sideleft-menu">
      @include('layouts.menuv2')
    </div><!-- sl-sideleft-menu -->
@@ -101,7 +85,7 @@
  <script src="{{asset('starlight/lib/jquery-ui/jquery-ui.js')}}"></script>
  <script src="{{asset('starlight/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.js')}}"></script>
  <script src="{{asset('starlight/lib/jquery.sparkline.bower/jquery.sparkline.min.js')}}"></script>
- <script src=".{{asset('starlightlib/d3/d3.js')}}"></script>
+ <script src="{{asset('starlight/lib/d3/d3.js')}}"></script>
  <script src="{{asset('starlight/lib/rickshaw/rickshaw.min.js')}}"></script>
  <script src="{{asset('starlight/lib/chart.js/Chart.js')}}"></script>
  <script src="{{asset('starlight/lib/Flot/jquery.flot.js')}}"></script>

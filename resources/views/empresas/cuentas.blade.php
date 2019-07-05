@@ -1,5 +1,5 @@
 <table class="table table-striped table-bordered detail-view" id="cuentas-table">
- <thead>
+ <thead class="bg-primary">
    <tr>
      <th>Núm</th>
      <th>Cuenta</th>
@@ -14,7 +14,7 @@
        <td>{{$key+1}}</td>
        <td>{{$cuenta->numcuenta }}</td>
        <td>{{ $cuenta->banco->nombrecorto }}</td>
-       <td> {{ number_format($cuenta->saldocuenta,2) }} </td>
+       <td>${{ number_format($cuenta->saldocuenta,2) }} </td>
        <td></td>
      </tr>
      @endforeach
