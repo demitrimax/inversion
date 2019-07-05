@@ -1,10 +1,13 @@
 @extends('layouts.appv2')
 @section('title',config('app.name').' | Empresa '.$empresas->nombre )
+@section('breadcrum')
+<nav class="breadcrumb sl-breadcrumb">
+  <a class="breadcrumb-item" href="{{url('/')}}">Principal</a>
+  <a class="breadcrumb-item" href="{{url('/empresas')}}">Empresas</a>
+  <span class="breadcrumb-item active">{{$empresas->nombre}}</span>
+</nav>
+@endsection
 @section('content')
-
-    <div class="sl-page-title">
-          <h5>{{$empresas->nombre}}</h5>
-    </div>
 
     <div class="content">
         <div class="card card-primary">

@@ -3,6 +3,7 @@
         <tr>
             <th>Nombre</th>
             <th>Fecha de creación</th>
+            <td>Saldo al día</th>
             <th colspan="3">Acciones</th>
         </tr>
     </thead>
@@ -11,6 +12,7 @@
         <tr>
             <td><a href="{!! route('empresas.show', [$empresas->id]) !!}">{!! $empresas->nombre !!}</a></td>
             <td>{!! $empresas->fcreacion->format('M, Y') !!}</td>
+            <td>{{ number_format($empresas->saldoaldia,2)}}</td>
             <td>
                 {!! Form::open(['route' => ['empresas.destroy', $empresas->id], 'method' => 'delete', 'id'=>'form'.$empresas->id]) !!}
                 <div class='btn-group'>

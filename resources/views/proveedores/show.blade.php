@@ -1,5 +1,14 @@
 @extends('layouts.appv2')
 @section('title',config('app.name').' | Proveedores' )
+
+@section('breadcrum')
+<nav class="breadcrumb sl-breadcrumb">
+  <a class="breadcrumb-item" href="{{url('/')}}">Principal</a>
+  <a class="breadcrumb-item" href="{{url('/proveedores')}}">Proveedores</a>
+  <span class="breadcrumb-item active">{{$proveedores->nombre}}</span>
+</nav>
+@endsection
+
 @section('content')
     <section class="content-header">
         <h1>
