@@ -17,20 +17,20 @@
           <div class="col-sm-6 col-xl-3">
             <div class="card pd-20 bg-primary">
               <div class="d-flex justify-content-between align-items-center mg-b-10">
-                <h6 class="tx-11 tx-uppercase mg-b-0 tx-spacing-1 tx-white">Today's Sales</h6>
+                <h6 class="tx-11 tx-uppercase mg-b-0 tx-spacing-1 tx-white">Pagos de Hoy</h6>
                 <a href="" class="tx-white-8 hover-white"><i class="icon ion-android-more-horizontal"></i></a>
               </div><!-- card-header -->
               <div class="d-flex align-items-center justify-content-between">
                 <span class="sparkline2"><canvas width="59" height="50" style="display: inline-block; width: 59px; height: 50px; vertical-align: top;"></canvas></span>
-                <h3 class="mg-b-0 tx-white tx-lato tx-bold">$850</h3>
+                <h3 class="mg-b-0 tx-white tx-lato tx-bold">${{number_format($pagoshoy,2)}}</h3>
               </div><!-- card-body -->
               <div class="d-flex align-items-center justify-content-between mg-t-15 bd-t bd-white-2 pd-t-10">
                 <div>
-                  <span class="tx-11 tx-white-6">Gross Sales</span>
+                  <span class="tx-11 tx-white-6">Pag. Creditos</span>
                   <h6 class="tx-white mg-b-0">$2,210</h6>
                 </div>
                 <div>
-                  <span class="tx-11 tx-white-6">Tax Return</span>
+                  <span class="tx-11 tx-white-6">Pag. Opera</span>
                   <h6 class="tx-white mg-b-0">$320</h6>
                 </div>
               </div><!-- -->
@@ -39,7 +39,7 @@
           <div class="col-sm-6 col-xl-3 mg-t-20 mg-sm-t-0">
             <div class="card pd-20 bg-info">
               <div class="d-flex justify-content-between align-items-center mg-b-10">
-                <h6 class="tx-11 tx-uppercase mg-b-0 tx-spacing-1 tx-white">This Week's Sales</h6>
+                <h6 class="tx-11 tx-uppercase mg-b-0 tx-spacing-1 tx-white">INGRESOS DE HOY</h6>
                 <a href="" class="tx-white-8 hover-white"><i class="icon ion-android-more-horizontal"></i></a>
               </div><!-- card-header -->
               <div class="d-flex align-items-center justify-content-between">
@@ -61,17 +61,17 @@
           <div class="col-sm-6 col-xl-3 mg-t-20 mg-xl-t-0">
             <div class="card pd-20 bg-purple">
               <div class="d-flex justify-content-between align-items-center mg-b-10">
-                <h6 class="tx-11 tx-uppercase mg-b-0 tx-spacing-1 tx-white">This Month's Sales</h6>
+                <h6 class="tx-11 tx-uppercase mg-b-0 tx-spacing-1 tx-white">PAGOS PENDIENTES ESTE MES</h6>
                 <a href="" class="tx-white-8 hover-white"><i class="icon ion-android-more-horizontal"></i></a>
               </div><!-- card-header -->
               <div class="d-flex align-items-center justify-content-between">
                 <span class="sparkline2"><canvas width="59" height="50" style="display: inline-block; width: 59px; height: 50px; vertical-align: top;"></canvas></span>
-                <h3 class="mg-b-0 tx-white tx-lato tx-bold">$11,908</h3>
+                <h3 class="mg-b-0 tx-white tx-lato tx-bold">${{ number_format($pagopend,2)}}</h3>
               </div><!-- card-body -->
               <div class="d-flex align-items-center justify-content-between mg-t-15 bd-t bd-white-2 pd-t-10">
                 <div>
-                  <span class="tx-11 tx-white-6">Gross Sales</span>
-                  <h6 class="tx-white mg-b-0">$2,210</h6>
+                  <span class="tx-11 tx-white-6">Intereses</span>
+                  <h6 class="tx-white mg-b-0">${{number_format($intereses,2)}}</h6>
                 </div>
                 <div>
                   <span class="tx-11 tx-white-6">Tax Return</span>
@@ -83,17 +83,17 @@
           <div class="col-sm-6 col-xl-3 mg-t-20 mg-xl-t-0">
             <div class="card pd-20 bg-sl-primary">
               <div class="d-flex justify-content-between align-items-center mg-b-10">
-                <h6 class="tx-11 tx-uppercase mg-b-0 tx-spacing-1 tx-white">This Year's Sales</h6>
+                <h6 class="tx-11 tx-uppercase mg-b-0 tx-spacing-1 tx-white">TOTAL PAGOS PENDIENTES</h6>
                 <a href="" class="tx-white-8 hover-white"><i class="icon ion-android-more-horizontal"></i></a>
               </div><!-- card-header -->
               <div class="d-flex align-items-center justify-content-between">
                 <span class="sparkline2"><canvas width="59" height="50" style="display: inline-block; width: 59px; height: 50px; vertical-align: top;"></canvas></span>
-                <h3 class="mg-b-0 tx-white tx-lato tx-bold">$91,239</h3>
+                <h3 class="mg-b-0 tx-white tx-lato tx-bold">${{number_format($totalpagopend,2) }}</h3>
               </div><!-- card-body -->
               <div class="d-flex align-items-center justify-content-between mg-t-15 bd-t bd-white-2 pd-t-10">
                 <div>
-                  <span class="tx-11 tx-white-6">Gross Sales</span>
-                  <h6 class="tx-white mg-b-0">$2,210</h6>
+                  <span class="tx-11 tx-white-6">Intereses</span>
+                  <h6 class="tx-white mg-b-0">${{number_format($totalinteres,2)}}</h6>
                 </div>
                 <div>
                   <span class="tx-11 tx-white-6">Tax Return</span>
@@ -156,8 +156,8 @@
           <div class="col-xl-4 mg-t-20 mg-xl-t-0">
 
             <div class="card pd-20 pd-sm-25">
-              <h6 class="card-body-title">Pie Chart</h6>
-              <p class="mg-b-20 mg-sm-b-30">Labels can be hidden if the slice is less than a given percentage of the pie.</p>
+              <h6 class="card-body-title">Distribución</h6>
+              <p class="mg-b-20 mg-sm-b-30">El dinero que actualmente tiene cada proyecto</p>
               <div id="flotPie2" class="ht-200 ht-sm-250" style="padding: 0px; position: relative;"><canvas class="flot-base" width="819" height="250" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 819px; height: 250px;"></canvas><canvas class="flot-overlay" width="819" height="250" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 819px; height: 250px;"></canvas><span class="pieLabel" id="pieLabel1" style="position: absolute; top: 37px; left: 433px;"><div style="font-size:8pt; text-align:center; padding:2px; color:white;">Series 2<br>11%</div></span><span class="pieLabel" id="pieLabel2" style="position: absolute; top: 136px; left: 468px;"><div style="font-size:8pt; text-align:center; padding:2px; color:white;">Series 3<br>32%</div></span><span class="pieLabel" id="pieLabel3" style="position: absolute; top: 179px; left: 345px;"><div style="font-size:8pt; text-align:center; padding:2px; color:white;">Series 4<br>25%</div></span><span class="pieLabel" id="pieLabel4" style="position: absolute; top: 56px; left: 324px;"><div style="font-size:8pt; text-align:center; padding:2px; color:white;">Series 5<br>29%</div></span></div>
             </div><!-- card -->
 
@@ -222,4 +222,50 @@
 @section('scripts')
 
 <script src="{{asset('starlight/js/dashboard.js')}}"></script>
+//script del barchar
+<script>
+$(function(){
+  'use strict';
+  @php
+  $colores = [
+  '#677489',
+  '#218bc2',
+  '#7CBDDF',
+  '#5B93D3',
+  '#324463',
+];
+  @endphp
+    var piedata = [
+      @foreach($business as $key=>$empresa)
+      { label: "{{$empresa->nombre}}", data: [[1,{{$empresa->saldoaldia}}]], color: '{{$colores[$key]}}'},
+      @endforeach
+    ];
+
+
+    $.plot('#flotPie2', piedata, {
+      series: {
+        pie: {
+          show: true,
+          radius: 1,
+          innerRadius: 0.5,
+          label: {
+            show: true,
+            radius: 2/3,
+            formatter: labelFormatter,
+            threshold: 0.1
+          }
+        }
+      },
+      grid: {
+        hoverable: true,
+        clickable: true
+      },
+      legend: { show: false }
+    });
+
+    function labelFormatter(label, series) {
+      return "<div style='font-size:8pt; text-align:center; padding:2px; color:white;'>" + label + "<br/>" + Math.round(series.percent) + "%</div>";
+    }
+  });
+</script>
 @endsection
