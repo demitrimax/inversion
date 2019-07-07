@@ -2,6 +2,13 @@
 
 @section('title',config('app.name').' | Proveedores' )
 
+@section('breadcrum')
+<nav class="breadcrumb sl-breadcrumb">
+  <a class="breadcrumb-item" href="{{url('/home')}}">Principal</a>
+  <a class="breadcrumb-item active" href="{{url('/proveedores')}}">Proveedores</a>
+</nav>
+@endsection
+
 @section('content')
     <div class="row">
         <div class="col-md-12">
@@ -27,7 +34,7 @@
                             </div>
                         </div>
                         <div class="text-center">
-                            
+
                         </div>
                     </div>
                 </div> <!-- card-body -->

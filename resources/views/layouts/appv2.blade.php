@@ -17,7 +17,7 @@
 
     <!-- vendor css -->
 <link href="{{asset('starlight/lib/font-awesome/css/font-awesome.css')}}" rel="stylesheet">
-<link href="{{asset('starlight/lib/Ionicons/css/ionicons.css')}}" rel="stylesheet">
+<link href="{{asset('starlight/lib/Ionicons/css/ionicons.min.css')}}" rel="stylesheet">
 <link href="{{asset('starlight/lib/perfect-scrollbar/css/perfect-scrollbar.css')}}" rel="stylesheet">
 <link href="{{asset('starlight/lib/rickshaw/rickshaw.min.css')}}" rel="stylesheet">
 

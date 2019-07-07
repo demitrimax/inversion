@@ -74,8 +74,8 @@
                 </div>
 
                 <div class="form-group col-sm-6">
-                    {!! Form::label('proveedor', 'Proveedor:') !!}
-                    {!! Form::select('proveedor', $proveedores, null, ['class' => 'form-control', 'required']) !!}
+                    {!! Form::label('proveedor_id', 'Proveedor:') !!}
+                    {!! Form::select('proveedor_id', $proveedores, null, ['class' => 'form-control', 'required']) !!}
                 </div>
 
                 <div class="form-group col-sm-6">

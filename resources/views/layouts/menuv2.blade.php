@@ -1,13 +1,13 @@
 <a href="{{url('/home')}}" class="sl-menu-link {{ Request::is('home*') ? 'active' : '' }}">
   <div class="sl-menu-item">
-    <i class="menu-item-icon icon ion-ios-home-outline tx-22"></i>
+    <i class="menu-item-icon icon ion-ios-desktop tx-22"></i>
     <span class="menu-item-label">Dashboard</span>
   </div><!-- menu-item -->
 </a><!-- sl-menu-link -->
 @can('cproyectos-list')
 <a href="{!! route('cproyectos.index') !!}" class="sl-menu-link {{ Request::is('cproyectos*') ? 'active' : '' }}">
   <div class="sl-menu-item">
-    <i class="menu-item-icon icon ion-ios-videocam-outline tx-20"></i>
+    <i class="menu-item-icon icon ion-ios-filing tx-20"></i>
     <span class="menu-item-label">Proyectos</span>
   </div><!-- menu-item -->
 </a><!-- sl-menu-link -->
@@ -15,7 +15,7 @@
 @can('empresas-list')
 <a href="{!! route('empresas.index') !!}" class="sl-menu-link {{ Request::is('empresas*') ? 'active' : '' }}">
   <div class="sl-menu-item">
-    <i class="menu-item-icon icon ion-ios-videocam-outline tx-20"></i>
+    <i class="menu-item-icon icon ion-ios-briefcase tx-20"></i>
     <span class="menu-item-label">Empresas</span>
   </div><!-- menu-item -->
 </a><!-- sl-menu-link -->
@@ -25,7 +25,7 @@
 @can('creditos-list')
 <a href="{!! route('creditos.index') !!}" class="sl-menu-link {{ Request::is('creditos*') ? 'active' : '' }}">
   <div class="sl-menu-item">
-    <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
+    <i class="menu-item-icon icon ion-ios-cash tx-20"></i>
     <span class="menu-item-label">Créditos</span>
   </div><!-- menu-item -->
 </a><!-- sl-menu-link -->
@@ -34,7 +34,7 @@
 @can('proveedores-list')
 <a href="{!! route('proveedores.index') !!}" class="sl-menu-link {{ Request::is('proveedores*') ? 'active' : '' }}">
   <div class="sl-menu-item">
-    <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
+    <i class="menu-item-icon icon ion-ios-barcode tx-20"></i>
     <span class="menu-item-label">Proveedores</span>
   </div><!-- menu-item -->
 </a><!-- sl-menu-link -->
@@ -51,7 +51,7 @@ if( Request::is('efinancieras*') || Request::is('clasificas*') || Request::is('b
 
 <a href="#" class="sl-menu-link {{$varActive}}">
   <div class="sl-menu-item">
-    <i class="menu-item-icon ion-ios-pie-outline tx-20"></i>
+    <i class="menu-item-icon ion-ios-journal tx-20"></i>
     <span class="menu-item-label">Catálogos</span>
     <i class="menu-item-arrow fa fa-angle-down"></i>
   </div><!-- menu-item -->
@@ -83,7 +83,7 @@ if( Request::is('efinancieras*') || Request::is('clasificas*') || Request::is('b
   @endphp
 <a href="#" class="sl-menu-link {{$varActive}}">
   <div class="sl-menu-item">
-    <i class="menu-item-icon ion-ios-pie-outline tx-20"></i>
+    <i class="menu-item-icon ion-ios-settings tx-20"></i>
     <span class="menu-item-label">Configuración</span>
     <i class="menu-item-arrow fa fa-angle-down"></i>
   </div><!-- menu-item -->

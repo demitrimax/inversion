@@ -41,7 +41,10 @@
           <!-- Observaciones Field -->
           <tr>
             <th>{!! Form::label('saldo', 'Saldo al día:') !!}</th>
-            <td>{!! number_format($empresas->saldoaldia,2) !!}</td>
+            <td>$ {!! number_format($empresas->saldoaldia,2) !!}
+
+              <button type="button" class="btn btn-primary btn-icon rounded-circle mg-r-5 mg-b-10" data-toggle="tooltip" data-placement="top" title="Ver Detalles del Saldo"><div><i class="fa fa-money"></i></div></button>
+            </td>
           </tr>
 
           <!-- Observaciones Field -->

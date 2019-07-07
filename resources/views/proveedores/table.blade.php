@@ -12,7 +12,7 @@
     <tbody>
     @foreach($proveedores as $proveedores)
         <tr>
-            <td>{!! $proveedores->nombre !!}</td>
+            <td><a href="{!! route('proveedores.show', [$proveedores->id]) !!}" > {!! $proveedores->nombre !!} </a></td>
             <td>{!! $proveedores->rfc !!}</td>
             <td>{!! $proveedores->domicilio !!}</td>
             <td>{!! $proveedores->telefono !!}</td>

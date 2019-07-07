@@ -10,8 +10,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @package App\Models
  * @version July 2, 2019, 11:18 pm CDT
  *
- * @property \Illuminate\Database\Eloquent\Collection 
- * @property \Illuminate\Database\Eloquent\Collection 
+ * @property \Illuminate\Database\Eloquent\Collection
+ * @property \Illuminate\Database\Eloquent\Collection
  * @property string nombre
  * @property string rfc
  * @property string domicilio
@@ -23,7 +23,7 @@ class proveedores extends Model
     use SoftDeletes;
 
     public $table = 'cat_proveedores';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -36,7 +36,8 @@ class proveedores extends Model
         'rfc',
         'domicilio',
         'telefono',
-        'contacto'
+        'contacto',
+        'observaciones'
     ];
 
     /**
@@ -45,12 +46,13 @@ class proveedores extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
-        'nombre' => 'string',
-        'rfc' => 'string',
-        'domicilio' => 'string',
-        'telefono' => 'string',
-        'contacto' => 'string'
+        'id'            => 'integer',
+        'nombre'        => 'string',
+        'rfc'           => 'string',
+        'domicilio'     => 'string',
+        'telefono'      => 'string',
+        'contacto'      => 'string',
+        'observaciones' => 'string',
     ];
 
     /**
@@ -62,5 +64,5 @@ class proveedores extends Model
         'nombre' => 'required'
     ];
 
-    
+
 }
