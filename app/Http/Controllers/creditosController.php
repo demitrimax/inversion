@@ -19,6 +19,7 @@ use App\Models\empresas;
 use App\Models\bcuentas;
 use App\Models\corridafinanciera;
 use App\Models\creditos;
+use Carbon\Carbon;
 
 class creditosController extends AppBaseController
 {
@@ -208,10 +209,15 @@ class creditosController extends AppBaseController
       }
       //dd($accounts);
       //$getcuentas[]=[];
-      foreach($accounts as $cuenta)
-      {
-          $getcuentas[] = ['id'=>$cuenta->id, 'nombre'=>$cuenta->nomcuentasaldo];
+      if(!empty($accounts)) {
+        foreach($accounts as $cuenta)
+        {
+            $getcuentas[] = ['id'=>$cuenta->id, 'nombre'=>$cuenta->nomcuentasaldo];
+        }
+      }else{
+        $getcuentas[] = ['id' => '', 'nombre'=>'Sin cuentas' ];
       }
+
 
       return $getcuentas;
     }
@@ -221,22 +227,22 @@ class creditosController extends AppBaseController
         $credito = creditos::find($id);
 
         $primerpagfecha = $credito->finicio;
-		$ultimopagfecha = $credito->ftermino;
+		    $ultimopagfecha = $credito->ftermino;
         $meseslibres    = $credito->meseslibres;
-		$linea          = 0;
-		$monto          = $credito->monto_inicial;
-		$tasa           = $credito->tasainteres;
+		    $linea          = 0;
+		    $monto          = $credito->monto_inicial;
+		    $tasa           = $credito->tasainteres;
         $tasamensual    = ($tasa/12);
-		$numdias        = $credito->finicio->diffInDays($credito->ftermino);
+		    $numdias        = $credito->finicio->diffInDays($credito->ftermino);
         $anios          = $credito->finicio->diffInYears($credito->ftermino);
-		$numpagos       = $credito->finicio->diffInMonths($credito->ftermino)+1;
+		    $numpagos       = $credito->finicio->diffInMonths($credito->ftermino)+1;
 		//cantidad final con el interes de la tasa
         $montofinal     = $monto * (($tasa/100)+1);
-		$pagofijo       = $monto / ($numpagos - $credito->meseslibres);
+		    $pagofijo       = $monto / ($numpagos - $credito->meseslibres);
         $saldocapital   = $monto;
-		$interesi       = $pagofijo*($tasamensual);
-		$interes        = 0;
-		$total          = 0;
+		    $interesi       = $pagofijo*($tasamensual);
+		    $interes        = 0;
+		    $total          = 0;
         $line           = 0;
         $pcapital       = 0;
         function pagoint( $rt, $pv, $Tn, $n)
@@ -292,7 +298,18 @@ class creditosController extends AppBaseController
         Flash::success('Se ha creado la corrida financiera correctamente');
         return back();
 
+    }
+    public function getCreditoPagos($id)
+    {
+      $from = new Carbon('first day of this month'); //date('Y-m-'.'01');
+      $to = new Carbon('last day of this month');
+      $pagos = [];
+      $fechainicial = corridafinanciera::min('fecha');
+      $corridas = corridafinanciera::where('credito_id',$id)->whereBetween('fecha',[$fechainicial,$to])->where('pagado_at',null)->get();
+      foreach($corridas as $key=>$corrida){
+        $pagos[] = ['id'=>$corrida->id, 'nombre'=>$corrida->pagoyfecha];
+      }
 
-
+      return $pagos;
     }
 }

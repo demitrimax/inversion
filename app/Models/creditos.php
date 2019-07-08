@@ -108,7 +108,7 @@ class creditos extends Model
       foreach($this->movcreditos as $movimiento)
       {
         $movimiento->tipo == 'Salida' ? $tSalidas += $movimiento->monto : 0;
-        $movimiento->tipo == 'Entrada'? $tEntradas += $movimiento->monto : 0;
+        //$movimiento->tipo == 'Entrada'? $tEntradas += $movimiento->monto : 0;
       }
       $saldofinal = $monto - ($tSalidas + $tEntradas);
       return $saldofinal;

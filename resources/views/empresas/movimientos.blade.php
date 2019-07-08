@@ -1,4 +1,7 @@
 
+@section('css')
+<link href="{{asset('airdatepicker/dist/css/datepicker.min.css')}}" rel="stylesheet" type="text/css">
+@endsection
       <table class="table table-striped table-bordered detail-view" id="movcuentas-table">
        <thead class="bg-primary">
          <tr>
@@ -16,7 +19,7 @@
              <td>{{$key+1}}</td>
              <td>{{$movimiento->fecha->format('d-m-Y')}}</td>
              <td>${{number_format($movimiento->monto,2) }}</td>
-             <td>{{ $movimiento->tipo = 'Salida' ? 'Entrada' : 'Salida' }}</td>
+             <td>{{ $movimiento->tipo == 'Salida' ? 'Entrada' : 'Salida' }}</td>
              <td></td>
            </tr>
             @endforeach
@@ -54,19 +57,24 @@
 
                 <div class="form-group col-sm-6">
                     {!! Form::label('credito_id', 'Crédito:') !!}
-                    {!! Form::select('credito_id', $creditos, null, ['class' => 'form-control']) !!}
+                    {!! Form::select('credito_id', $creditos, null, ['class' => 'form-control', 'placeholder'=>'Seleccione']) !!}
                 </div>
 
                 <div class="form-group col-sm-6">
-                    {!! Form::label('concepto', 'Referencia:') !!}
-                    {!! Form::text('concepto', null, ['class' => 'form-control', 'maxlength'=>'']) !!}
+                    {!! Form::label('pagoref', 'Pago:') !!}
+                    {!! Form::select('pagoref', [], null, ['class' => 'form-control', 'placeholder'=>'Seleccione un pago']) !!}
                 </div>
 
-                <!-- Monto Field -->
                 <div class="form-group col-sm-6">
-                    {!! Form::label('monto', 'Monto:') !!}
-                    {!! Form::number('monto', null, ['class' => 'form-control', 'required', 'step'=>'0.01', 'max'=>$saldofinal, 'min'=>0]) !!}
+                    {!! Form::label('metpago', 'Método de Pago:') !!}
+                    {!! Form::select('metpago', $metpago, null, ['class' => 'form-control', 'required']) !!}
                 </div>
+
+                <div class="form-group col-sm-6">
+                    {!! Form::label('fecha', 'Fecha:') !!}
+                    {!! Form::date('fecha', null, ['class' => 'form-control datepicker-here', 'required', 'data-language'=>'es', 'data-date-format'=>'yyyy-mm-dd']) !!}
+                </div>
+
 
                 <div class="form-group col-sm-12">
                     {!! Form::label('comentario', 'Comentario:') !!}
@@ -84,3 +92,25 @@
       </div><!-- /.modal-dialog -->
   </div>
 @endcan
+
+@section('scripts')
+<script src="{{asset('airdatepicker/dist/js/datepicker.min.js')}}"></script>
+<script src="{{asset('airdatepicker/dist/js/i18n/datepicker.es.js')}}"></script>
+<script>
+$('#credito_id').on('change', function(e) {
+  //console.log(e);
+  var creditoid = e.target.value;
+  //ajax
+  $.get('{{url('getCreditoPagos')}}/' + creditoid, function(data) {
+    //exito al obtener los datos
+    console.log(data);
+    $('#pagoref').empty();
+    $.each(data, function(index, pagos) {
+      console.log(pagos);
+      $('#pagoref').append('<option value ="' + pagos.id + '">'+pagos.nombre+'</option>' );
+    });
+
+  });
+});
+</script>
+@endsection

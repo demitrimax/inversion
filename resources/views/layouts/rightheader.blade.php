@@ -28,7 +28,7 @@
     </nav>
     <div class="navicon-right">
       <a id="btnRightMenu" href="" class="pos-relative">
-        <i class="icon ion-ios-bell-outline"></i>
+        <i class="icon ion-ios-notifications-outline"></i>
         <!-- start: if statement -->
         <span class="square-8 bg-danger"></span>
         <!-- end: if statement -->

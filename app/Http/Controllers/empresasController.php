@@ -17,6 +17,9 @@ use App\Models\creditos;
 use App\Models\metpago;
 use App\Models\bcuentas;
 use App\Models\proveedores;
+use App\Models\movcreditos;
+use App\Models\corridafinanciera;
+use Auth;
 
 class empresasController extends AppBaseController
 {
@@ -206,7 +209,46 @@ class empresasController extends AppBaseController
     public function pagocredito(Request $request)
     {
       $input = $request->all();
-      dd($request);
-      return 'Pago del credito';
+      //dd($request);
+
+      $cuenta = bcuentas::find($input['cuenta_id']);
+      $montopagar = corridafinanciera::find($input['pagoref']);
+      //verificar que se hayan encontrado la cuenta y el monto a pagar
+      if(empty($cuenta)){
+        Alert::error('Cuenta no encontrada.');
+        Flash::error('Cuenta no encontrada.');
+        return back();
+      }
+      if (empty($montopagar)){
+        Alert::error('No se encontró la referencia del pago.');
+        Flash::error('No se encontró la referencia del pago.');
+        return back();
+      }
+      //verificar que la cuenta tenga fondos suficientes para realizar la operación
+      $saldodisponible = $cuenta->saldocuenta;
+      if ($saldodisponible < $montopagar->mpago){
+        Alert::error('El saldo en la cuenta no es suficiente para pagar.');
+        Flash::error('El saldo en la cuenta no es suficiente para pagar.');
+        return back();
+      }
+      //obtener el monto que se paagará
+      $movcredito = new movcreditos;
+      $movcredito->credito_id = $input['credito_id'];
+      $movcredito->tipo = 'Entrada';
+      $movcredito->monto = $montopagar->mpago;
+      $movcredito->user_id = Auth::user()->id;
+      $movcredito->cuenta_id = $input['cuenta_id'];
+      $movcredito->fecha = $input['fecha'];
+      $movcredito->comentario = $input['comentario'];
+      $movcredito->corrida_id = $montopagar->id;
+      $movcredito->save();
+      //registrar el monto pagado ya liberado
+      $montopagar->pagado_at = date('Y-m-d');
+      $montopagar->save();
+
+      Alert::success('Se registró correctamente el pago de inversión.');
+      Flash::success('Se registró correctamente el pago de inversión.');
+
+      return back();
     }
 }

@@ -7,6 +7,7 @@
   <span class="breadcrumb-item active">{{$empresas->nombre}}</span>
 </nav>
 @endsection
+
 @section('content')
 
     <div class="content">

@@ -40,5 +40,10 @@
       <th>{!! Form::label('contacto', 'Contacto:') !!}</th>
       <td>{!! $proveedores->contacto !!}</td>
     </tr>
+    <!-- Observaciones Field -->
+    <tr>
+      <th>{!! Form::label('observaciones', 'Observaciones:') !!}</th>
+      <td>{!! $proveedores->observaciones !!}</td>
+    </tr>
   </tbody>
 </table>

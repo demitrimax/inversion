@@ -37,7 +37,7 @@
               <td>{{ number_format($corrida->saldocapital,2) }}</td>
               <td>{{$corrida->numpago}}</td>
               <td>{{$corrida->fecha->format('d-m-Y')}}</td>
-              <td><span class="badge badge-warning">Pendiente</span></td>
+              <td>{!! $corrida->pagado_at ? '<span class="badge badge-info">PAGADO</span>' : '<span class="badge badge-warning">Pendiente</span>' !!}</td>
             </tr>
             @endforeach
             </tbody>
@@ -46,9 +46,9 @@
                 <th></th>
                 <th></th>
                 <th></th>
-                <th></th>
                 <th>Total Intereses</th>
                 <th>{{ number_format($creditos->corridas->sum('pintereses'),2)}}</th>
+                <th></th>
                 <th></th>
                 <th></th>
                 <th></th>

@@ -18,7 +18,7 @@
             <div class="card pd-20 bg-primary">
               <div class="d-flex justify-content-between align-items-center mg-b-10">
                 <h6 class="tx-11 tx-uppercase mg-b-0 tx-spacing-1 tx-white">Pagos de Hoy</h6>
-                <a href="" class="tx-white-8 hover-white"><i class="icon ion-android-more-horizontal"></i></a>
+                <a href="" class="tx-white-8 hover-white"><i class="icon ion-stats"></i></a>
               </div><!-- card-header -->
               <div class="d-flex align-items-center justify-content-between">
                 <span class="sparkline2"><canvas width="59" height="50" style="display: inline-block; width: 59px; height: 50px; vertical-align: top;"></canvas></span>

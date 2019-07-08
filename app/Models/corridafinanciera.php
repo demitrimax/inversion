@@ -11,7 +11,7 @@ class corridafinanciera extends Model
     use SoftDeletes;
 
     public $table = 'corridafinanciera';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -36,4 +36,8 @@ class corridafinanciera extends Model
         'saldocapital'=> 'float',
         'fecha' => 'date',
     ];
+    public function getPagoyfechaAttribute()
+    {
+      return '$'.number_format($this->mpago,2).'('.$this->fecha->format('d-m-Y').')';
+    }
 }

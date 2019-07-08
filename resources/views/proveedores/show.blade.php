@@ -24,6 +24,9 @@
                     @include('proveedores.show_fields')
 
                     <a href="{!! route('proveedores.index') !!}" class="btn btn-secondary">Regresar</a>
+                    @can('proveedores-edit')
+                    <a href="{!! route('proveedores.edit', [$proveedores->id]) !!}" class='btn btn-primary'>Editar</a>
+                    @endcan
                 </div>
             </div>
         </div>
