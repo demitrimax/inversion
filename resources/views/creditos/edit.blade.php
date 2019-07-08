@@ -6,7 +6,7 @@
           @include('adminlte-templates::common.errors')
 
 
-        <div class="alert alert-warning alert-dismissible fade in">
+        <div class="alert alert-warning">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
         ADVERTENCIA: Modificar los datos de un credito puede afectar considerablemente la corrida financiera y los pagos efectuados.
         Asegurese de Eliminar los datos de la Corrida Financiera.

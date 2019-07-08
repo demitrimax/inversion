@@ -110,7 +110,7 @@ class creditos extends Model
         $movimiento->tipo == 'Salida' ? $tSalidas += $movimiento->monto : 0;
         //$movimiento->tipo == 'Entrada'? $tEntradas += $movimiento->monto : 0;
       }
-      $saldofinal = $monto - ($tSalidas + $tEntradas);
+      $saldofinal = $monto - ($tSalidas);
       return $saldofinal;
     }
 

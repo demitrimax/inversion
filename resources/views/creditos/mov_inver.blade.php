@@ -47,7 +47,7 @@
           <div class="modal-content">
 
               <div class="modal-header">
-                  <h4 class="tx-14 mg-b-0 tx-uppercase tx-inverse tx-bold" id="myModalLabel">Registrar movimiento de Invesión</h4>
+                  <h4 class="tx-14 mg-b-0 tx-uppercase tx-inverse tx-bold" id="myModalLabel">Registrar movimiento de Inversión</h4>
                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 
               </div>
@@ -72,7 +72,7 @@
                 foreach($creditos->movcreditos as $movimiento)
                 {
                   $movimiento->tipo == 'Salida' ? $tSalidas += $movimiento->monto : 0;
-                  $movimiento->tipo == 'Entrada'? $tEntradas += $movimiento->monto : 0;
+                  //$movimiento->tipo == 'Entrada'? $tEntradas += $movimiento->monto : 0;
                 }
                 $saldofinal = $monto - ($tSalidas + $tEntradas);
                 @endphp
@@ -80,6 +80,11 @@
                 <div class="form-group col-sm-6">
                     {!! Form::label('monto', 'Monto:') !!}
                     {!! Form::number('monto', $saldofinal, ['class' => 'form-control', 'required', 'step'=>'0.01', 'max'=>$saldofinal]) !!}
+                </div>
+
+                <div class="form-group col-sm-6">
+                    {!! Form::label('metpago', 'Método de Pago:') !!}
+                    {!! Form::select('metpago', $metpagos, null, ['class' => 'form-control', 'required', 'placeholder'=>'Seleccione']) !!}
                 </div>
 
                 <div class="form-group col-sm-6">

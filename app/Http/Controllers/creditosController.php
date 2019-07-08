@@ -19,6 +19,7 @@ use App\Models\empresas;
 use App\Models\bcuentas;
 use App\Models\corridafinanciera;
 use App\Models\creditos;
+use App\Models\metpago;
 use Carbon\Carbon;
 
 class creditosController extends AppBaseController
@@ -100,7 +101,8 @@ class creditosController extends AppBaseController
         $empresas = empresas::pluck('nombre','id');
         $cuentas = bcuentas::all();
         $cuentas = $cuentas->pluck('nomcuenta','id');
-        return view('creditos.show')->with(compact('creditos','empresas','cuentas'));
+        $metpagos = metpago::pluck('nombre','id');
+        return view('creditos.show')->with(compact('creditos','empresas','cuentas','metpagos'));
     }
 
     /**
@@ -189,6 +191,7 @@ class creditosController extends AppBaseController
       $movimiento->fecha = $input['fecha'];
       $movimiento->comentario = $input['comentario'];
       $movimiento->user_id = Auth::user()->id;
+      $movimiento->metpago_id = $input['metpago'];
       $movimiento->save();
       Alert::success('Movimiento registrado correctamente');
       return back();

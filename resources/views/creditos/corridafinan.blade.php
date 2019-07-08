@@ -27,7 +27,7 @@
 
           @if($creditos->corridas->count()==$numpagos)
             @foreach($creditos->corridas as $key=>$corrida)
-            <tr>
+            <tr class="text-center">
               <td>{{$key+1}}</td>
               <td>{{$corrida->anio}}</td>
               <td>{{ number_format($corrida->sdocapital,2) }}</td>

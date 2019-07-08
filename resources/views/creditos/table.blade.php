@@ -16,7 +16,7 @@
             <td>{!! $creditos->numero !!}</td>
             <td>{!! $creditos->financieras->nombre !!}</td>
             <td>{!! $creditos->fapertura->format('d-m-Y') !!}</td>
-            <td>{!! round(($creditos->montorestante/$creditos->monto_inicial)*100,2) !!}%</td>
+            <td>{!! '$'.number_format($creditos->montorestante).'('.round(($creditos->montorestante/$creditos->monto_inicial)*100,2).'%)' !!}</td>
             <td>
                 {!! Form::open(['route' => ['creditos.destroy', $creditos->id], 'method' => 'delete', 'id'=>'form'.$creditos->id]) !!}
                 <div class='btn-group'>

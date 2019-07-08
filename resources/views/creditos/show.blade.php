@@ -1,5 +1,14 @@
 @extends('layouts.appv2')
 @section('title',config('app.name').' | Creditos' )
+
+@section('breadcrum')
+<nav class="breadcrumb sl-breadcrumb">
+  <a class="breadcrumb-item" href="{{url('/')}}">Principal</a>
+  <a class="breadcrumb-item" href="{{url('/creditos')}}">Creditos</a>
+  <span class="breadcrumb-item active">{{$creditos->nombre}}</span>
+</nav>
+@endsection
+
 @section('content')
 
     <div class="content">
