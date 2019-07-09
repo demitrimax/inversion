@@ -50,12 +50,7 @@ Route::group(['middleware'=>['auth']], function() {
   Route::post('operaciones/guardar', 'empresasController@regoper')->name('operacion.store');
 
   Route::resource('bcuentas', 'bcuentasController');
+  Route::resource('metpagos', 'metpagoController');
+  Route::resource('proveedores', 'proveedoresController');
+  Route::resource('coddivisas', 'coddivisasController');
 });
-
-
-
-
-
-Route::resource('metpagos', 'metpagoController');
-
-Route::resource('proveedores', 'proveedoresController');

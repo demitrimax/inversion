@@ -72,6 +72,9 @@ if( Request::is('efinancieras*') || Request::is('clasificas*') || Request::is('b
   @can('metpagos-list')
   <li class="nav-item"><a href="{!! route('metpagos.index') !!}" class="nav-link {{ Request::is('metpagos*') ? 'active' : '' }}">Métodos de Pago</a></li>
   @endcan
+  @can('coddivisas-list')
+  <li class="nav-item"><a href="{!! route('coddivisas.index') !!}" class="nav-link {{ Request::is('coddivisas*') ? 'active' : '' }}">Códigos de Divisa</a></li>
+  @endcan
 </ul>
   @hasrole('administrador')
   @php

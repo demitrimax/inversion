@@ -78,3 +78,7 @@
     <a href="{!! route('proveedores.index') !!}"><i class="fa fa-edit"></i><span>Proveedores</span></a>
 </li>
 
+<li class="{{ Request::is('coddivisas*') ? 'active' : '' }}">
+    <a href="{!! route('coddivisas.index') !!}"><i class="fa fa-edit"></i><span>Coddivisas</span></a>
+</li>
+
