@@ -14,6 +14,18 @@
     {!! Form::label('numero', 'Numero de credito:') !!}
     {!! Form::text('numero', null, ['class' => 'form-control maxlen', 'required', 'maxlength'=>'10', 'placeholder'=>'Referencia númerica del credito']) !!}
 </div>
+
+<!-- Empresa Responsable Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('empresa_id', 'Empresa responsable:') !!}
+    {!! Form::select('empresa_id', $empresas, null, ['class' => 'form-control', 'required']) !!}
+</div>
+
+<!-- Cuenta de la Empresa Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('cuenta_id', 'Cuenta de Depósito:') !!}
+    {!! Form::select('cuenta_id', [], null, ['class' => 'form-control', 'required']) !!}
+</div>
 @php
 //conversion de fecha
 $fecinicio = null;
@@ -32,14 +44,14 @@ if(isset($creditos->fapertura)){
 <!-- Finicio Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('finicio', 'Fecha de inicio:') !!}
-    {!! Form::text('finicio', $fecinicio, ['class' => 'form-control datepicker-here','id'=>'finicio', 'data-language'=>'es', 'data-date-format'=>'yyyy-mm-dd']) !!}
+    {!! Form::text('finicio', $fecinicio, ['class' => 'form-control datepicker-here', 'required','id'=>'finicio', 'data-language'=>'es', 'data-date-format'=>'yyyy-mm-dd']) !!}
 </div>
 
 
 <!-- Ftermino Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('ftermino', 'Fecha de termino:') !!}
-    {!! Form::text('ftermino', $fectermino, ['class' => 'form-control datepicker-here','id'=>'ftermino', 'data-language'=>'es', 'data-date-format'=>'yyyy-mm-dd']) !!}
+    {!! Form::text('ftermino', $fectermino, ['class' => 'form-control datepicker-here', 'required','id'=>'ftermino', 'data-language'=>'es', 'data-date-format'=>'yyyy-mm-dd']) !!}
 </div>
 
 

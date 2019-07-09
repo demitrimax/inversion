@@ -73,8 +73,8 @@ class empresasController extends AppBaseController
 
         $empresas = $this->empresasRepository->create($input);
 
-        Flash::success('Empresas guardado correctamente.');
-        Alert::success('Empresas guardado correctamente.');
+        Flash::success('Empresa creada correctamente.');
+        Alert::success('Empresa creada correctamente.');
 
         return redirect(route('empresas.index'));
     }
@@ -91,8 +91,8 @@ class empresasController extends AppBaseController
         $empresas = $this->empresasRepository->findWithoutFail($id);
 
         if (empty($empresas)) {
-            Flash::error('Empresas no encontrado');
-            Alert::error('Empresas no encontrado.');
+            Flash::error('Empresa no encontrada');
+            Alert::error('Empresa no encontrada.');
 
             return redirect(route('empresas.index'));
         }
@@ -122,8 +122,8 @@ class empresasController extends AppBaseController
         $empresas = $this->empresasRepository->findWithoutFail($id);
 
         if (empty($empresas)) {
-            Flash::error('Empresas no encontrado');
-            Alert::error('Empresas no encontrado');
+            Flash::error('Empresa no encontrada');
+            Alert::error('Empresa no encontrada');
 
             return redirect(route('empresas.index'));
         }
@@ -144,16 +144,16 @@ class empresasController extends AppBaseController
         $empresas = $this->empresasRepository->findWithoutFail($id);
 
         if (empty($empresas)) {
-            Flash::error('Empresas no encontrado');
-            Alert::error('Empresas no encontrado');
+            Flash::error('Empresa no encontrada');
+            Alert::error('Empresa no encontrada');
 
             return redirect(route('empresas.index'));
         }
 
         $empresas = $this->empresasRepository->update($request->all(), $id);
 
-        Flash::success('Empresas actualizado correctamente.');
-        Alert::success('Empresas actualizado correctamente.');
+        Flash::success('Empresa actualizada correctamente.');
+        Alert::success('Empresa actualizada correctamente.');
 
         return redirect(route('empresas.index'));
     }
@@ -170,16 +170,29 @@ class empresasController extends AppBaseController
         $empresas = $this->empresasRepository->findWithoutFail($id);
 
         if (empty($empresas)) {
-            Flash::error('Empresas no encontrado');
-            Alert::error('Empresas no encontrado');
+            Flash::error('Empresa no encontrada');
+            Alert::error('Empresa no encontrada');
 
             return redirect(route('empresas.index'));
         }
+        if($empresas->cuentas->count()>0){
+          Flash::error('No se puede eliminar, la empresa tiene cuentas activas.');
+          Alert::error('No se puede eliminar, la empresa tiene cuentas activas.');
+
+          return redirect(route('empresas.index'));
+        }
+        if($empresas->operaciones->count()>0){
+          Flash::error('No se puede eliminar, la empresa tiene operaciones activas.');
+          Alert::error('No se puede eliminar, la empresa tiene operaciones activas.');
+
+          return redirect(route('empresas.index'));
+        }
+
 
         $this->empresasRepository->delete($id);
 
-        Flash::success('Empresas borrado correctamente.');
-        Flash::success('Empresas borrado correctamente.');
+        Flash::success('Empresa borrada correctamente.');
+        Flash::success('Empresa borrada correctamente.');
 
         return redirect(route('empresas.index'));
     }

@@ -59,7 +59,8 @@ class creditosController extends AppBaseController
     public function create()
     {
         $financieras = efinanciera::pluck('nombre','id');
-        return view('creditos.create')->with(compact('financieras'));
+        $empresas = empresas::pluck('nombre','id');
+        return view('creditos.create')->with(compact('financieras','empresas'));
     }
 
     /**

@@ -39,6 +39,7 @@ class bcuentas extends Model
         'clabeinterbancaria',
         'sucursal',
         'cliente_id',
+        'divisa',
         'swift'
     ];
 
@@ -48,13 +49,14 @@ class bcuentas extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
-        'banco_id' => 'integer',
-        'numcuenta' => 'string',
+        'id'                 => 'integer',
+        'banco_id'           => 'integer',
+        'numcuenta'          => 'string',
         'clabeinterbancaria' => 'string',
-        'sucursal' => 'string',
-        'cliente_id' => 'integer',
-        'swift' => 'string'
+        'sucursal'           => 'string',
+        'cliente_id'         => 'integer',
+        'divisa'             => 'string',
+        'swift'              => 'string'
     ];
 
     /**
