@@ -38,6 +38,8 @@ class creditos extends Model
     public $fillable = [
         'nombre',
         'numero',
+        'empresa_id',
+        'cuenta_id',
         'finicio',
         'ftermino',
         'tasainteres',
@@ -56,19 +58,21 @@ class creditos extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
-        'nombre' => 'string',
-        'numero' => 'string',
-        'finicio' => 'date',
-        'ftermino' => 'date',
-        'tasainteres' => 'float',
-        'entidadfinan' => 'integer',
-        'diapago' => 'integer',
-        'monto_inicial' => 'float',
-        'fapertura' => 'date',
-        'diascalculo' => 'integer',
-        'meseslibres' => 'integer',
-        'observaciones' => 'string',
+        'id'              => 'integer',
+        'nombre'          => 'string',
+        'empresa_id'      => 'integer',
+        'cuenta_id'       => 'integer',
+        'numero'          => 'string',
+        'finicio'         => 'date',
+        'ftermino'        => 'date',
+        'tasainteres'     => 'float',
+        'entidadfinan'    => 'integer',
+        'diapago'         => 'integer',
+        'monto_inicial'   => 'float',
+        'fapertura'       => 'date',
+        'diascalculo'     => 'integer',
+        'meseslibres'     => 'integer',
+        'observaciones'   => 'string',
     ];
 
     /**

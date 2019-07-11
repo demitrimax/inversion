@@ -78,7 +78,7 @@
 					$total = 0;
           $line = 0;
 
-          function pagoint( $rt, $pv, $Tn, $n)
+          function pagointe( $rt, $pv, $Tn, $n)
           {
             //Tasa de Interes mensual $rt = $tasainteres /12
             //Cantidad de Coutas $Tn
@@ -97,7 +97,7 @@
                         		<td>{{ $creditos->finicio->diffInYears($i)+1 }}</td>
                             <td>{{ number_format($saldocapital,2) }}</td>
     <!-- pago capital-->    <td>{{ ($linea) > $meseslibres ? number_format($pcapital = $pagofijo ,2) : $pcapital=0 }}</td>
-    <!-- pago interes-->    <td>{{ number_format($pinteres = pagoint($tasamensual, $saldocapital, $numpagos, $line+1) ,2) }}</td>
+    <!-- pago interes-->    <td>{{ number_format($pinteres = pagointe($tasamensual, $saldocapital, $numpagos, $line+1) ,2) }}</td>
     <!-- monto de pago-->   <td>{{ number_format($mpago = $pcapital+$pinteres,2) }}</td>
    <!-- saldo capital-->    <td>{{ number_format($saldocapital = ($saldocapital+$pinteres) - $mpago,2) }}</td>
   <!-- No de pago-->        <td>{{ ($linea) > $meseslibres ? $line = $linea - $creditos->meseslibres : $line = 0 }}</td>
