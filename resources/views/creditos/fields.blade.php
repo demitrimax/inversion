@@ -18,7 +18,7 @@
 <!-- Empresa Responsable Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('empresa_id', 'Empresa responsable:') !!}
-    {!! Form::select('empresa_id', $empresas, null, ['class' => 'form-control', 'required']) !!}
+    {!! Form::select('empresa_id', $empresas, null, ['class' => 'form-control', 'required', 'placeholder'=>'Seleccione']) !!}
 </div>
 
 <!-- Cuenta de la Empresa Field -->
@@ -121,6 +121,24 @@ if(isset($creditos->fapertura)){
 <script>
      //Bootstrap-MaxLength
         $('.maxlen').maxlength();
+</script>
+
+<script>
+$('#empresa_id').on('change', function(e) {
+  //console.log(e);
+  var empresa = e.target.value;
+  //ajax
+  $.get('{{url('getCuentasempresa')}}/' + empresa, function(data) {
+    //exito al obtener los datos
+    console.log(data);
+    $('#cuenta_id').empty();
+      //$('#cuenta_id').append('<option value ="">Seleccione una cuenta</option>' );
+    $.each(data, function(index, cuentas) {
+      $('#cuenta_id').append('<option value ="' + cuentas.id + '">'+cuentas.nombre+'</option>' );
+    });
+
+  });
+});
 </script>
 
 @endsection

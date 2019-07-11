@@ -4,6 +4,12 @@
     {!! Form::select('banco_id', $bancos, null, ['class' => 'form-control', 'required', 'placeholder'=>'Seleccione un banco']) !!}
 </div>
 
+<!-- Divisa Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('divisa', 'Moneda:') !!}
+    {!! Form::select('divisa', $divisas, null, ['class' => 'form-control', 'required', 'placeholder'=>'Seleccione un tipo de moneda']) !!}
+</div>
+
 <!-- Numcuenta Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('numcuenta', 'Número de cuenta:') !!}

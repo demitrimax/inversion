@@ -13,6 +13,7 @@ use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use App\Models\bancos;
 use App\Models\empresas;
+use App\Models\coddivisas;
 
 class bcuentasController extends AppBaseController
 {
@@ -52,7 +53,8 @@ class bcuentasController extends AppBaseController
     {
         $bancos = bancos::pluck('nombrecorto','id');
         $empresas = empresas::pluck('nombre','id');
-        return view('bcuentas.create')->with(compact('bancos','empresas'));
+        $divisas = coddivisas::pluck('nombre', 'codigo');
+        return view('bcuentas.create')->with(compact('bancos','empresas', 'divisas'));
     }
 
     /**
@@ -125,8 +127,8 @@ class bcuentasController extends AppBaseController
         }
         $bancos = bancos::pluck('nombrecorto','id');
         $empresas = empresas::pluck('nombre','id');
-
-        return view('bcuentas.edit')->with(compact('bcuentas','bancos','empresas'));
+        $divisas = coddivisas::pluck('nombre', 'codigo');
+        return view('bcuentas.edit')->with(compact('bcuentas','bancos','empresas', 'divisas'));
     }
 
     /**
