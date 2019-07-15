@@ -1,11 +1,14 @@
 @extends('layouts.appv2')
 @section('title',config('app.name').' | Bcuentas' )
+@section('breadcrum')
+<nav class="breadcrumb sl-breadcrumb">
+  <a class="breadcrumb-item" href="{{url('/')}}">Principal</a>
+  <a class="breadcrumb-item" href="{{url('/cuentas')}}">Cuentas</a>
+  <span class="breadcrumb-item active">{{$bcuentas->numcuenta}}</span>
+</nav>
+@endsection
+
 @section('content')
-    <section class="content-header">
-        <h1>
-            Detalle de la Cuenta
-        </h1>
-    </section>
     <div class="content">
         <div class="box box-primary">
             <div class="box-body">

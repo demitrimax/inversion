@@ -40,6 +40,11 @@
                   <td>{!! $bcuentas->sucursal !!}</td>
                 </tr>
 
+                <tr>
+                  <th>{!! Form::label('divisa', 'Moneda:') !!}</th>
+                  <td>{!! $bcuentas->divisa !!}</td>
+                </tr>
+
 
                 <!-- Empresa Id Field -->
                 <tr>
@@ -54,7 +59,7 @@
 
                 <!-- Swift Field -->
                 <tr>
-                  <th>{!! Form::label('swift', 'Swift:') !!}</th>
+                  <th>{!! Form::label('swift', 'Clabe Swift:') !!}</th>
                   <td>{!! $bcuentas->swift !!}</td>
                 </tr>
 
