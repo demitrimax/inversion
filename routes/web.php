@@ -46,6 +46,7 @@ Route::group(['middleware'=>['auth']], function() {
 
   Route::resource('empresas', 'empresasController');
   Route::post('empresas/pagocredito', 'empresasController@pagocredito')->name('credito.pay');
+  Route::post('empresa/proyecto/inversion', 'empresasController@inverproy')->name('inversion.proyecto');
 
   Route::post('operaciones/guardar', 'empresasController@regoper')->name('operacion.store');
 

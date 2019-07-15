@@ -18,7 +18,7 @@
 
                     @include('creditos.show_fields')
 
-                    @include('creditos.mov_inver')
+                    
 
 
 

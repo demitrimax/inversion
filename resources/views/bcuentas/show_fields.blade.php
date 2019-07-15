@@ -44,7 +44,11 @@
                 <!-- Empresa Id Field -->
                 <tr>
                   <th>{!! Form::label('empresa_id', 'Empresa:') !!}</th>
-                  <td><a href="{!! route('empresas.show', [$bcuentas->empresa_id]) !!}">{!! $bcuentas->empresa->nombre !!}</a></td>
+                  <td>
+                    @foreach($bcuentas->empresa as $empres)
+                    <a href="{!! route('empresas.show', [$empres->empresa_id]) !!}">{!! $empres->nombre !!}</a>
+                    @endforeach
+                  </td>
                 </tr>
 
 

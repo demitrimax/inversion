@@ -12,7 +12,7 @@
    @foreach($empresas->cuentas as $key=>$cuenta)
      <tr>
        <td>{{$key+1}}</td>
-       <td>{{$cuenta->numcuenta }}</td>
+       <td>{{$cuenta->numcuenta.'('.$cuenta->divisa.')' }}</td>
        <td>{{ $cuenta->banco->nombrecorto }}</td>
        <td>${{ number_format($cuenta->saldocuenta,2) }} </td>
        <td></td>

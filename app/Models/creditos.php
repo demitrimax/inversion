@@ -103,7 +103,10 @@ class creditos extends Model
     {
       return $this->hasMany('App\Models\corridafinanciera', 'credito_id');
     }
-
+    public function empresa()
+    {
+      return $this->belongsTo('App\Models\empresas', 'empresa_id');
+    }
     public function getMontorestanteAttribute()
     {
       $tSalidas = 0;

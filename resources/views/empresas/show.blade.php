@@ -41,7 +41,7 @@
                       <div class="card-header" role="tab" id="headingTwo">
                         <h6 class="mg-b-0">
                           <a class="transition collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            Movimientos de Inversión
+                            Inversión a Proyectos
                           </a>
                         </h6>
                       </div>

@@ -8,18 +8,18 @@
            <th>Num</th>
            <th>Fecha</th>
            <th>Monto</th>
-           <th>Tipo</th>
+           <th>Proyecto</th>
            <th>Acciones</th>
          </tr>
        </thead>
          <tbody>
          @foreach($empresas->cuentas as $cuentas)
-          @foreach($cuentas->movcreditos as $key=>$movimiento)
+          @foreach($cuentas->inversiones as $key=>$inversion)
            <tr>
              <td>{{$key+1}}</td>
-             <td>{{$movimiento->fecha->format('d-m-Y')}}</td>
-             <td>${{number_format($movimiento->monto,2) }}</td>
-             <td>{{ $movimiento->tipo == 'Salida' ? 'Entrada' : 'Salida' }}</td>
+             <td>{{$inversion->fecha->format('d-m-Y')}}</td>
+             <td>${{number_format($inversion->monto,2) }}</td>
+             <td>{{ $inversion->proyecto->nombre }}</td>
              <td></td>
            </tr>
             @endforeach
@@ -28,7 +28,7 @@
      </table>
 
      @can('movcreditos-create')
-     <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#MovInver">Registrar pago de inversión </button>
+     <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#MovInver">Registrar Inversión </button>
      @endcan
 
 @can('movcreditos-create')
@@ -37,10 +37,10 @@
           <div class="modal-content">
 
               <div class="modal-header">
-                  <h4 class="tx-14 mg-b-0 tx-uppercase tx-inverse tx-bold" id="myModalLabel">Registrar pago de Inversión</h4>
+                  <h4 class="tx-14 mg-b-0 tx-uppercase tx-inverse tx-bold" id="myModalLabel">Registrar Inversión de Proyecto</h4>
                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
               </div>
-              {!! Form::open(['route' => 'credito.pay']) !!}
+              {!! Form::open(['route' => 'inversion.proyecto']) !!}
               <div class="modal-body">
                 <div class="row">
                 <!-- Tipo Field -->
@@ -56,18 +56,23 @@
                 </div>
 
                 <div class="form-group col-sm-6">
-                    {!! Form::label('credito_id', 'Crédito:') !!}
-                    {!! Form::select('credito_id', $creditos, null, ['class' => 'form-control', 'placeholder'=>'Seleccione']) !!}
+                    {!! Form::label('proyecto_id', 'Proyecto:') !!}
+                    {!! Form::select('proyecto_id', $proyectos, null, ['class' => 'form-control', 'placeholder'=>'Seleccione', 'required']) !!}
                 </div>
 
                 <div class="form-group col-sm-6">
-                    {!! Form::label('pagoref', 'Pago:') !!}
-                    {!! Form::select('pagoref', [], null, ['class' => 'form-control', 'placeholder'=>'Seleccione un pago']) !!}
+                    {!! Form::label('monto', 'Monto:') !!}
+                    {!! Form::text('monto', null, ['class' => 'form-control', 'required']) !!}
                 </div>
 
                 <div class="form-group col-sm-6">
                     {!! Form::label('metpago', 'Método de Pago:') !!}
                     {!! Form::select('metpago', $metpago, null, ['class' => 'form-control', 'required']) !!}
+                </div>
+
+                <div class="form-group col-sm-6">
+                    {!! Form::label('tinteres', 'Tasa de Interés:') !!} <button type="button" class="btn btn-sm btn-primary" data-toggle="popover" title="Tasa de Interés" data-content="Tasa de Interés adicional al crédito, interés propio aplicado a la inversión.">?</button>
+                    {!! Form::number('tinteres', null, ['class' => 'form-control', 'required', 'step'=>'0.01']) !!}
                 </div>
 
                 <div class="form-group col-sm-6">
@@ -77,15 +82,15 @@
 
 
                 <div class="form-group col-sm-12">
-                    {!! Form::label('comentario', 'Comentario:') !!}
-                    {!! Form::textarea('comentario', null, ['class' => 'form-control']) !!}
+                    {!! Form::label('observaciones', 'Comentario:') !!}
+                    {!! Form::textarea('observaciones', null, ['class' => 'form-control']) !!}
                 </div>
               </div>
 
             </div>
               <div class="modal-footer">
                   <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cerrar</button>
-                  <button type="submit" class="btn btn-primary waves-effect waves-light">Registrar Operación</button>
+                  <button type="submit" class="btn btn-primary waves-effect waves-light">Registrar Inversión</button>
               </div>
                 {!! Form::close() !!}
           </div><!-- /.modal-content -->
@@ -112,5 +117,8 @@ $('#credito_id').on('change', function(e) {
 
   });
 });
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
 </script>
 @endsection

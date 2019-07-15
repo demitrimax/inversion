@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\creditos;
+use App\Models\movinversion;
 
 /**
  * Class bcuentas
@@ -95,8 +97,21 @@ class bcuentas extends Model
     {
       return $this->hasMany('App\Models\movcreditos','cuenta_id');
     }
+    public function inversiones()
+    {
+      return $this->hasMany('App\Models\movinversion', 'cuenta_id');
+    }
     public function getSaldocuentaAttribute()
     {
+      $salcred = 0;
+      //saldo de creditos
+      $creditos = creditos::where('cuenta_id', $this->id)->get();
+      foreach($creditos as $credito){
+        $salcred += $credito->monto_inicial;
+      }
+
+      $inversion = $this->inversiones->sum('monto');
+
       $abonos = $this->movcreditos->where('tipo','Entrada')->sum('monto');
       $cargos = $this->movcreditos->where('tipo','Salida')->sum('monto');
 
@@ -104,7 +119,7 @@ class bcuentas extends Model
       $opabonos = $this->operaciones->where('tipo', 'Entrada')->sum('monto');
       $saloperaciones = $opabonos - $opcargos;
 
-      return $cargos-$abonos + $saloperaciones;
+      return $salcred - $inversion - (($cargos-$abonos) + $saloperaciones);
     }
     public function getNomcuentasaldoAttribute()
     {

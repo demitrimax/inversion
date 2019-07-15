@@ -20,6 +20,7 @@ use App\Models\bcuentas;
 use App\Models\corridafinanciera;
 use App\Models\creditos;
 use App\Models\metpago;
+use App\Models\operaciones;
 use Carbon\Carbon;
 
 class creditosController extends AppBaseController
@@ -123,8 +124,15 @@ class creditosController extends AppBaseController
 
             return redirect(route('creditos.index'));
         }
+        $empresas = empresas::pluck('nombre','id');
         $financieras = efinanciera::pluck('nombre','id');
-        return view('creditos.edit')->with(compact('creditos','financieras'));
+        $cuentamep = bcuentas::whereHas('empresa',)->get();
+        $empresaid = $creditos->empresa_id;
+        $cuentasemp = bcuentas::whereHas('empresa', function($q) use($empresaid) {
+              $q->whereIn('empresas_id', [$empresaid]);
+            })->get();
+          $cuentasempresa = $cuentasemp->pluck('nomcuentasaldo','id');
+        return view('creditos.edit')->with(compact('creditos','financieras','empresas','cuentasempresa'));
     }
 
     /**

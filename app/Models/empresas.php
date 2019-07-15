@@ -69,6 +69,11 @@ class empresas extends Model
     {
       return $this->belongsToMany('App\Models\bcuentas', 'catempresas_catcuentas');
     }
+    public function creditos()
+    {
+      return $this->hasMany('App\Models\creditos', 'empresa_id');
+    }
+
 
     public function getSaldoaldiaAttribute()
     {

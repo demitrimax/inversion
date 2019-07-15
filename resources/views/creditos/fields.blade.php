@@ -21,11 +21,19 @@
     {!! Form::select('empresa_id', $empresas, null, ['class' => 'form-control', 'required', 'placeholder'=>'Seleccione']) !!}
 </div>
 
+@php
+$cuentas = [];
+  if(isset($cuentasempresa)){
+    $cuentas = $cuentasempresa;
+  }
+@endphp
+
 <!-- Cuenta de la Empresa Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('cuenta_id', 'Cuenta de Depósito:') !!}
-    {!! Form::select('cuenta_id', [], null, ['class' => 'form-control', 'required']) !!}
+    {!! Form::select('cuenta_id', $cuentas, null, ['class' => 'form-control', 'required']) !!}
 </div>
+
 @php
 //conversion de fecha
 $fecinicio = null;

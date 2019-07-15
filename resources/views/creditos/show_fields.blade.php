@@ -143,6 +143,11 @@
             <td>{!! $meses !!} meses</td>
           </tr>
 
+          <tr>
+            <th>{!! Form::label('empresa', 'Empresa responsable del credito:') !!}</th>
+            <td>{!! $creditos->empresa->nombre !!} </td>
+          </tr>
+
 
             </tbody>
           </table>

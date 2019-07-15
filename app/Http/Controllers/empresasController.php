@@ -19,6 +19,8 @@ use App\Models\bcuentas;
 use App\Models\proveedores;
 use App\Models\movcreditos;
 use App\Models\corridafinanciera;
+use App\Models\cproyectos;
+use App\Models\movinversion;
 use Auth;
 
 class empresasController extends AppBaseController
@@ -107,7 +109,8 @@ class empresasController extends AppBaseController
         $creditos = creditos::pluck('nombre', 'id');
         $metpago = metpago::pluck('nombre','id');
         $proveedores = proveedores::pluck('nombre','id');
-        return view('empresas.show')->with(compact('empresas','bancos','creditos','metpago','cuental', 'proveedores'));
+        $proyectos = cproyectos::pluck('nombre','id');
+        return view('empresas.show')->with(compact('empresas','bancos','creditos','metpago','cuental', 'proveedores', 'proyectos'));
     }
 
     /**
@@ -263,5 +266,35 @@ class empresasController extends AppBaseController
       Flash::success('Se registró correctamente el pago de inversión.');
 
       return back();
+    }
+
+    public function inverproy(Request $request)
+    {
+      $input = $request->all();
+
+      //verificar que la cuenta exista
+      $cuenta = bcuentas::find($input['cuenta_id']);
+      if(empty($cuenta)){
+        Alert::error('La cuenta seleccionada no existe.');
+        Flash::error('La cuenta seleccionada no existe.');
+        return back();
+      }
+
+      $inversion = new movinversion;
+      $inversion->cuenta_id = $input['cuenta_id'];
+      $inversion->proyecto_id = $input['proyecto_id'];
+      $inversion->user_id = Auth::user()->id;
+      $inversion->monto = $input['monto'];
+      $inversion->tinteres = $input['tinteres'];
+      $inversion->fecha = $input['fecha'];
+      $inversion->metpago = $input['metpago'];
+      $inversion->observaciones = $input['observaciones'];
+      $inversion->save();
+
+      Alert::success('Se ha registrado existosamente la inversión');
+      Flash::success('Se ha registrado existosamente la inversión');
+
+      return back();
+
     }
 }
