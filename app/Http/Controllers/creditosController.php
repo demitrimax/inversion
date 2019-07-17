@@ -126,7 +126,7 @@ class creditosController extends AppBaseController
         }
         $empresas = empresas::pluck('nombre','id');
         $financieras = efinanciera::pluck('nombre','id');
-        $cuentamep = bcuentas::whereHas('empresa',)->get();
+        $cuentamep = bcuentas::whereHas('empresa')->get();
         $empresaid = $creditos->empresa_id;
         $cuentasemp = bcuentas::whereHas('empresa', function($q) use($empresaid) {
               $q->whereIn('empresas_id', [$empresaid]);
