@@ -10,16 +10,18 @@
 
 @section('content')
     <div class="content">
-        <div class="box box-primary">
-            <div class="box-body">
+
                 <div class="row" style="padding-left: 20px">
 
                     @include('bcuentas.show_fields')
 
-
                 </div>
-                <a href="{!! route('bcuentas.index') !!}" class="btn btn-secondary">Regresar</a>
-            </div>
-        </div>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    @include('bcuentas.detalle')
+                    <a href="{!! route('bcuentas.index') !!}" class="btn btn-secondary">Regresar</a>
+                </div>
+              </div>
     </div>
 @endsection

@@ -27,6 +27,7 @@ class operaciones extends Model
         'metpago',
         'concepto',
         'comentario',
+        'fecha',
     ];
 
     /**
@@ -41,7 +42,8 @@ class operaciones extends Model
         'tipo'          => 'string',
         'metpago'       => 'string',
         'concepto'      => 'string',
-        'comentario'    => 'string,'
+        'comentario'    => 'string',
+        'fecha'         => 'date',
     ];
 
     /**
@@ -50,9 +52,10 @@ class operaciones extends Model
      * @var array
      */
     public static $rules = [
-        'monto' => 'required',
-        'empresa_id' => 'required',
-        'tipo'  => 'required',
+        'monto'         => 'required',
+        'empresa_id'    => 'required',
+        'tipo'          => 'required',
+        'fecha'         => 'required',
     ];
 
     public function empresa()

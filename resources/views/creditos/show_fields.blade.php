@@ -42,12 +42,6 @@
           </tr>
 
 
-          <!-- Entidadfinan Field -->
-          <tr>
-            <th>{!! Form::label('entidadfinan', 'Entidad Financiera:') !!}</th>
-            <td>{!! $creditos->financieras->nombre !!}</td>
-          </tr>
-
 
           <!-- Diapago Field -->
           <tr>

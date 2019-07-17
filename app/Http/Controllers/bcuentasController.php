@@ -105,7 +105,44 @@ class bcuentasController extends AppBaseController
             return redirect(route('bcuentas.index'));
         }
 
-        return view('bcuentas.show')->with('bcuentas', $bcuentas);
+        $movimientos = collect([]);
+        //hacer un array donde se almacenen todas las operaciones
+        //operaciones de credito
+        foreach($bcuentas->creditos as $credito){
+          $movimientos->push([
+            'fecha'=>$credito->finicio,
+            'tipo'=>'Abono',
+            'clase'=>'credito',
+            'monto'=>$credito->monto_inicial,
+            'concepto'=>$credito->nombre,
+           ]);
+
+        }
+
+        foreach($bcuentas->inversiones as $inversion){
+          $movimientos->push([
+            'fecha' => $inversion->fecha,
+            'tipo'  => 'Cargo',
+            'clase' => 'inversion',
+            'monto' => $inversion->monto,
+            'concepto' => 'Inversion en proyecto '.$inversion->proyecto->nombre,
+          ]);
+        }
+
+        foreach ($bcuentas->operaciones as $operacion){
+          $movimientos->push([
+            'fecha' => $operacion->created_at,
+            'tipo'  => $operacion->tipo == 'Entrada' ? 'Abono' : 'Cargo',
+            'clase' => 'operacion',
+            'monto' => $operacion->monto,
+            'concepto'  => $operacion->concepto,
+          ]);
+
+        }
+        $movimientos = $movimientos->sortBy('fecha');
+        //dd($movimientos);
+
+        return view('bcuentas.show')->with(compact('bcuentas','movimientos'));
     }
 
     /**

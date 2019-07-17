@@ -73,11 +73,6 @@ if(isset($creditos->fapertura)){
     </div>
 </div>
 
-<!-- Entidadfinan Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('entidadfinan', 'Entidad Financiera:') !!}
-    {!! Form::select('entidadfinan', $financieras, null, ['class' => 'form-control', 'required']) !!}
-</div>
 
 <!-- Diapago Field -->
 <div class="form-group col-sm-6">

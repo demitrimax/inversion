@@ -101,14 +101,14 @@ class bcuentas extends Model
     {
       return $this->hasMany('App\Models\movinversion', 'cuenta_id');
     }
+    public function creditos()
+    {
+      return $this->hasMany('App\Models\creditos', 'cuenta_id');
+    }
     public function getSaldocuentaAttribute()
     {
-      $salcred = 0;
       //saldo de creditos
-      $creditos = creditos::where('cuenta_id', $this->id)->get();
-      foreach($creditos as $credito){
-        $salcred += $credito->monto_inicial;
-      }
+      $creditos = $this->creditos->sum('monto_inicial');
 
       $inversion = $this->inversiones->sum('monto');
 
@@ -119,7 +119,7 @@ class bcuentas extends Model
       $opabonos = $this->operaciones->where('tipo', 'Entrada')->sum('monto');
       $saloperaciones = $opabonos - $opcargos;
 
-      return $salcred - $inversion - (($cargos-$abonos) + $saloperaciones);
+      return $creditos - $inversion - (($cargos-$abonos) - $saloperaciones);
     }
     public function getNomcuentasaldoAttribute()
     {

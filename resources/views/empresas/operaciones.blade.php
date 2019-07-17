@@ -74,6 +74,11 @@
                 </div>
 
                 <div class="form-group col-sm-6">
+                    {!! Form::label('fecha', 'Fecha:') !!}
+                    {!! Form::date('fecha', null, ['class' => 'form-control', 'required']) !!}
+                </div>
+
+                <div class="form-group col-sm-6">
                     {!! Form::label('proveedor_id', 'Proveedor:') !!}
                     {!! Form::select('proveedor_id', $proveedores, null, ['class' => 'form-control', 'required']) !!}
                 </div>

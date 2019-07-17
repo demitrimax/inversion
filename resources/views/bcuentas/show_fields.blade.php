@@ -45,13 +45,18 @@
                   <td>{!! $bcuentas->divisa !!}</td>
                 </tr>
 
+                <tr>
+                  <th>{!! Form::label('saldo', 'Saldo:') !!}</th>
+                  <td>{!! '$'.number_format($bcuentas->saldocuenta,2) !!}</td>
+                </tr>
+
 
                 <!-- Empresa Id Field -->
                 <tr>
                   <th>{!! Form::label('empresa_id', 'Empresa:') !!}</th>
                   <td>
                     @foreach($bcuentas->empresa as $empres)
-                    <a href="{!! route('empresas.show', [$empres->empresa_id]) !!}">{!! $empres->nombre !!}</a>
+                    <a href="{!! route('empresas.show', [$empres->id]) !!}">{!! $empres->nombre !!}</a>
                     @endforeach
                   </td>
                 </tr>

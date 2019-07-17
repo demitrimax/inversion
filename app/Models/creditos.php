@@ -43,7 +43,6 @@ class creditos extends Model
         'finicio',
         'ftermino',
         'tasainteres',
-        'entidadfinan',
         'diapago',
         'monto_inicial',
         'fapertura',
@@ -66,7 +65,6 @@ class creditos extends Model
         'finicio'         => 'date',
         'ftermino'        => 'date',
         'tasainteres'     => 'float',
-        'entidadfinan'    => 'integer',
         'diapago'         => 'integer',
         'monto_inicial'   => 'float',
         'fapertura'       => 'date',
@@ -81,9 +79,10 @@ class creditos extends Model
      * @var array
      */
     public static $rules = [
-        'tasainteres' => 'required',
-        'entidadfinan' => 'required',
-        'monto_inicial' => 'required'
+        'tasainteres'     => 'required',
+        'empresa_id'      => 'required',
+        'cuenta_id'       => 'required',
+        'monto_inicial'   => 'required',
     ];
 
     public function financieras()

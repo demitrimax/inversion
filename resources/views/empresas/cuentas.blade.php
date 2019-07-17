@@ -14,7 +14,7 @@
        <td>{{$key+1}}</td>
        <td>{{$cuenta->numcuenta.'('.$cuenta->divisa.')' }}</td>
        <td>{{ $cuenta->banco->nombrecorto }}</td>
-       <td>${{ number_format($cuenta->saldocuenta,2) }} </td>
+       <td><a href="{!! route('bcuentas.show', [$cuenta->id]) !!}" target="_blank">${{ number_format($cuenta->saldocuenta,2) }}</a></td>
        <td></td>
      </tr>
      @endforeach
