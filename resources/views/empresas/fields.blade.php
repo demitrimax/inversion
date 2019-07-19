@@ -24,9 +24,10 @@
 
 <!-- Fcreacion Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('fcreacion', 'Fecha de creación:') !!}
+    {!! Form::label('fcreacion', 'Fecha de creación:') !!}<button type="button" class="btn btn-sm btn-primary" data-toggle="popover" title="Formato de Fecha" data-content="Escriba la fecha en formato YYYY-mm-dd o utilice el selector de fecha.">?</button>
+
     {!! Form::text('fcreacion', null, ['class' => 'form-control datepicker-here','id'=>'fcreacion', 'data-language'=>'es', 'data-date-format'=>'yyyy-mm-dd', 'required', 'pattern'=>'(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))']) !!}
-</div>
+    </div>
 
 
 <!-- Observaciones Field -->
@@ -48,6 +49,10 @@
 <script>
      //Bootstrap-MaxLength
         $('.maxlen').maxlength();
+
+        $(function () {
+          $('[data-toggle="popover"]').popover()
+        })
 </script>
 
 @endsection
