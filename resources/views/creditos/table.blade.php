@@ -3,7 +3,7 @@
         <tr>
             <th>Nombre</th>
             <th>Numero</th>
-            <th>Financiera</th>
+            <th>Cuenta</th>
             <th>Fecha Apertura</th>
             <th>Monto Restante</th>
             <th>Acciones</th>
@@ -14,7 +14,9 @@
         <tr>
             <td><a href="{{route('creditos.show',[$creditos->id] )}}">{!! $creditos->nombre !!}</a></td>
             <td>{!! $creditos->numero !!}</td>
-            <td>{!! $creditos->financieras->nombre !!}</td>
+            <td>
+
+              {!! $creditos->cuenta->nomcuenta !!}</td>
             <td>{!! $creditos->fapertura->format('d-m-Y') !!}</td>
             <td>{!! '$'.number_format($creditos->montorestante).'('.round(($creditos->montorestante/$creditos->monto_inicial)*100,2).'%)' !!}</td>
             <td>

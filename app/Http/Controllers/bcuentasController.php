@@ -131,7 +131,7 @@ class bcuentasController extends AppBaseController
 
         foreach ($bcuentas->operaciones as $operacion){
           $movimientos->push([
-            'fecha' => $operacion->created_at,
+            'fecha' => $operacion->fecha,
             'tipo'  => $operacion->tipo == 'Entrada' ? 'Abono' : 'Cargo',
             'clase' => 'operacion',
             'monto' => $operacion->monto,
@@ -202,9 +202,10 @@ class bcuentasController extends AppBaseController
      *
      * @return Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         $bcuentas = $this->bcuentasRepository->findWithoutFail($id);
+        $input = $request->all();
 
         if (empty($bcuentas)) {
             Flash::error('Cuenta no encontrada');
@@ -212,11 +213,23 @@ class bcuentasController extends AppBaseController
 
             return redirect(route('bcuentas.index'));
         }
+        if ($bcuentas->operaciones->count>0){
+              Flash::error('No se puede eliminar, la cuenta tiene registros de operaciones.');
+              Alert::error('No se puede eliminar, la cuenta tiene registros de operaciones.');
+
+          return back();
+        }
 
         $this->bcuentasRepository->delete($id);
 
         Flash::success('Cuenta borrada correctamente.');
-        Flash::success('Cuenta borrada correctamente.');
+        Alert::success('Cuenta borrada correctamente.');
+
+        if (!empty($input['redirect'])){
+
+          $redirecciona = $input['redirect'];
+          return redirect(route($redirecciona, [$input['empresa_id']]));
+        }
 
         return redirect(route('bcuentas.index'));
     }

@@ -20,7 +20,7 @@
                 <div class="row">
                   <div class="col-md-12">
                     @include('bcuentas.detalle')
-                    <a href="{!! route('bcuentas.index') !!}" class="btn btn-secondary">Regresar</a>
+                    <a href="{!! url()->previous() !!}" class="btn btn-secondary">Regresar</a>
                 </div>
               </div>
     </div>

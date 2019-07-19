@@ -1,6 +1,9 @@
 
 @section('css')
 <link href="{{asset('airdatepicker/dist/css/datepicker.min.css')}}" rel="stylesheet" type="text/css">
+<style>
+ .datepicker{z-index:9999 !important}
+ </style>
 @endsection
       <table class="table table-striped table-bordered detail-view" id="movcuentas-table">
        <thead class="bg-primary">
@@ -77,7 +80,7 @@
 
                 <div class="form-group col-sm-6">
                     {!! Form::label('fecha', 'Fecha:') !!}
-                    {!! Form::date('fecha', null, ['class' => 'form-control datepicker-here', 'required', 'data-language'=>'es', 'data-date-format'=>'yyyy-mm-dd']) !!}
+                    {!! Form::text('fecha', null, ['class' => 'form-control datepicker-input', 'required', 'data-language'=>'es', 'data-date-format'=>'yyyy-mm-dd', 'pattern'=>'(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))']) !!}
                 </div>
 
 
@@ -120,5 +123,10 @@ $('#credito_id').on('change', function(e) {
 $(function () {
   $('[data-toggle="popover"]').popover()
 })
+// Initialize datepicker and save its instance in `dp`
+var dp = $('.datepicker-input').datepicker().data('datepicker');
+
+// When just use method .selectDate(), to select desirable date.
+dp.selectDate(new Date()) // Will select current date;
 </script>
 @endpush

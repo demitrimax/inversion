@@ -96,7 +96,7 @@ class creditos extends Model
     }
     public function cuenta()
     {
-      return $this->hasMany('App\Models\bcuentas', 'cuenta_id');
+      return $this->belongsTo('App\Models\bcuentas', 'cuenta_id');
     }
     public function corridas()
     {

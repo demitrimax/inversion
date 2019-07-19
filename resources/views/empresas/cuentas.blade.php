@@ -15,7 +15,23 @@
        <td>{{$cuenta->numcuenta.'('.$cuenta->divisa.')' }}</td>
        <td>{{ $cuenta->banco->nombrecorto }}</td>
        <td><a href="{!! route('bcuentas.show', [$cuenta->id]) !!}" target="_blank">${{ number_format($cuenta->saldocuenta,2) }}</a></td>
-       <td></td>
+       <td>
+         {!! Form::open(['route' => ['bcuentas.destroy', $cuenta->id], 'method' => 'delete', 'id'=>'form'.$cuenta->id]) !!}
+         <div class='btn-group'>
+            @can('bcuentas-list')
+             <a href="{!! route('bcuentas.show', [$cuenta->id]) !!}" class='btn btn-info btn-xs'><i class="fa fa-eye"></i></a>
+             @endcan
+             @can('bcuentas-edit')
+               <a href="{!! route('bcuentas.edit', [$cuenta->id]) !!}" class='btn btn-primary btn-xs'><i class="fa fa-pencil"></i></a>
+             @endcan
+             @can('bcuentas-delete')
+             {!! Form::button('<i class="fa fa-trash-o"></i>', ['type' => 'button', 'class' => 'btn btn-danger btn-xs', 'onclick' => "ConfirmDelete($cuenta->id)"]) !!}
+             {!! Form::hidden('redirect', 'empresas.show') !!}
+             {!! Form::hidden('empresa_id', $empresas->id) !!}
+             @endcan
+         </div>
+         {!! Form::close() !!}
+       </td>
      </tr>
      @endforeach
    </tbody>
@@ -81,11 +97,31 @@
 
             </div>
               <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cerrar</button>
-                  <button type="submit" class="btn btn-primary waves-effect waves-light">Registrar nueva Cuenta</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                  <button type="submit" class="btn btn-primary">Registrar nueva Cuenta</button>
               </div>
                 {!! Form::close() !!}
           </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
   </div>
 @endcan
+
+@push('scripts')
+<script>
+function ConfirmDelete(id) {
+  swal.fire({
+        title: '¿Estás seguro?',
+        text: 'Estás seguro de borrar este elemento.',
+        type: 'warning',
+        showCancelButton: true,
+        cancelButtonText: 'Cancelar',
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'Continuar',
+        }).then((result) => {
+  if (result.value) {
+    document.forms['form'+id].submit();
+  }
+})
+}
+</script>
+@endpush

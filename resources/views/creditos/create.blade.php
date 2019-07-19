@@ -1,5 +1,12 @@
 @extends('layouts.appv2')
 @section('title',config('app.name').' | Alta de Nuevo Credito' )
+
+@section('css')
+<link href="{{asset('appzia/plugins/bootstrap-touchspin/css/jquery.bootstrap-touchspin.min.css')}}" rel="stylesheet">
+<link href="{{asset('airdatepicker/dist/css/datepicker.min.css')}}" rel="stylesheet" type="text/css">
+
+@endsection
+
 @section('content')
 <div class="row">
       <div class="col-lg-12">
@@ -18,5 +25,5 @@
           </div>
       </div>
   </div>
-  
+
 @endsection

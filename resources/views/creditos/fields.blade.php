@@ -52,14 +52,14 @@ if(isset($creditos->fapertura)){
 <!-- Finicio Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('finicio', 'Fecha de inicio:') !!}
-    {!! Form::text('finicio', $fecinicio, ['class' => 'form-control datepicker-here', 'required','id'=>'finicio', 'data-language'=>'es', 'data-date-format'=>'yyyy-mm-dd']) !!}
+    {!! Form::text('finicio', $fecinicio, ['class' => 'form-control datepicker-here', 'required','id'=>'finicio', 'data-language'=>'es', 'data-date-format'=>'yyyy-mm-dd', 'pattern'=>'(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))']) !!}
 </div>
 
 
 <!-- Ftermino Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('ftermino', 'Fecha de termino:') !!}
-    {!! Form::text('ftermino', $fectermino, ['class' => 'form-control datepicker-here', 'required','id'=>'ftermino', 'data-language'=>'es', 'data-date-format'=>'yyyy-mm-dd']) !!}
+    {!! Form::text('ftermino', $fectermino, ['class' => 'form-control datepicker-here', 'required','id'=>'ftermino', 'data-language'=>'es', 'data-date-format'=>'yyyy-mm-dd', 'pattern'=>'(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))']) !!}
 </div>
 
 
@@ -124,6 +124,9 @@ if(isset($creditos->fapertura)){
 <script>
      //Bootstrap-MaxLength
         $('.maxlen').maxlength();
+        $(function () {
+          $('[data-toggle="popover"]').popover()
+        })
 </script>
 
 <script>
