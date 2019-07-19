@@ -211,6 +211,7 @@ class empresasController extends AppBaseController
       $operacion->proveedor_id = $input['proveedor_id'];
       $operacion->numfactura = $input['numfactura'];
       $operacion->tipo = $input['tipo'];
+      $operacion->fecha = $input['fecha'];
       $operacion->metpago = $input['metpago'];
       $operacion->concepto = $input['concepto'];
       $operacion->comentario = $input['comentario'];

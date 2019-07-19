@@ -58,6 +58,7 @@
 
                 <div class="form-group col-sm-6">
                     {!! Form::hidden('empresa_id', $empresas->id) !!}
+                    {!! Form::hidden('maxmonto',$saldofinal) !!}
                     {!! Form::label('tipo', 'Tipo:') !!}
                     {!! Form::select('tipo', ['Salida'=>'Cargo','Entrada'=>'Abono'], null, ['class' => 'form-control', 'required', 'placeholder'=>'Seleccione']) !!}
                 </div>
@@ -109,3 +110,15 @@
       </div><!-- /.modal-dialog -->
   </div>
 @endcan
+
+@push('scripts')
+<script>
+$("#tipo").on('change', function() {
+  if ($(this).val() == 'Entrada'){
+      $(this).attr('max',null);
+  } else {
+      var maxmonto = $('#maxmonto').val();
+  }
+});
+</script>
+@endpush
