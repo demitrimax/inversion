@@ -53,6 +53,12 @@
                       {!! Form::text('numcuenta', null, ['class' => 'form-control']) !!}
                   </div>
 
+                  <!-- Numcuenta Field -->
+                  <div class="form-group col-sm-6">
+                      {!! Form::label('divisa', 'Moneda:') !!}
+                      {!! Form::select('divisa', $divisas, null, ['class' => 'form-control']) !!}
+                  </div>
+
                   <!-- Clabeinterbancaria Field -->
                   <div class="form-group col-sm-6">
                       {!! Form::label('clabeinterbancaria', 'Clabe interbancaria:') !!}

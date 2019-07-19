@@ -21,6 +21,7 @@ use App\Models\movcreditos;
 use App\Models\corridafinanciera;
 use App\Models\cproyectos;
 use App\Models\movinversion;
+use App\Models\coddivisas;
 use Auth;
 
 class empresasController extends AppBaseController
@@ -110,7 +111,8 @@ class empresasController extends AppBaseController
         $metpago = metpago::pluck('nombre','id');
         $proveedores = proveedores::pluck('nombre','id');
         $proyectos = cproyectos::pluck('nombre','id');
-        return view('empresas.show')->with(compact('empresas','bancos','creditos','metpago','cuental', 'proveedores', 'proyectos'));
+        $divisas = coddivisas::pluck('nombre','codigo');
+        return view('empresas.show')->with(compact('empresas','bancos','creditos','metpago','cuental', 'proveedores', 'proyectos','divisas'));
     }
 
     /**

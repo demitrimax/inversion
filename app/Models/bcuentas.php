@@ -68,7 +68,8 @@ class bcuentas extends Model
      */
     public static $rules = [
         'banco_id' => 'required',
-        'numcuenta' => 'required'
+        'numcuenta' => 'required',
+        'divisa'    => 'required',
     ];
 
     /**
