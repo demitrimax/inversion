@@ -58,7 +58,7 @@ class empresas extends Model
      */
     public static $rules = [
         'nombre'      => 'required',
-        'fcreacion'   => 'required',
+        'fcreacion'   => 'required|date',
     ];
 
 
