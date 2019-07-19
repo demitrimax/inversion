@@ -25,7 +25,7 @@
 <!-- Fcreacion Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('fcreacion', 'Fecha de creación:') !!}
-    {!! Form::text('fcreacion', null, ['class' => 'form-control datepicker-here','id'=>'fcreacion', 'data-language'=>'es', 'data-date-format'=>'yyyy-mm-dd']) !!}
+    {!! Form::text('fcreacion', null, ['class' => 'form-control datepicker-here','id'=>'fcreacion', 'data-language'=>'es', 'data-date-format'=>'yyyy-mm-dd', 'required']) !!}
 </div>
 
 
