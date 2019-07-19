@@ -197,7 +197,7 @@ class empresasController extends AppBaseController
         $this->empresasRepository->delete($id);
 
         Flash::success('Empresa borrada correctamente.');
-        Flash::success('Empresa borrada correctamente.');
+        Alert::success('Empresa borrada correctamente.');
 
         return redirect(route('empresas.index'));
     }
