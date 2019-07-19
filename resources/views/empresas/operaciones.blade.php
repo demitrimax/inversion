@@ -65,8 +65,8 @@
 
                 <!-- Monto Field -->
                 <div class="form-group col-sm-6">
-                    {!! Form::label('monto', 'Monto:') !!}
-                    {!! Form::number('monto', null, ['class' => 'form-control', 'required', 'step'=>'0.01', 'max'=>$saldofinal, 'min'=>0]) !!}
+                    {!! Form::label('monto_op', 'Monto:') !!}
+                    {!! Form::number('monto_op', null, ['class' => 'form-control', 'required', 'step'=>'0.01', 'max'=>$saldofinal, 'min'=>0]) !!}
                 </div>
 
                 <div class="form-group col-sm-6">
@@ -115,9 +115,13 @@
 <script>
 $("#tipo").on('change', function() {
   if ($(this).val() == 'Entrada'){
-      $(this).attr('max',null);
+      //alert('Abono');
+      //$('#monto').attr('max', null);
+      $('#monto_op').removeAttr( 'max' )
   } else {
+      //alert('Cargo');
       var maxmonto = $('#maxmonto').val();
+      $('#monto_op').attr('max', maxmonto);
   }
 });
 </script>

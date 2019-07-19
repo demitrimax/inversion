@@ -98,7 +98,7 @@
   </div>
 @endcan
 
-@section('scripts')
+@push('scripts')
 <script src="{{asset('airdatepicker/dist/js/datepicker.min.js')}}"></script>
 <script src="{{asset('airdatepicker/dist/js/i18n/datepicker.es.js')}}"></script>
 <script>
@@ -121,4 +121,4 @@ $(function () {
   $('[data-toggle="popover"]').popover()
 })
 </script>
-@endsection
+@endpush

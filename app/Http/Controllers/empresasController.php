@@ -205,7 +205,7 @@ class empresasController extends AppBaseController
     {
       $input = $request->all();
       $operacion = new operaciones;
-      $operacion->monto = $input['monto'];
+      $operacion->monto = $input['monto_op'];
       $operacion->empresa_id = $input['empresa_id'];
       $operacion->cuenta_id = $input['cuenta_id'];
       $operacion->proveedor_id = $input['proveedor_id'];
