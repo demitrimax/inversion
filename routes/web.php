@@ -26,8 +26,6 @@ Route::group(['middleware'=>['auth']], function() {
   Route::resource('user','UserController');
   Route::resource('permissions', 'PermissionController');
 
-  Route::resource('proyectos', 'proyectosController');
-
   Route::resource('creditos', 'creditosController');
   Route::get('getCuentasempresa/{idempresa}', 'creditosController@getCuentasempresa');
 
