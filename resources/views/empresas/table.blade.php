@@ -12,7 +12,7 @@
         <tr>
             <td><a href="{!! route('empresas.show', [$empresas->id]) !!}">{!! $empresas->nombre !!}</a></td>
             <td>{!! $empresas->fcreacion->format('M, Y') !!}</td>
-            <td>{{ number_format($empresas->saldoaldia,2)}}</td>
+            <td>{{ $empresas->saldoaldia}}</td>
             <td>
                 {!! Form::open(['route' => ['empresas.destroy', $empresas->id], 'method' => 'delete', 'id'=>'form'.$empresas->id]) !!}
                 <div class='btn-group'>

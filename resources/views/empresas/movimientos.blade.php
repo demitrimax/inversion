@@ -21,7 +21,7 @@
            <tr>
              <td>{{$key+1}}</td>
              <td>{{$inversion->fecha->format('d-m-Y')}}</td>
-             <td>${{number_format($inversion->monto,2) }}</td>
+             <td>${{number_format($inversion->monto,2).'('.$inversion->cuenta->divisa.')' }}</td>
              <td>{{ $inversion->proyecto->nombre }}</td>
              <td></td>
            </tr>

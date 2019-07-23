@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Eloquent as Model;
+use App\Models\coddivisas;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
@@ -79,12 +80,18 @@ class empresas extends Model
     public function getSaldoaldiaAttribute()
     {
       //dinero de saldo de cuentas
-      $saldocuentas = 0;
+      $saldocuentasMXN = 0;
+      $saldocuentasUSD = 0;
       foreach($this->cuentas as $cuenta){
-        $saldocuentas += $cuenta->saldocuenta;
+        if ($cuenta->divisa == 'MXN'){
+          $saldocuentasMXN += $cuenta->saldocuenta;
+        }
+        if ($cuenta->divisa == 'USD'){
+          $saldocuentasUSD += $cuenta->saldocuenta;
+        }
       }
 
-      return $saldocuentas;
+      return number_format($saldocuentasMXN,2).'MNX - '.number_format($saldocuentasUSD,2).'USD';
     }
 
 

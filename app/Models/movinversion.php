@@ -52,5 +52,9 @@ class movinversion extends Model
     {
       return $this->BelongsTo('App\Models\cproyectos','proyecto_id');
     }
+    public function cuenta()
+    {
+      return $this->BelongsTo('App\Models\bcuentas','cuenta_id');
+    }
 
 }

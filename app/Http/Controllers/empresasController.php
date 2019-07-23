@@ -300,4 +300,21 @@ class empresasController extends AppBaseController
       return back();
 
     }
+
+    public function elimoper($id)
+    {
+
+      $operacion = operaciones::find($id);
+      if(empty($operacion))
+      {
+        Alert::error('No se encuentra la operación');
+        Flash::error('No se encuentra la operación');
+        return back();
+      }
+      $operacion->delete();
+
+      Alert::success('Se ha eliminado existosamente la operación');
+      Flash::success('Se ha eliminado existosamente la operación');
+      return back();
+    }
 }

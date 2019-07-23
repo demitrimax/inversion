@@ -47,6 +47,7 @@ Route::group(['middleware'=>['auth']], function() {
   Route::post('empresa/proyecto/inversion', 'empresasController@inverproy')->name('inversion.proyecto');
 
   Route::post('operaciones/guardar', 'empresasController@regoper')->name('operacion.store');
+  Route::post('operaciones/{id}/eliminar','empresasController@elimoper')->name('operacion.destroy');
 
   Route::resource('bcuentas', 'bcuentasController');
   Route::resource('metpagos', 'metpagoController');

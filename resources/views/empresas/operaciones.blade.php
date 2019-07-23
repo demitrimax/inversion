@@ -12,14 +12,25 @@
          </tr>
        </thead>
          <tbody>
-         @foreach($empresas->operaciones->slice(0,10) as $key=>$operacion)
+         @foreach($empresas->operaciones->sortBy('fecha') as $key=>$operacion)
            <tr>
              <td>{{$key+1}}</td>
-             <td>{{$operacion->created_at->format('d-m-Y')}}</td>
-             <td>${{ number_format($operacion->monto,2) }}</td>
+             <td>{{$operacion->fecha->format('d-m-Y')}}</td>
+             <td>${{ number_format($operacion->monto,2).'('.$operacion->cuenta->divisa.')' }}</td>
              <td>{{ $operacion->tipo }}</td>
              <td>{{ $operacion->cuenta->nomcuenta }}</td>
-             <td></td>
+             <td>
+               {!! Form::open(['route' => ['operacion.destroy', $operacion->id], 'method' => 'delete', 'id'=>'formoper'.$operacion->id]) !!}
+               <div class='btn-group'>
+
+                   @can('operacion-delete')
+                   {!! Form::button('<i class="fa fa-trash-o"></i>', ['type' => 'button', 'class' => 'btn btn-danger btn-xs', 'onclick' => "ConfirmDelOper($operacion->id)"]) !!}
+                   {!! Form::hidden('redirect', 'empresas.show') !!}
+                   {!! Form::hidden('empresa_id', $empresas->id) !!}
+                   @endcan
+               </div>
+               {!! Form::close() !!}
+             </td>
            </tr>
            @endforeach
          </tbody>
@@ -124,5 +135,22 @@ $("#tipo").on('change', function() {
       $('#monto_op').attr('max', maxmonto);
   }
 });
+
+function ConfirmDelOper(id) {
+  swal.fire({
+        title: '¿Estás seguro?',
+        text: 'Estás seguro de borrar esta operacion.',
+        type: 'warning',
+        showCancelButton: true,
+        cancelButtonText: 'Cancelar',
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'Continuar',
+        }).then((result) => {
+  if (result.value) {
+    document.forms['formoper'+id].submit();
+  }
+})
+}
+
 </script>
 @endpush
